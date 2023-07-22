@@ -24,9 +24,4 @@ module.exports = {
     ],
     "prettier/prettier": "error",
   },
-  parserOptions: {
-    babelOptions: {
-      presets: [require.resolve("next/babel")],
-    },
-  },
 };
