@@ -7,7 +7,7 @@ module.exports = {
     "plugin:@typescript-eslint/recommended",
   ],
   parser: "@typescript-eslint/parser",
-  plugins: ["@typescript-eslint", "unused-imports"],
+  plugins: ["@typescript-eslint", "unused-imports", "prettier"],
   rules: {
     "@next/next/no-html-link-for-pages": "off",
     "no-unused-vars": "off",
@@ -22,6 +22,7 @@ module.exports = {
         argsIgnorePattern: "^_",
       },
     ],
+    "prettier/prettier": "error",
   },
   parserOptions: {
     babelOptions: {
