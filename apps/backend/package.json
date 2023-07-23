@@ -17,6 +17,9 @@
     "lint-fix": "eslint \"**/*.ts*\" . --cache --fix",
     "ts:check": "tsc --noEmit"
   },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": "eslint \"**/*.ts*\" . --cache --fix"
+  },
   "dependencies": {
     "cross-env": "^7.0.3",
     "dotenv": "^8.2.0",
