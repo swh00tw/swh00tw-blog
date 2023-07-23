@@ -11,6 +11,7 @@
   },
   "devDependencies": {
     "@turbo/gen": "^1.9.7",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^7.32.0",
     "eslint-config-custom": "workspace:*",
     "husky": "^8.0.3",
@@ -19,5 +20,10 @@
     "turbo": "latest"
   },
   "packageManager": "pnpm@7.15.0",
-  "name": "swh00tw-blog"
+  "name": "swh00tw-blog",
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }
