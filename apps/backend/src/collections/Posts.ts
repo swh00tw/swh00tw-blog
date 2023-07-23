@@ -1,4 +1,5 @@
 import { CollectionConfig } from "payload/types";
+import { lexicalRichTextField } from "payload-plugin-lexical";
 
 const Posts: CollectionConfig = {
   slug: "posts",
@@ -34,10 +35,10 @@ const Posts: CollectionConfig = {
       relationTo: "tags",
       hasMany: true,
     },
-    {
+    lexicalRichTextField({
       name: "content",
-      type: "richText",
-    },
+      label: "Lexical Rich Text Editor",
+    }),
     {
       name: "status",
       type: "select",

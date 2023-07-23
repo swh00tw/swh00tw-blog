@@ -1,4 +1,5 @@
 import { buildConfig } from "payload/config";
+import { LexicalPlugin } from "payload-plugin-lexical";
 import path from "path";
 import Categories from "./collections/Categories";
 import Posts from "./collections/Posts";
@@ -12,6 +13,7 @@ export default buildConfig({
     user: Users.slug,
   },
   collections: [Categories, Posts, Tags, Users, Media],
+  plugins: [LexicalPlugin({})],
   typescript: {
     outputFile: path.resolve(__dirname, "payload-types.ts"),
   },
