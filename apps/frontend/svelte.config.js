@@ -16,7 +16,7 @@ const config = {
 			dir: "../.."
 		},
 		alias: {
-			"@": "/src"
+			"@": "./src"
 		}
 	}
 };
