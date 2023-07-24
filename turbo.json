@@ -1,7 +1,11 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "globalDependencies": ["**/.env.*local"],
-  "globalEnv": ["BACKEND_MONGODB_URI", "BACKEND_PAYLOAD_SECRET"],
+  "globalEnv": [
+    "BACKEND_MONGODB_URI",
+    "BACKEND_PAYLOAD_SECRET",
+    "FRONTEND_GQL_API_ENDPOINT"
+  ],
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],
