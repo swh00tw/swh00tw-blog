@@ -1,0 +1,8 @@
+query AllPosts {
+	Posts {
+		docs {
+			id
+			title
+		}
+	}
+}
