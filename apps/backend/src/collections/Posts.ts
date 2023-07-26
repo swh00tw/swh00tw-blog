@@ -14,19 +14,28 @@ const Posts: CollectionConfig = {
     {
       name: "title",
       type: "text",
+      required: true,
     },
     {
       name: "description",
       type: "text",
     },
     {
+      name: "coverImage",
+      type: "upload",
+      relationTo: "media",
+      required: true,
+    },
+    {
       name: "author",
       type: "relationship",
       relationTo: "users",
+      required: true,
     },
     {
       name: "publishedDate",
       type: "date",
+      required: true,
     },
     {
       name: "category",
@@ -42,6 +51,7 @@ const Posts: CollectionConfig = {
     lexicalRichTextField({
       name: "content",
       label: "Lexical Rich Text Editor",
+      required: true,
     }),
     {
       name: "status",

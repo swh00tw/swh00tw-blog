@@ -4,6 +4,14 @@ query AllPosts {
 			id
 			title
 			description
+			coverImage {
+				id
+				sizes {
+					thumbnail {
+						url
+					}
+				}
+			}
 		}
 	}
 }
