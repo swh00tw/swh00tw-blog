@@ -1717,6 +1717,7 @@ type Post {
   category: Category
   content(depth: Int): JSON
   createdAt: DateTime
+  description: String
   id: String
   publishedDate: DateTime
   status: Post_status
@@ -1765,6 +1766,17 @@ input Post_createdAt_operator {
   less_than_equal: DateTime
   like: DateTime
   not_equals: DateTime
+}
+
+input Post_description_operator {
+  all: [String]
+  contains: String
+  equals: String
+  exists: Boolean
+  in: [String]
+  like: String
+  not_equals: String
+  not_in: [String]
 }
 
 input Post_id_operator {
@@ -1851,6 +1863,7 @@ input Post_where {
   category: Post_category_operator
   content: Post_content_operator
   createdAt: Post_createdAt_operator
+  description: Post_description_operator
   id: Post_id_operator
   publishedDate: Post_publishedDate_operator
   status: Post_status_operator
@@ -1864,6 +1877,7 @@ input Post_where_and {
   category: Post_category_operator
   content: Post_content_operator
   createdAt: Post_createdAt_operator
+  description: Post_description_operator
   id: Post_id_operator
   publishedDate: Post_publishedDate_operator
   status: Post_status_operator
@@ -1877,6 +1891,7 @@ input Post_where_or {
   category: Post_category_operator
   content: Post_content_operator
   createdAt: Post_createdAt_operator
+  description: Post_description_operator
   id: Post_id_operator
   publishedDate: Post_publishedDate_operator
   status: Post_status_operator
@@ -1924,6 +1939,7 @@ type PostsDocAccessFields {
   category: PostsDocAccessFields_category
   content: PostsDocAccessFields_content
   createdAt: PostsDocAccessFields_createdAt
+  description: PostsDocAccessFields_description
   publishedDate: PostsDocAccessFields_publishedDate
   status: PostsDocAccessFields_status
   tags: PostsDocAccessFields_tags
@@ -2020,6 +2036,29 @@ type PostsDocAccessFields_createdAt_Read {
 }
 
 type PostsDocAccessFields_createdAt_Update {
+  permission: Boolean!
+}
+
+type PostsDocAccessFields_description {
+  create: PostsDocAccessFields_description_Create
+  delete: PostsDocAccessFields_description_Delete
+  read: PostsDocAccessFields_description_Read
+  update: PostsDocAccessFields_description_Update
+}
+
+type PostsDocAccessFields_description_Create {
+  permission: Boolean!
+}
+
+type PostsDocAccessFields_description_Delete {
+  permission: Boolean!
+}
+
+type PostsDocAccessFields_description_Read {
+  permission: Boolean!
+}
+
+type PostsDocAccessFields_description_Update {
   permission: Boolean!
 }
 
@@ -2143,6 +2182,7 @@ type PostsFields {
   category: PostsFields_category
   content: PostsFields_content
   createdAt: PostsFields_createdAt
+  description: PostsFields_description
   publishedDate: PostsFields_publishedDate
   status: PostsFields_status
   tags: PostsFields_tags
@@ -2239,6 +2279,29 @@ type PostsFields_createdAt_Read {
 }
 
 type PostsFields_createdAt_Update {
+  permission: Boolean!
+}
+
+type PostsFields_description {
+  create: PostsFields_description_Create
+  delete: PostsFields_description_Delete
+  read: PostsFields_description_Read
+  update: PostsFields_description_Update
+}
+
+type PostsFields_description_Create {
+  permission: Boolean!
+}
+
+type PostsFields_description_Delete {
+  permission: Boolean!
+}
+
+type PostsFields_description_Read {
+  permission: Boolean!
+}
+
+type PostsFields_description_Update {
   permission: Boolean!
 }
 
@@ -3092,6 +3155,7 @@ input mutationPostInput {
   category: String
   content: JSON
   createdAt: String
+  description: String
   publishedDate: String
   status: Post_status_MutationInput
   tags: [String]
@@ -3104,6 +3168,7 @@ input mutationPostUpdateInput {
   category: String
   content: JSON
   createdAt: String
+  description: String
   publishedDate: String
   status: PostUpdate_status_MutationInput
   tags: [String]

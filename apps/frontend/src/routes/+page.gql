@@ -3,6 +3,7 @@ query AllPosts {
 		docs {
 			id
 			title
+			description
 		}
 	}
 }
