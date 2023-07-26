@@ -14,15 +14,22 @@
     "generate:types": "cross-env PAYLOAD_CONFIG_PATH=src/payload.config.ts payload generate:types",
     "generate:graphQLSchema": "cross-env PAYLOAD_CONFIG_PATH=src/payload.config.ts payload generate:graphQLSchema",
     "lint": "eslint \"**/*.ts*\"",
+    "lint-fix": "eslint \"**/*.ts*\" . --cache --fix",
     "ts:check": "tsc --noEmit"
   },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": "eslint \"**/*.ts*\" . --cache --fix"
+  },
   "dependencies": {
+    "cors": "^2.8.5",
     "cross-env": "^7.0.3",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "payload": "^1.11.2"
+    "payload": "^1.11.2",
+    "payload-plugin-lexical": "^0.6.6"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.13",
     "@types/express": "^4.17.9",
     "copyfiles": "^2.4.1",
     "dotenv-cli": "^7.2.1",

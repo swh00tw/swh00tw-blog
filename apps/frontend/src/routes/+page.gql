@@ -1,0 +1,17 @@
+query AllPosts {
+	Posts {
+		docs {
+			id
+			title
+			description
+			coverImage {
+				id
+				sizes {
+					thumbnail {
+						url
+					}
+				}
+			}
+		}
+	}
+}

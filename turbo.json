@@ -1,13 +1,18 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "globalDependencies": ["**/.env.*local"],
-  "globalEnv": ["BACKEND_MONGODB_URI", "BACKEND_PAYLOAD_SECRET"],
+  "globalEnv": [
+    "BACKEND_MONGODB_URI",
+    "BACKEND_PAYLOAD_SECRET",
+    "PUBLIC_FRONTEND_GQL_API_ENDPOINT"
+  ],
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],
       "outputs": [".next/**", "!.next/cache/**"]
     },
     "lint": {},
+    "lint-fix": {},
     "ts:check": {},
     "dev": {
       "cache": false,

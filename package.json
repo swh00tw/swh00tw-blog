@@ -1,18 +1,29 @@
 {
   "private": true,
   "scripts": {
+    "prepare": "husky install",
     "build": "turbo run build",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "lint-fix": "turbo run lint-fix",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "ts:check": "turbo run ts:check"
   },
   "devDependencies": {
     "@turbo/gen": "^1.9.7",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^7.32.0",
     "eslint-config-custom": "workspace:*",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.3",
     "prettier": "^2.5.1",
     "turbo": "latest"
   },
   "packageManager": "pnpm@7.15.0",
-  "name": "swh00tw-blog"
+  "name": "swh00tw-blog",
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }

@@ -1,8 +1,8 @@
-import express from "express";
 import payload from "payload";
+import dotenv from "dotenv";
+import app from "./app";
 
-require("dotenv").config();
-const app = express();
+dotenv.config();
 
 // Redirect root to Admin panel
 app.get("/", (_, res) => {
@@ -22,7 +22,7 @@ const start = async () => {
 
   // Add your own express routes here
 
-  app.listen(3002);
+  app.listen(3000);
 };
 
 start();
