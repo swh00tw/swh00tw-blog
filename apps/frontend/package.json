@@ -11,7 +11,10 @@
 		"lint": "prettier --plugin-search-dir . --check . && eslint .",
 		"lint-fix": "prettier --plugin-search-dir . --check . && eslint . --fix",
 		"format": "prettier --plugin-search-dir . --write .",
-		"ts:check": "tsc --noEmit"
+		"ts:check": "tsc --noEmit",
+		"story:dev": "histoire dev",
+		"story:build": "histoire build",
+		"story:preview": "histoire preview"
 	},
 	"lint-staged": {
 		"*.{js,ts,svelte,css,scss,postcss,md,json}": [
@@ -21,6 +24,7 @@
 		"*.{js,ts,svelte}": "eslint --cache --fix"
 	},
 	"devDependencies": {
+		"@histoire/plugin-svelte": "^0.16.3",
 		"@sveltejs/adapter-auto": "^2.0.0",
 		"@sveltejs/kit": "^1.20.4",
 		"@typescript-eslint/eslint-plugin": "^5.45.0",
@@ -28,6 +32,7 @@
 		"eslint": "^8.28.0",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-svelte": "^2.30.0",
+		"histoire": "^0.16.2",
 		"houdini": "^1.2.8",
 		"houdini-svelte": "^1.2.8",
 		"prettier": "^2.8.0",
