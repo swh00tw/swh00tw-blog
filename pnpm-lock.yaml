@@ -83,6 +83,12 @@ importers:
 
   apps/frontend:
     devDependencies:
+      '@fontsource-variable/work-sans':
+        specifier: ^5.0.9
+        version: 5.0.9
+      '@fontsource/dm-sans':
+        specifier: ^5.0.8
+        version: 5.0.8
       '@histoire/plugin-svelte':
         specifier: ^0.16.3
         version: 0.16.3(histoire@0.16.2)(svelte@4.1.1)(vite@4.4.6)
@@ -1027,6 +1033,14 @@ packages:
     dependencies:
       '@floating-ui/core': 1.3.1
     dev: false
+
+  /@fontsource-variable/work-sans@5.0.9:
+    resolution: {integrity: sha512-aGK91wJIc7HPQ1hT5vAfGui0OajlaDc/ZCU5xvugr6ITXlyudM5qVfpjGEMpe4ACACRGeC5bKYFYZlX4pW9gzA==}
+    dev: true
+
+  /@fontsource/dm-sans@5.0.8:
+    resolution: {integrity: sha512-A0wgG0xRKPs7sspDs35m9He64jMaNtf/RFU+HnjNpq7MqUeVbenk7mwFMBZ4o++buKTX2NkscfBTDnRIgCs02g==}
+    dev: true
 
   /@graphql-tools/merge@8.4.2(graphql@15.8.0):
     resolution: {integrity: sha512-XbrHAaj8yDuINph+sAfuq3QCZ/tKblrTLOpirK0+CAgNlZUCHs0Fa+xtMUURgwCVThLle1AF7svJCxFizygLsw==}
