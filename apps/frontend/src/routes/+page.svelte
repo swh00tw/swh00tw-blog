@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Tag from "@/lib/components/Tag/index.svelte";
 	import type { PageData } from "./$houdini";
 	export let data: PageData;
 
@@ -12,3 +13,4 @@
 	<p>{post?.coverImage?.sizes?.thumbnail?.url ?? ""}</p>
 {/each}
 <p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<Tag content="123" />
