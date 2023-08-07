@@ -4,6 +4,7 @@
 
 	export let content: string;
 	export let active = false;
+	export let className: string | null = "";
 </script>
 
 <div
@@ -24,7 +25,8 @@
 		{
 			"border-accent": active,
 			"bg-primary": active
-		}
+		},
+		className
 	)}
 >
 	<Hash class={cn("w-[14px]", "h-[14px]")} />
