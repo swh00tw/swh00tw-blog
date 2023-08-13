@@ -1,6 +1,8 @@
 <script lang="ts">
 	import Tag from "@/lib/components/Tag/index.svelte";
+	import IntroCard from "@/lib/components/IntroCard/index.svelte";
 	import type { PageData } from "./$houdini";
+	import { cn } from "@/lib/cn";
 	export let data: PageData;
 
 	$: ({ AllPosts } = data);
@@ -14,3 +16,6 @@
 {/each}
 <p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
 <Tag content="123" />
+<div class={cn("m-4", "flex", "justify-center")}>
+	<IntroCard />
+</div>

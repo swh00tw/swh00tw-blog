@@ -15,6 +15,7 @@
 	class={cn(
 		"text-text02",
 		"relative",
+		"inline-block",
 		"w-fit",
 		"hover:text-text",
 		"transition-all",
