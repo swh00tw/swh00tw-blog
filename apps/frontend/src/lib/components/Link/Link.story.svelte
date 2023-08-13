@@ -11,5 +11,5 @@
 	<svelte:fragment slot="controls">
 		<Hst.Text bind:value={content} title="Content" />
 	</svelte:fragment>
-	<Link className={cn("m-4", "text-[32px]")} {content} href="https://swh00tw.me" />
+	<Link class={cn("m-4", "text-[32px]")} {content} href="https://swh00tw.me" />
 </Hst.Story>

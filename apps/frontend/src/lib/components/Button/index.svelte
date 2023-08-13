@@ -3,11 +3,9 @@
 	import type { HTMLButtonAttributes } from "svelte/elements";
 
 	interface $$Props extends HTMLButtonAttributes {
-		className?: string;
 		variant?: "unstyled" | "primary" | "accent";
 	}
 
-	export let className = "";
 	export let variant: "unstyled" | "primary" | "accent" = "primary";
 
 	const primaryStyle = cn("bg-secondary");
@@ -17,6 +15,7 @@
 </script>
 
 <button
+	{...$$restProps}
 	class={cn(
 		"text-text02",
 		"hover:text-text",
@@ -29,10 +28,9 @@
 		"items-center",
 		"rounded-[8px]",
 		additionalStyle,
-		className
+		$$props.class
 	)}
 	on:click
-	{...$$restProps}
 >
 	<slot />
 </button>

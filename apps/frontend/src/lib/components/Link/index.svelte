@@ -3,7 +3,6 @@
 
 	export let content: string;
 	export let href: string;
-	export let className: string | null = "";
 </script>
 
 <div
@@ -49,7 +48,7 @@
 		"before:ease-[cubic-bezier(0.455, 0.03, 0.515, 0.955)]",
 		"before:transition-all",
 		"before:duration-400",
-		className
+		$$props.class
 	)}
 >
 	<a {href}>

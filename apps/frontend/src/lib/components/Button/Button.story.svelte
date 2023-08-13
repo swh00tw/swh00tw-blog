@@ -13,14 +13,14 @@
 		<Hst.Text bind:value={content} title="Content" />
 	</svelte:fragment>
 	<Hst.Variant title="primary">
-		<Button className={cn("m-4", "text-[16px]")}>{content}</Button>
+		<Button class={cn("m-4", "text-[16px]")}>{content}</Button>
 	</Hst.Variant>
 	<Hst.Variant title="accent">
-		<Button className={cn("m-4", "text-[16px]")} variant="accent">{content}</Button>
+		<Button class={cn("m-4", "text-[16px]")} variant="accent">{content}</Button>
 	</Hst.Variant>
 	<Hst.Variant title="copy/paste">
 		<Button
-			className={cn("m-4", "text-[16px]")}
+			class={cn("m-4", "text-[16px]")}
 			variant={copied ? "accent" : "primary"}
 			on:click={() => {
 				copied = !copied;
