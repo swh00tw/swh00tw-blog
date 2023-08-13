@@ -18,13 +18,27 @@
 		"lg:gap-x-[160px]"
 	)}
 >
-	<div class={cn("flex-col", "gap-y-2", "w-full")}>
+	<div class={cn("flex-col", "flex", "gap-y-4", "w-full")}>
 		<div class={textVariant({ size: "heading" })}>swh00tw.dev</div>
 		<div class={textVariant({ size: "subheading", class: cn("text-text02") })}>
 			Personal blog by <Link content="Frank Hsu" href="https://swh00tw.me" />
 		</div>
 		<div class={textVariant({ class: cn("text-text02") })}>
 			I write code and share random good shit.
+		</div>
+		<div class={cn("flex", "gap-x-[15px]")}>
+			<a href="https://www.linkedin.com/in/swh00tw/" target="_blank">
+				<img src="../static/Logos/linkedin-plain.png" alt="linkedin" />
+			</a>
+			<a href="https://github.com/swh00tw" target="_blank">
+				<img src="../static/Logos/github-original.png" alt="github" />
+			</a>
+			<a href="https://www.threads.net/@swh00tw/post/Cv1DvVSNeXy" target="_blank">
+				<img src="../static/Logos/threads.png" alt="threads" />
+			</a>
+			<a href="mailto:a6140000@gmail.com">
+				<img src="../static/Logos/mail.png" alt="email" />
+			</a>
 		</div>
 	</div>
 	<img
