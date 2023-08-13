@@ -1,5 +1,11 @@
 <script lang="ts">
 	import { cn } from "$lib/cn";
+	import type { HTMLAttributes } from "svelte/elements";
+
+	interface $$Props extends HTMLAttributes<HTMLDivElement> {
+		content: string;
+		href: string;
+	}
 
 	export let content: string;
 	export let href: string;

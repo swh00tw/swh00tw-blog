@@ -1,6 +1,12 @@
 <script lang="ts">
 	import { cn } from "$lib/cn";
 	import { Hash } from "lucide-svelte";
+	import type { HTMLAttributes } from "svelte/elements";
+
+	interface $$Props extends HTMLAttributes<HTMLDivElement> {
+		content: string;
+		active?: boolean;
+	}
 
 	export let content: string;
 	export let active = false;
