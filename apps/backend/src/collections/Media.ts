@@ -12,8 +12,8 @@ const Media: CollectionConfig = {
     adminThumbnail: "thumbnail",
     imageSizes: [
       {
-        height: 800,
-        width: 450,
+        height: 450,
+        width: 800,
         crop: "center",
         name: "thumbnail",
       },
