@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { cn } from "@/lib/cn";
 	import { textVariant } from "@/lib/variants";
-	import type { HTMLAttributes } from "svelte/elements";
+	import type { HTMLAttributes, MouseEventHandler } from "svelte/elements";
 	import Tag from "$lib/components/Tag/index.svelte";
 	import { ChevronRight } from "lucide-svelte";
 
@@ -37,6 +37,15 @@
 		"text-white": isHovered,
 		"text-[#ffffff80]": !isHovered
 	});
+
+	const handleMouseMove: MouseEventHandler<HTMLDivElement> = (e) => {
+		const { currentTarget: target } = e;
+		const rect = target.getBoundingClientRect();
+		const x = e.clientX - rect.left;
+		const y = e.clientY - rect.top;
+		target.style.setProperty("--mouse-x", `${x}px`);
+		target.style.setProperty("--mouse-y", `${y}px`);
+	};
 </script>
 
 <div
@@ -54,10 +63,14 @@
 		"transition-all",
 		"duration-[300ms]",
 		"rounded-[20px]",
-		"gap-y-3"
+		"gap-y-3",
+		"relative",
+		"card",
+		"overflow-hidden"
 	)}
 	on:mouseenter={() => (isHovered = true)}
 	on:mouseleave={() => (isHovered = false)}
+	on:mousemove={handleMouseMove}
 	role="group"
 >
 	<img src={coverImgSrc} alt={`$${title}-cover-imgae`} />
@@ -110,3 +123,27 @@
 		</div>
 	</div>
 </div>
+
+<style>
+	.card {
+		position: relative;
+		--mouse-x: 0px;
+		--mouse-y: 0px;
+	}
+	.card::before {
+		content: "";
+		position: absolute;
+		background: radial-gradient(
+			circle at var(--mouse-x) var(--mouse-y),
+			#7d00c925,
+			transparent 80%
+		);
+		border-radius: inherit;
+		inset: -5px;
+		transition: 1s;
+		opacity: 0;
+	}
+	.card:hover::before {
+		opacity: 1;
+	}
+</style>
