@@ -15,6 +15,9 @@ export default {
 			fontFamily: {
 				dmSans: ["DM Sans", "sans-serif"],
 				workSans: ["Work Sans Variable", "sans-serif"]
+			},
+			backgroundImage: {
+				"gradient-radial": "radial-gradient(var(--tw-gradient-stops))"
 			}
 		}
 	},

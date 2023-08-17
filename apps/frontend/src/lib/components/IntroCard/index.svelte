@@ -28,16 +28,16 @@
 		</div>
 		<div class={cn("flex", "gap-x-[15px]")}>
 			<a href="https://www.linkedin.com/in/swh00tw/" target="_blank">
-				<img src="../static/Logos/linkedin-plain.png" alt="linkedin" />
+				<img src="/Logos/linkedin-plain.png" alt="linkedin" />
 			</a>
 			<a href="https://github.com/swh00tw" target="_blank">
-				<img src="../static/Logos/github-original.png" alt="github" />
+				<img src="/Logos/github-original.png" alt="github" />
 			</a>
 			<a href="https://www.threads.net/@swh00tw/post/Cv1DvVSNeXy" target="_blank">
-				<img src="../static/Logos/threads.png" alt="threads" />
+				<img src="/Logos/threads.png" alt="threads" />
 			</a>
 			<a href="mailto:a6140000@gmail.com">
-				<img src="../static/Logos/mail.png" alt="email" />
+				<img src="/Logos/mail.png" alt="email" />
 			</a>
 		</div>
 	</div>

@@ -3,6 +3,7 @@
 	import IntroCard from "@/lib/components/IntroCard/index.svelte";
 	import type { PageData } from "./$houdini";
 	import { cn } from "@/lib/cn";
+	import Footer from "@/lib/components/Footer/index.svelte";
 	export let data: PageData;
 
 	$: ({ AllPosts } = data);
@@ -19,3 +20,4 @@
 <div class={cn("m-4", "flex", "justify-center")}>
 	<IntroCard />
 </div>
+<Footer />
