@@ -42,7 +42,7 @@
 		</div>
 	</div>
 	<img
-		src="../static/avatar.png"
+		src="/avatar.png"
 		alt="avatar"
 		class={cn("w-[160px]", "h-[160px]", "rounded-full", "object-cover")}
 	/>
