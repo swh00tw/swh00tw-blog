@@ -4,10 +4,27 @@
 	import type { PageData } from "./$houdini";
 	import { cn } from "@/lib/cn";
 	import Footer from "@/lib/components/Footer/index.svelte";
+	import PostCard from "@/lib/components/PostCard/index.svelte";
 	export let data: PageData;
 
 	$: ({ AllPosts } = data);
 	$: console.log(AllPosts);
+
+	let coverImgSrc = "http://localhost:3000/media/test-800x450.png";
+	let publishedAt = "2023-07-22T16:00:00.000Z";
+	let title = "SOLID principle in React";
+	let tags = ["React"];
+	let description =
+		"Maintainability & Scalability Matter Maintainability & Scalability Matter Maintainability & Scalability Matter";
+	let readingTime = 5;
+	$: props = {
+		coverImgSrc,
+		publishedAt,
+		title,
+		tags,
+		description,
+		readingTime
+	};
 </script>
 
 <h1>Welcome to SvelteKit</h1>
@@ -21,3 +38,6 @@
 	<IntroCard />
 </div>
 <Footer />
+<div class="mx-8">
+	<PostCard {...props} />
+</div>
