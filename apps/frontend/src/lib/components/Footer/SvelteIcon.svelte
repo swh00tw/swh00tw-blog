@@ -5,7 +5,7 @@
 
 <div
 	use:tooltip={{
-		content: "sveltekit",
+		content: "Sveltekit",
 		placement: "bottom"
 	}}
 >
