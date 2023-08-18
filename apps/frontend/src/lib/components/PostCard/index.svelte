@@ -87,7 +87,7 @@
 	</div>
 	<div class={cn("flex", "flex-row", "flex-wrap")}>
 		{#each tags as tag}
-			<Tag content={tag} />
+			<Tag content={tag} class="mr-1 mb-1" />
 		{/each}
 	</div>
 	<div class={cn(textVariant(), "text-[14px]", "text-text02")}>{description}</div>
