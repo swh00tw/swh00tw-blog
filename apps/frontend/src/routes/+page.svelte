@@ -10,27 +10,19 @@
 
 	$: ({ AllPosts } = data);
 	$: console.log(AllPosts);
-	const fakePostProps = Array.from({ length: 6 }, (_) => {
-		const coverImgSrc = faker.image.url({
+	const fakePostProps = Array.from({ length: 6 }, (_) => ({
+		coverImgSrc: faker.image.url({
 			height: 450,
 			width: 800
-		});
-		const publishedAt = faker.date.past().toISOString();
-		const title = faker.lorem.sentence({ min: 4, max: 8 });
-		const tags = Array.from({ length: faker.number.int({ min: 1, max: 5 }) }, (_) =>
+		}),
+		publishedAt: faker.date.past().toISOString(),
+		title: faker.lorem.sentence({ min: 4, max: 8 }),
+		tags: Array.from({ length: faker.number.int({ min: 1, max: 5 }) }, (_) =>
 			faker.lorem.word({ length: { min: 3, max: 6 } })
-		);
-		const description = faker.lorem.paragraph({ min: 3, max: 10 });
-		const readingTime = faker.number.int({ min: 1, max: 30 });
-		return {
-			coverImgSrc,
-			publishedAt,
-			title,
-			tags,
-			description,
-			readingTime
-		};
-	});
+		),
+		description: faker.lorem.paragraph({ min: 3, max: 10 }),
+		readingTime: faker.number.int({ min: 1, max: 30 })
+	}));
 	console.log(fakePostProps);
 </script>
 
