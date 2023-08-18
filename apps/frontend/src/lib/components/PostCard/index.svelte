@@ -66,14 +66,15 @@
 		"gap-y-3",
 		"relative",
 		"card",
-		"overflow-hidden"
+		"overflow-hidden",
+		"before:pointer-events-none"
 	)}
 	on:mouseenter={() => (isHovered = true)}
 	on:mouseleave={() => (isHovered = false)}
 	on:mousemove={handleMouseMove}
 	role="group"
 >
-	<img src={coverImgSrc} alt={`$${title}-cover-imgae`} />
+	<img src={coverImgSrc} alt={`$${title}-cover-imgae`} class="rounded-[12.6px]" />
 	<div
 		class={textVariant({
 			size: "subheading",
@@ -111,7 +112,7 @@
 				"cursor-pointer"
 			)}
 		>
-			<p>Read</p>
+			<div class="cursor-pointer">Read</div>
 			<ChevronRight
 				size="20px"
 				color="#9F3AE0"
