@@ -1,5 +1,4 @@
 <script lang="ts">
-	import Tag from "@/lib/components/Tag/index.svelte";
 	import IntroCard from "@/lib/components/IntroCard/index.svelte";
 	import type { PageData } from "./$houdini";
 	import { cn } from "@/lib/cn";
@@ -9,7 +8,7 @@
 	export let data: PageData;
 
 	$: ({ AllPosts } = data);
-	$: console.log(AllPosts);
+	console.log($AllPosts);
 	const fakePostProps = Array.from({ length: 6 }, (_) => ({
 		coverImgSrc: faker.image.url({
 			height: 450,
@@ -23,7 +22,6 @@
 		description: faker.lorem.paragraph({ min: 3, max: 10 }),
 		readingTime: faker.number.int({ min: 1, max: 30 })
 	}));
-	console.log(fakePostProps);
 </script>
 
 <div class={cn("w-full", "min-h-[calc(100svh-100px)]", "flex", "flex-col", "items-center")}>
