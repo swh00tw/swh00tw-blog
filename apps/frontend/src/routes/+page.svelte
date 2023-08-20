@@ -4,11 +4,26 @@
 	import { cn } from "@/lib/cn";
 	import Footer from "@/lib/components/Footer/index.svelte";
 	import PostCard from "@/lib/components/PostCard/index.svelte";
+	import { notEmpty } from "@/lib/notEmpty";
 	import { faker } from "@faker-js/faker";
 	export let data: PageData;
 
+	const fallbackImageUrl = "https://loremflickr.com/800/450?lock=5528848091316224";
 	$: ({ AllPosts } = data);
-	console.log($AllPosts);
+	$: postProps = ($AllPosts.data?.Posts?.docs ?? [])
+		.map((post) =>
+			post
+				? {
+						coverImgSrc: post.coverImage.sizes?.thumbnail?.url ?? fallbackImageUrl,
+						title: post.title,
+						description: post.description ?? "",
+						readingTime: post.content.words as number,
+						publishedAt: post.publishedDate as string,
+						tags: (post?.tags ?? []).map((tag) => tag.name ?? null).filter(notEmpty)
+				  }
+				: null
+		)
+		.filter(notEmpty);
 	const fakePostProps = Array.from({ length: 6 }, (_) => ({
 		coverImgSrc: faker.image.url({
 			height: 450,
@@ -22,6 +37,7 @@
 		description: faker.lorem.paragraph({ min: 3, max: 10 }),
 		readingTime: faker.number.int({ min: 1, max: 30 })
 	}));
+	$: posts = [...postProps, ...fakePostProps];
 </script>
 
 <div class={cn("w-full", "min-h-[calc(100svh-100px)]", "flex", "flex-col", "items-center")}>
@@ -34,34 +50,34 @@
 	<div class={cn("flex", "w-full", "flex-row", "justify-center", "gap-x-4", "my-[18px]")}>
 		<!-- For lg screen size -->
 		<div class={cn("flex-col", "hidden", "lg:flex", "w-fit", "gap-y-4")}>
-			{#each fakePostProps.filter((_, i) => i % 3 == 0) as postProps}
+			{#each posts.filter((_, i) => i % 3 == 0) as postProps}
 				<PostCard {...postProps} />
 			{/each}
 		</div>
 		<div class={cn("flex-col", "hidden", "lg:flex", "w-fit", "gap-y-4")}>
-			{#each fakePostProps.filter((_, i) => i % 3 == 1) as postProps}
+			{#each posts.filter((_, i) => i % 3 == 1) as postProps}
 				<PostCard {...postProps} />
 			{/each}
 		</div>
 		<div class={cn("flex-col", "hidden", "lg:flex", "w-fit", "gap-y-4")}>
-			{#each fakePostProps.filter((_, i) => i % 3 == 2) as postProps}
+			{#each posts.filter((_, i) => i % 3 == 2) as postProps}
 				<PostCard {...postProps} />
 			{/each}
 		</div>
 		<!-- For md screen size -->
 		<div class={cn("flex-col", "hidden", "md:flex", "lg:hidden", "w-fit", "gap-y-4")}>
-			{#each fakePostProps.filter((_, i) => i % 2 == 0) as postProps}
+			{#each posts.filter((_, i) => i % 2 == 0) as postProps}
 				<PostCard {...postProps} />
 			{/each}
 		</div>
 		<div class={cn("flex-col", "hidden", "md:flex", "lg:hidden", "w-fit", "gap-y-4")}>
-			{#each fakePostProps.filter((_, i) => i % 2 == 1) as postProps}
+			{#each posts.filter((_, i) => i % 2 == 1) as postProps}
 				<PostCard {...postProps} />
 			{/each}
 		</div>
 		<!-- For sm screen size -->
 		<div class={cn("flex-col", "flex", "md:hidden", "w-fit", "gap-y-4")}>
-			{#each fakePostProps as postProps}
+			{#each posts as postProps}
 				<PostCard {...postProps} />
 			{/each}
 		</div>
