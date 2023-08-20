@@ -4,7 +4,8 @@
   "globalEnv": [
     "BACKEND_MONGODB_URI",
     "BACKEND_PAYLOAD_SECRET",
-    "PUBLIC_FRONTEND_GQL_API_ENDPOINT"
+    "PUBLIC_FRONTEND_GQL_API_ENDPOINT",
+    "PUBLIC_FRONTEND_ENV"
   ],
   "pipeline": {
     "build": {

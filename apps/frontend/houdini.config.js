@@ -10,7 +10,7 @@ const config = {
 	},
 	scalars: {
 		DateTime: {
-			type: "Date"
+			type: "string"
 		},
 		JSON: {
 			type: "Record<string, unknown>"

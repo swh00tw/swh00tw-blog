@@ -6,6 +6,7 @@
 	import PostCard from "@/lib/components/PostCard/index.svelte";
 	import { notEmpty } from "@/lib/notEmpty";
 	import { faker } from "@faker-js/faker";
+	import { PUBLIC_FRONTEND_ENV } from "$env/static/public";
 	export let data: PageData;
 
 	const fallbackImageUrl = "https://loremflickr.com/800/450?lock=5528848091316224";
@@ -24,19 +25,22 @@
 				: null
 		)
 		.filter(notEmpty);
-	const fakePostProps = Array.from({ length: 6 }, (_) => ({
-		coverImgSrc: faker.image.url({
-			height: 450,
-			width: 800
-		}),
-		publishedAt: faker.date.past().toISOString(),
-		title: faker.lorem.sentence({ min: 4, max: 8 }),
-		tags: Array.from({ length: faker.number.int({ min: 1, max: 5 }) }, (_) =>
-			faker.lorem.word({ length: { min: 3, max: 6 } })
-		),
-		description: faker.lorem.paragraph({ min: 3, max: 10 }),
-		readingTime: faker.number.int({ min: 1, max: 30 })
-	}));
+	const fakePostProps =
+		PUBLIC_FRONTEND_ENV === "dev"
+			? Array.from({ length: 6 }, (_) => ({
+					coverImgSrc: faker.image.url({
+						height: 450,
+						width: 800
+					}),
+					publishedAt: faker.date.past().toISOString(),
+					title: faker.lorem.sentence({ min: 4, max: 8 }),
+					tags: Array.from({ length: faker.number.int({ min: 1, max: 5 }) }, (_) =>
+						faker.lorem.word({ length: { min: 3, max: 6 } })
+					),
+					description: faker.lorem.paragraph({ min: 3, max: 10 }),
+					readingTime: faker.number.int({ min: 1, max: 30 })
+			  }))
+			: [];
 	$: posts = [...postProps, ...fakePostProps];
 </script>
 
