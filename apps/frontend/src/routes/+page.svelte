@@ -18,7 +18,7 @@
 						coverImgSrc: post.coverImage.sizes?.thumbnail?.url ?? fallbackImageUrl,
 						title: post.title,
 						description: post.description ?? "",
-						readingTime: post.content.words as number,
+						readingTime: Math.ceil(((post.content.words as number) * 7.7) / 1000),
 						publishedAt: post.publishedDate as string,
 						tags: (post?.tags ?? []).map((tag) => tag.name ?? null).filter(notEmpty)
 				  }
