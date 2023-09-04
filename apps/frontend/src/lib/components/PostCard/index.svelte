@@ -5,6 +5,7 @@
 	import Tag from "$lib/components/Tag/index.svelte";
 	import { ChevronRight } from "lucide-svelte";
 	import { encodePostKey } from "$lib/encodePostKey";
+	import { getDateString } from "$lib/getDateString";
 
 	interface $$Props extends HTMLAttributes<HTMLDivElement> {
 		coverImgSrc: string;
@@ -23,15 +24,6 @@
 
 	let isHovered = false;
 
-	const getDateString = (date: string) => {
-		const dateObj = new Date(date);
-		const dateTimeFormat = new Intl.DateTimeFormat("en-US", {
-			year: "numeric",
-			month: "long",
-			day: "numeric"
-		});
-		return dateTimeFormat.format(dateObj);
-	};
 	$: dateString = getDateString(publishedAt);
 
 	$: textStyle = cn("transition-colors", "duration-[800ms]", {

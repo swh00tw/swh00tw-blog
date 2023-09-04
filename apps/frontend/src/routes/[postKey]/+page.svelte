@@ -2,9 +2,14 @@
 	import type { PageData } from "./$houdini";
 	import { cn } from "$lib/cn";
 	import Headerbar from "@/lib/components/Headerbar/index.svelte";
+	import { textVariant } from "@/lib/variants";
+	import { getDateString } from "@/lib/getDateString";
 
 	export let data: PageData;
 	$: ({ PagePost } = data);
+	$: readingTime = Math.ceil(
+		((($PagePost?.data?.Post?.content?.words ?? 0) as number) * 7.7) / 1000
+	);
 </script>
 
 {#if $PagePost?.data?.Post}
@@ -30,6 +35,40 @@
 			)}
 		/>
 		<Headerbar />
+		<div class={cn("px-6", "flex", "justify-center", "w-[100vw]", "pt-[calc(100vw*0.22)]")}>
+			<div class={cn("flex", "lg:w-[60%]", "w-full", "md:w-[80%]", "flex-col")}>
+				<div class={cn("flex", "flex-col", "px-2", "md:px-0", "gap-y-5")}>
+					<p
+						class={textVariant({ size: "heading", class: cn("lg:text-[64px]", "md:text-[48px]") })}
+					>
+						{$PagePost.data.Post.title}
+					</p>
+					<p class={textVariant({ class: cn("md:text-[24px]", "text-[16px]", "text-text02") })}>
+						{$PagePost.data.Post.description}
+					</p>
+					<div
+						class={cn(
+							"flex",
+							"flex-row",
+							"items-center",
+							"gap-x-4",
+							"text-text02",
+							textVariant({ class: cn("text-[14px]", "md:text-[16px]") })
+						)}
+					>
+						<p>
+							{getDateString($PagePost.data.Post.publishedDate)}
+						</p>
+						<div class={cn("h-[21px]", "w-[1px]", "bg-text02")} />
+						<p>
+							{`${Array.from({ length: Math.ceil(readingTime / 10) }, (_) => "⌛").join(
+								""
+							)} ${readingTime} min read`}
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 {:else}
 	<h1>Data is not available</h1>
