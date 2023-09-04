@@ -21,6 +21,9 @@ export const _houdini_load = graphql`
 					thumbnail {
 						url
 					}
+					background {
+						url
+					}
 				}
 			}
 		}
