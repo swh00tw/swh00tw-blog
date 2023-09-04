@@ -21,9 +21,11 @@
 		"bg-opacity-[70%]",
 		"px-6",
 		"py-[10px]",
-		"backdrop-blur-[10px]",
+		"backdrop-blur-[15px]",
 		"flex",
-		"justify-center"
+		"justify-center",
+		"fixed",
+		"top-0"
 	)}
 >
 	<div class={cn("flex", "justify-between", "lg:w-[60%]", "w-full", "md:w-[80%]")}>
