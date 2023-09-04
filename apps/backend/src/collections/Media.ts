@@ -17,6 +17,12 @@ const Media: CollectionConfig = {
         crop: "center",
         name: "thumbnail",
       },
+      {
+        height: 900,
+        width: 1600,
+        crop: "center",
+        name: "background",
+      },
     ],
   },
   fields: [],
