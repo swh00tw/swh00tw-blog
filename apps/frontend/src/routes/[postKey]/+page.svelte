@@ -12,30 +12,40 @@
 	);
 </script>
 
-{#if $PagePost?.data?.Post}
-	<div class={cn("relative")}>
-		<img
-			src={$PagePost.data.Post.coverImage.sizes?.background?.url}
-			alt={`${$PagePost.data.Post.title}-coverImage`}
-			class={cn("absolute", "top-[60px]", "md:top-0", "left-0", "w-full", "z-[-2]")}
-		/>
-		<div
-			class={cn(
-				"bg-gradient-to-t",
-				"from-background",
-				"from-[15.97%]",
-				"to-[#24242490]",
-				"to-100%",
-				"z-[-1]",
-				"absolute",
-				"inset-0",
-				"top-[60px]",
-				"md:top-0",
-				"h-[calc(100vw*9/16)]"
-			)}
-		/>
-		<Headerbar />
-		<div class={cn("px-6", "flex", "justify-center", "w-[100vw]", "pt-[calc(100vw*0.22)]")}>
+<div class={cn("relative")}>
+	<img
+		src={$PagePost?.data?.Post?.coverImage?.sizes?.background?.url}
+		alt={`${$PagePost?.data?.Post?.title ?? "$title"}-coverImage`}
+		class={cn("absolute", "top-[60px]", "md:top-0", "left-0", "w-full", "z-[-2]")}
+	/>
+	<div
+		class={cn(
+			"bg-gradient-to-t",
+			"from-background",
+			"from-[15.97%]",
+			"to-[#24242490]",
+			"to-100%",
+			"z-[-1]",
+			"absolute",
+			"inset-0",
+			"top-[60px]",
+			"md:top-0",
+			"h-[calc(100vw*9/16)]"
+		)}
+	/>
+	<Headerbar />
+	<div
+		class={cn(
+			"px-6",
+			"flex",
+			"flex-col",
+			"items-center",
+			"justify-center",
+			"w-[100vw]",
+			"pt-[calc(100vw*0.22)]"
+		)}
+	>
+		{#if $PagePost?.data?.Post}
 			<div class={cn("flex", "lg:w-[60%]", "w-full", "md:w-[80%]", "flex-col")}>
 				<div class={cn("flex", "flex-col", "px-2", "md:px-0", "gap-y-5")}>
 					<p
@@ -67,9 +77,22 @@
 						</p>
 					</div>
 				</div>
+				<div class={cn("flex", "flex-row", "justify-between", "w-full", "mt-[calc(100vw*0.15)]")}>
+					<div
+						class={cn("w-full", "lg:w-[72%]", "border-red-50", "border", "text-text", "h-[100vh]")}
+					>
+						123
+					</div>
+					<div class={cn("hidden", "lg:block", "lg:w-[26%]")}>toc</div>
+				</div>
 			</div>
-		</div>
+			<div class={cn("my-12", "lg:my-24")}>Footer</div>
+		{:else if $PagePost.fetching}
+			<!-- TODO: add loading -->
+			<div>loading...</div>
+		{:else}
+			<!-- TODO: add 404 -->
+			<div>404</div>
+		{/if}
 	</div>
-{:else}
-	<h1>Data is not available</h1>
-{/if}
+</div>
