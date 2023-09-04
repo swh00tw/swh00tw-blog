@@ -5,7 +5,6 @@
 
 	export let data: PageData;
 	$: ({ PagePost } = data);
-	$: console.log("pagepost: ", $PagePost);
 </script>
 
 {#if $PagePost?.data?.Post}
