@@ -4,15 +4,28 @@
 	import Headerbar from "@/lib/components/Headerbar/index.svelte";
 	import { textVariant } from "@/lib/variants";
 	import { getDateString } from "@/lib/getDateString";
+	import AuthorCard from "@/lib/components/AuthorCard/index.svelte";
+	import { encodePostKey } from "@/lib/encodePostKey";
 
 	export let data: PageData;
 	$: ({ PagePost } = data);
 	$: readingTime = Math.ceil(
 		((($PagePost?.data?.Post?.content?.words ?? 0) as number) * 7.7) / 1000
 	);
+	$: idx = ($PagePost?.data?.Posts?.docs ?? []).findIndex(
+		(post) => post && post.id === $PagePost?.data?.Post?.id
+	);
+	$: prevUrl =
+		idx > 0
+			? encodePostKey($PagePost?.data?.Posts?.docs?.[idx - 1]?.title ?? "") ?? undefined
+			: undefined;
+	$: nextUrl =
+		idx < ($PagePost?.data?.Posts?.docs?.length ?? 0) - 1
+			? encodePostKey($PagePost?.data?.Posts?.docs?.[idx + 1]?.title ?? "") ?? undefined
+			: undefined;
 </script>
 
-<div class={cn("relative")}>
+<div class={cn("relative", "overflow-x-hidden")}>
 	<img
 		src={$PagePost?.data?.Post?.coverImage?.sizes?.background?.url}
 		alt={`${$PagePost?.data?.Post?.title ?? "$title"}-coverImage`}
@@ -41,7 +54,7 @@
 			"flex-col",
 			"items-center",
 			"justify-center",
-			"w-[100vw]",
+			"w-[100svw]",
 			"pt-[calc(100vw*0.22)]"
 		)}
 	>
@@ -86,13 +99,28 @@
 					<div class={cn("hidden", "lg:block", "lg:w-[26%]")}>toc</div>
 				</div>
 			</div>
-			<div class={cn("my-12", "lg:my-24")}>Footer</div>
 		{:else if $PagePost.fetching}
 			<!-- TODO: add loading -->
-			<div>loading...</div>
+			<div class={cn("h-[100vh]")}>loading...</div>
 		{:else}
 			<!-- TODO: add 404 -->
-			<div>404</div>
+			<div class={cn("h-[80vh]")}>404</div>
 		{/if}
+		<div
+			class={cn(
+				"bg-gradient-radial",
+				"from-border",
+				"to-transparent",
+				"to-80%",
+				"w-[100vw]",
+				"h-[3px]",
+				"mt-12",
+				"lg:mt-24",
+				"mb-4"
+			)}
+		/>
+		<div class={cn("mb-12", "lg:mb-16")}>
+			<AuthorCard {prevUrl} {nextUrl} />
+		</div>
 	</div>
 </div>

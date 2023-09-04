@@ -27,6 +27,12 @@ export const _houdini_load = graphql`
 				}
 			}
 		}
+		Posts {
+			docs {
+				id
+				title
+			}
+		}
 	}
 `;
 
