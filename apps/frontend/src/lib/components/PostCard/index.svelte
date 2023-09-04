@@ -4,6 +4,7 @@
 	import type { HTMLAttributes, MouseEventHandler } from "svelte/elements";
 	import Tag from "$lib/components/Tag/index.svelte";
 	import { ChevronRight } from "lucide-svelte";
+	import { encodePostKey } from "$lib/encodePostKey";
 
 	interface $$Props extends HTMLAttributes<HTMLDivElement> {
 		coverImgSrc: string;
@@ -98,30 +99,32 @@
 				""
 			)} ${readingTime} min read`}
 		</div>
-		<div
-			class={cn(
-				textVariant({ size: "h4" }),
-				"bg-clip-text",
-				"bg-gradient-to-r",
-				"from-primary",
-				"to-accent",
-				"text-transparent",
-				"mr-[6px]",
-				"flex",
-				"items-center",
-				"cursor-pointer"
-			)}
+		<a href={encodePostKey(title)} data-sveltekit-preload-data>
+			<div
+				class={cn(
+					textVariant({ size: "h4" }),
+					"bg-clip-text",
+					"bg-gradient-to-r",
+					"from-primary",
+					"to-accent",
+					"text-transparent",
+					"mr-[6px]",
+					"flex",
+					"items-center",
+					"cursor-pointer"
+				)}
+			>
+				<div class="cursor-pointer">Read</div>
+				<ChevronRight
+					size="20px"
+					color="#9F3AE0"
+					class={cn("relative", "transition-all", "duration-[500ms]", {
+						"left-[6px]": isHovered,
+						"left-[0px]": !isHovered
+					})}
+				/>
+			</div></a
 		>
-			<div class="cursor-pointer">Read</div>
-			<ChevronRight
-				size="20px"
-				color="#9F3AE0"
-				class={cn("relative", "transition-all", "duration-[500ms]", {
-					"left-[6px]": isHovered,
-					"left-[0px]": !isHovered
-				})}
-			/>
-		</div>
 	</div>
 </div>
 
