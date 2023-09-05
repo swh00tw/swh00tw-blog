@@ -8,6 +8,7 @@
 	import { encodePostKey } from "@/lib/encodePostKey";
 	import { parseJson } from "$lib/serializer/parse";
 	import type { JsonContent } from "$lib/serializer/types";
+	import LexicalNodes from "@/lib/serializer/LexicalNodes.svelte";
 
 	export let data: PageData;
 	let json: JsonContent | null = null;
@@ -108,10 +109,10 @@
 					</div>
 				</div>
 				<div class={cn("flex", "flex-row", "justify-between", "w-full", "mt-[calc(100vw*0.15)]")}>
-					<div
-						class={cn("w-full", "lg:w-[72%]", "border-red-50", "border", "text-text", "h-[100vh]")}
-					>
-						123
+					<div class={cn("w-full", "lg:w-[72%]", "text-text02", "text-[14px]")}>
+						{#if json}
+							<LexicalNodes nodes={json.root.children} />
+						{/if}
 					</div>
 					<div class={cn("hidden", "lg:block", "lg:w-[26%]")}>toc</div>
 				</div>

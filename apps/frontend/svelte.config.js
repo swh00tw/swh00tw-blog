@@ -15,6 +15,14 @@ const config = {
 		alias: {
 			$houdini: "./$houdini",
 			"@": "./src"
+		},
+		csp: {
+			directives: {
+				"script-src": ["self"]
+			},
+			reportOnly: {
+				"script-src": ["self"]
+			}
 		}
 	}
 };

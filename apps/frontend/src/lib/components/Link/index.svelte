@@ -60,5 +60,6 @@
 >
 	<a {href}>
 		{content}
+		<slot />
 	</a>
 </div>
