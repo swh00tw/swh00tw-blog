@@ -6,8 +6,12 @@
 	import { getDateString } from "@/lib/getDateString";
 	import AuthorCard from "@/lib/components/AuthorCard/index.svelte";
 	import { encodePostKey } from "@/lib/encodePostKey";
+	import { parseJson } from "$lib/serializer/parse";
+	import type { JsonContent } from "$lib/serializer/types";
 
 	export let data: PageData;
+	let json: JsonContent | null = null;
+	let parseError = false;
 	$: ({ PagePost } = data);
 	$: readingTime = Math.ceil(
 		((($PagePost?.data?.Post?.content?.words ?? 0) as number) * 7.7) / 1000
@@ -23,6 +27,16 @@
 		idx < ($PagePost?.data?.Posts?.docs?.length ?? 0) - 1
 			? encodePostKey($PagePost?.data?.Posts?.docs?.[idx + 1]?.title ?? "") ?? undefined
 			: undefined;
+	$: {
+		if ($PagePost?.data?.Post?.content) {
+			const res = parseJson($PagePost?.data?.Post?.content?.jsonContent);
+			if (res.success) {
+				json = res.data;
+			} else {
+				parseError = true;
+			}
+		}
+	}
 </script>
 
 <div class={cn("relative", "overflow-x-hidden")}>
@@ -58,7 +72,10 @@
 			"pt-[calc(100vw*0.22)]"
 		)}
 	>
-		{#if $PagePost?.data?.Post}
+		{#if $PagePost?.errors || parseError}
+			<!-- TODO: add 404 -->
+			<div class={cn("h-[80vh]")}>404</div>
+		{:else if $PagePost?.data?.Post}
 			<div class={cn("flex", "lg:w-[60%]", "w-full", "md:w-[80%]", "flex-col")}>
 				<div class={cn("flex", "flex-col", "px-2", "md:px-0", "gap-y-5")}>
 					<p
@@ -102,9 +119,6 @@
 		{:else if $PagePost.fetching}
 			<!-- TODO: add loading -->
 			<div class={cn("h-[100vh]")}>loading...</div>
-		{:else}
-			<!-- TODO: add 404 -->
-			<div class={cn("h-[80vh]")}>404</div>
 		{/if}
 		<div
 			class={cn(

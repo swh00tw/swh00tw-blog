@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 export const lexicalNodeBaseSchema = z.object({
-	direction: z.string().optional().or(z.null()),
+	direction: z.string().or(z.null()).optional(),
 	format: z.number().or(z.string()),
 	indent: z.union([z.number(), z.string()]).optional(),
 	type: z.string(),
@@ -30,3 +30,4 @@ export const lexicalRootSchema = z.object({
 export const jsonContentSchema = z.object({
 	root: lexicalRootSchema
 });
+export type JsonContent = z.infer<typeof jsonContentSchema>;

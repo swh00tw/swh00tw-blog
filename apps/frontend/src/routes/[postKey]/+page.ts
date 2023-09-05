@@ -3,10 +3,11 @@ import { encodePostKey } from "@/lib/encodePostKey";
 import type { PageLoad } from "../$types";
 import { get } from "svelte/store";
 import { error } from "@sveltejs/kit";
+import { PUBLIC_FRONTEND_ENV } from "$env/static/public";
 
 export const _houdini_load = graphql`
-	query PagePost($id: String!) {
-		Post(id: $id) {
+	query PagePost($id: String!, $draft: Boolean!) {
+		Post(id: $id, draft: $draft) {
 			id
 			title
 			description
@@ -27,7 +28,7 @@ export const _houdini_load = graphql`
 				}
 			}
 		}
-		Posts {
+		Posts(draft: $draft) {
 			docs {
 				id
 				title
@@ -45,6 +46,7 @@ export const _PagePostVariables: PageLoad = async (event) => {
 		throw error(404, "Post not found");
 	}
 	return {
-		id
+		id,
+		draft: PUBLIC_FRONTEND_ENV === "dev"
 	};
 };
