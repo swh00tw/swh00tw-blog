@@ -109,7 +109,7 @@
 					</div>
 				</div>
 				<div class={cn("flex", "flex-row", "justify-between", "w-full", "mt-[calc(100vw*0.15)]")}>
-					<div class={cn("w-full", "lg:w-[72%]", "text-text02", "text-[14px]")}>
+					<div class={cn("w-full", "lg:w-[72%]", "text-text02", "text-[14px]", "min-h-[43svh]")}>
 						{#if json}
 							<LexicalNodes nodes={json.root.children} />
 						{/if}

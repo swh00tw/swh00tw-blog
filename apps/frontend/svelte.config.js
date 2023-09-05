@@ -21,7 +21,8 @@ const config = {
 				"script-src": ["self"]
 			},
 			reportOnly: {
-				"script-src": ["self"]
+				"script-src": ["self"],
+				"report-uri": [""]
 			}
 		}
 	}
