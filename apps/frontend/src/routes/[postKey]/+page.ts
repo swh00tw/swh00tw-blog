@@ -12,16 +12,10 @@ export const _houdini_load = graphql`
 			title
 			description
 			publishedDate
-			tags {
-				name
-			}
 			content
 			coverImage {
 				id
 				sizes {
-					thumbnail {
-						url
-					}
 					background {
 						url
 					}
@@ -38,7 +32,10 @@ export const _houdini_load = graphql`
 `;
 
 export const _PagePostVariables: PageLoad = async (event) => {
-	const { AllPosts } = await load_AllPosts({ event });
+	const { AllPosts } = await load_AllPosts({
+		event,
+		variables: { draft: PUBLIC_FRONTEND_ENV === "dev" }
+	});
 	const posts = get(AllPosts);
 	const key = (event.params as { postKey: string }).postKey;
 	const id = posts.data?.Posts?.docs?.find((post) => post && encodePostKey(post.title) === key)?.id;
