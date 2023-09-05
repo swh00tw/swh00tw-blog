@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 export const lexicalNodeBaseSchema = z.object({
-	direction: z.string().optional(),
+	direction: z.string().optional().or(z.null()),
 	format: z.number().or(z.string()),
 	indent: z.union([z.number(), z.string()]).optional(),
 	type: z.string(),
