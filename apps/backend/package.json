@@ -18,7 +18,7 @@
     "ts:check": "tsc --noEmit"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": "eslint \"**/*.ts*\" . --fix"
+    "*.{js,jsx,ts,tsx}": "eslint \"**/*.ts*\" . --cache --fix"
   },
   "dependencies": {
     "cors": "^2.8.5",
