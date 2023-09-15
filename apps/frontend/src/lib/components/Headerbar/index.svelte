@@ -6,7 +6,7 @@
 	import { textVariant } from "@/lib/variants";
 	import { clickToCopy } from "$lib/copyToClipboard";
 
-	type $$Props = HTMLAttributes<HTMLDivElement>
+	type $$Props = HTMLAttributes<HTMLDivElement>;
 
 	let content = "Share";
 	let copied = false;
