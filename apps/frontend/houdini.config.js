@@ -7,6 +7,14 @@ const config = {
 	},
 	plugins: {
 		"houdini-svelte": {}
+	},
+	scalars: {
+		DateTime: {
+			type: "string"
+		},
+		JSON: {
+			type: "Record<string, unknown>"
+		}
 	}
 };
 

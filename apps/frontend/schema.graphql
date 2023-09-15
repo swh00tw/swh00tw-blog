@@ -356,6 +356,7 @@ type MediaDocAccessFields_sizes_Delete {
 }
 
 type MediaDocAccessFields_sizes_Fields {
+  background: MediaDocAccessFields_sizes_background
   thumbnail: MediaDocAccessFields_sizes_thumbnail
 }
 
@@ -364,6 +365,177 @@ type MediaDocAccessFields_sizes_Read {
 }
 
 type MediaDocAccessFields_sizes_Update {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_sizes_background {
+  create: MediaDocAccessFields_sizes_background_Create
+  delete: MediaDocAccessFields_sizes_background_Delete
+  fields: MediaDocAccessFields_sizes_background_Fields
+  read: MediaDocAccessFields_sizes_background_Read
+  update: MediaDocAccessFields_sizes_background_Update
+}
+
+type MediaDocAccessFields_sizes_background_Create {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_sizes_background_Delete {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_sizes_background_Fields {
+  filename: MediaDocAccessFields_sizes_background_filename
+  filesize: MediaDocAccessFields_sizes_background_filesize
+  height: MediaDocAccessFields_sizes_background_height
+  mimeType: MediaDocAccessFields_sizes_background_mimeType
+  url: MediaDocAccessFields_sizes_background_url
+  width: MediaDocAccessFields_sizes_background_width
+}
+
+type MediaDocAccessFields_sizes_background_Read {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_sizes_background_Update {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_sizes_background_filename {
+  create: MediaDocAccessFields_sizes_background_filename_Create
+  delete: MediaDocAccessFields_sizes_background_filename_Delete
+  read: MediaDocAccessFields_sizes_background_filename_Read
+  update: MediaDocAccessFields_sizes_background_filename_Update
+}
+
+type MediaDocAccessFields_sizes_background_filename_Create {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_sizes_background_filename_Delete {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_sizes_background_filename_Read {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_sizes_background_filename_Update {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_sizes_background_filesize {
+  create: MediaDocAccessFields_sizes_background_filesize_Create
+  delete: MediaDocAccessFields_sizes_background_filesize_Delete
+  read: MediaDocAccessFields_sizes_background_filesize_Read
+  update: MediaDocAccessFields_sizes_background_filesize_Update
+}
+
+type MediaDocAccessFields_sizes_background_filesize_Create {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_sizes_background_filesize_Delete {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_sizes_background_filesize_Read {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_sizes_background_filesize_Update {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_sizes_background_height {
+  create: MediaDocAccessFields_sizes_background_height_Create
+  delete: MediaDocAccessFields_sizes_background_height_Delete
+  read: MediaDocAccessFields_sizes_background_height_Read
+  update: MediaDocAccessFields_sizes_background_height_Update
+}
+
+type MediaDocAccessFields_sizes_background_height_Create {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_sizes_background_height_Delete {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_sizes_background_height_Read {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_sizes_background_height_Update {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_sizes_background_mimeType {
+  create: MediaDocAccessFields_sizes_background_mimeType_Create
+  delete: MediaDocAccessFields_sizes_background_mimeType_Delete
+  read: MediaDocAccessFields_sizes_background_mimeType_Read
+  update: MediaDocAccessFields_sizes_background_mimeType_Update
+}
+
+type MediaDocAccessFields_sizes_background_mimeType_Create {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_sizes_background_mimeType_Delete {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_sizes_background_mimeType_Read {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_sizes_background_mimeType_Update {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_sizes_background_url {
+  create: MediaDocAccessFields_sizes_background_url_Create
+  delete: MediaDocAccessFields_sizes_background_url_Delete
+  read: MediaDocAccessFields_sizes_background_url_Read
+  update: MediaDocAccessFields_sizes_background_url_Update
+}
+
+type MediaDocAccessFields_sizes_background_url_Create {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_sizes_background_url_Delete {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_sizes_background_url_Read {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_sizes_background_url_Update {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_sizes_background_width {
+  create: MediaDocAccessFields_sizes_background_width_Create
+  delete: MediaDocAccessFields_sizes_background_width_Delete
+  read: MediaDocAccessFields_sizes_background_width_Read
+  update: MediaDocAccessFields_sizes_background_width_Update
+}
+
+type MediaDocAccessFields_sizes_background_width_Create {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_sizes_background_width_Delete {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_sizes_background_width_Read {
+  permission: Boolean!
+}
+
+type MediaDocAccessFields_sizes_background_width_Update {
   permission: Boolean!
 }
 
@@ -751,6 +923,7 @@ type MediaFields_sizes_Delete {
 }
 
 type MediaFields_sizes_Fields {
+  background: MediaFields_sizes_background
   thumbnail: MediaFields_sizes_thumbnail
 }
 
@@ -759,6 +932,177 @@ type MediaFields_sizes_Read {
 }
 
 type MediaFields_sizes_Update {
+  permission: Boolean!
+}
+
+type MediaFields_sizes_background {
+  create: MediaFields_sizes_background_Create
+  delete: MediaFields_sizes_background_Delete
+  fields: MediaFields_sizes_background_Fields
+  read: MediaFields_sizes_background_Read
+  update: MediaFields_sizes_background_Update
+}
+
+type MediaFields_sizes_background_Create {
+  permission: Boolean!
+}
+
+type MediaFields_sizes_background_Delete {
+  permission: Boolean!
+}
+
+type MediaFields_sizes_background_Fields {
+  filename: MediaFields_sizes_background_filename
+  filesize: MediaFields_sizes_background_filesize
+  height: MediaFields_sizes_background_height
+  mimeType: MediaFields_sizes_background_mimeType
+  url: MediaFields_sizes_background_url
+  width: MediaFields_sizes_background_width
+}
+
+type MediaFields_sizes_background_Read {
+  permission: Boolean!
+}
+
+type MediaFields_sizes_background_Update {
+  permission: Boolean!
+}
+
+type MediaFields_sizes_background_filename {
+  create: MediaFields_sizes_background_filename_Create
+  delete: MediaFields_sizes_background_filename_Delete
+  read: MediaFields_sizes_background_filename_Read
+  update: MediaFields_sizes_background_filename_Update
+}
+
+type MediaFields_sizes_background_filename_Create {
+  permission: Boolean!
+}
+
+type MediaFields_sizes_background_filename_Delete {
+  permission: Boolean!
+}
+
+type MediaFields_sizes_background_filename_Read {
+  permission: Boolean!
+}
+
+type MediaFields_sizes_background_filename_Update {
+  permission: Boolean!
+}
+
+type MediaFields_sizes_background_filesize {
+  create: MediaFields_sizes_background_filesize_Create
+  delete: MediaFields_sizes_background_filesize_Delete
+  read: MediaFields_sizes_background_filesize_Read
+  update: MediaFields_sizes_background_filesize_Update
+}
+
+type MediaFields_sizes_background_filesize_Create {
+  permission: Boolean!
+}
+
+type MediaFields_sizes_background_filesize_Delete {
+  permission: Boolean!
+}
+
+type MediaFields_sizes_background_filesize_Read {
+  permission: Boolean!
+}
+
+type MediaFields_sizes_background_filesize_Update {
+  permission: Boolean!
+}
+
+type MediaFields_sizes_background_height {
+  create: MediaFields_sizes_background_height_Create
+  delete: MediaFields_sizes_background_height_Delete
+  read: MediaFields_sizes_background_height_Read
+  update: MediaFields_sizes_background_height_Update
+}
+
+type MediaFields_sizes_background_height_Create {
+  permission: Boolean!
+}
+
+type MediaFields_sizes_background_height_Delete {
+  permission: Boolean!
+}
+
+type MediaFields_sizes_background_height_Read {
+  permission: Boolean!
+}
+
+type MediaFields_sizes_background_height_Update {
+  permission: Boolean!
+}
+
+type MediaFields_sizes_background_mimeType {
+  create: MediaFields_sizes_background_mimeType_Create
+  delete: MediaFields_sizes_background_mimeType_Delete
+  read: MediaFields_sizes_background_mimeType_Read
+  update: MediaFields_sizes_background_mimeType_Update
+}
+
+type MediaFields_sizes_background_mimeType_Create {
+  permission: Boolean!
+}
+
+type MediaFields_sizes_background_mimeType_Delete {
+  permission: Boolean!
+}
+
+type MediaFields_sizes_background_mimeType_Read {
+  permission: Boolean!
+}
+
+type MediaFields_sizes_background_mimeType_Update {
+  permission: Boolean!
+}
+
+type MediaFields_sizes_background_url {
+  create: MediaFields_sizes_background_url_Create
+  delete: MediaFields_sizes_background_url_Delete
+  read: MediaFields_sizes_background_url_Read
+  update: MediaFields_sizes_background_url_Update
+}
+
+type MediaFields_sizes_background_url_Create {
+  permission: Boolean!
+}
+
+type MediaFields_sizes_background_url_Delete {
+  permission: Boolean!
+}
+
+type MediaFields_sizes_background_url_Read {
+  permission: Boolean!
+}
+
+type MediaFields_sizes_background_url_Update {
+  permission: Boolean!
+}
+
+type MediaFields_sizes_background_width {
+  create: MediaFields_sizes_background_width_Create
+  delete: MediaFields_sizes_background_width_Delete
+  read: MediaFields_sizes_background_width_Read
+  update: MediaFields_sizes_background_width_Update
+}
+
+type MediaFields_sizes_background_width_Create {
+  permission: Boolean!
+}
+
+type MediaFields_sizes_background_width_Delete {
+  permission: Boolean!
+}
+
+type MediaFields_sizes_background_width_Read {
+  permission: Boolean!
+}
+
+type MediaFields_sizes_background_width_Update {
   permission: Boolean!
 }
 
@@ -1023,7 +1367,17 @@ type MediaUpdateDocAccess {
 }
 
 type Media_Sizes {
+  background: Media_Sizes_Background
   thumbnail: Media_Sizes_Thumbnail
+}
+
+type Media_Sizes_Background {
+  filename: String
+  filesize: Float
+  height: Float
+  mimeType: String
+  url: String
+  width: Float
 }
 
 type Media_Sizes_Thumbnail {
@@ -1097,6 +1451,69 @@ input Media_mimeType_operator {
   like: String
   not_equals: String
   not_in: [String]
+}
+
+input Media_sizes__background__filename_operator {
+  all: [String]
+  contains: String
+  equals: String
+  exists: Boolean
+  in: [String]
+  like: String
+  not_equals: String
+  not_in: [String]
+}
+
+input Media_sizes__background__filesize_operator {
+  equals: Float
+  exists: Boolean
+  greater_than: Float
+  greater_than_equal: Float
+  less_than: Float
+  less_than_equal: Float
+  not_equals: Float
+}
+
+input Media_sizes__background__height_operator {
+  equals: Float
+  exists: Boolean
+  greater_than: Float
+  greater_than_equal: Float
+  less_than: Float
+  less_than_equal: Float
+  not_equals: Float
+}
+
+input Media_sizes__background__mimeType_operator {
+  all: [String]
+  contains: String
+  equals: String
+  exists: Boolean
+  in: [String]
+  like: String
+  not_equals: String
+  not_in: [String]
+}
+
+input Media_sizes__background__url_operator {
+  all: [String]
+  contains: String
+  equals: String
+  exists: Boolean
+  in: [String]
+  like: String
+  not_equals: String
+  not_in: [String]
+}
+
+input Media_sizes__background__width_operator {
+  equals: Float
+  exists: Boolean
+  greater_than: Float
+  greater_than_equal: Float
+  less_than: Float
+  less_than_equal: Float
+  not_equals: Float
 }
 
 input Media_sizes__thumbnail__filename_operator {
@@ -1193,6 +1610,12 @@ input Media_where {
   height: Media_height_operator
   id: Media_id_operator
   mimeType: Media_mimeType_operator
+  sizes__background__filename: Media_sizes__background__filename_operator
+  sizes__background__filesize: Media_sizes__background__filesize_operator
+  sizes__background__height: Media_sizes__background__height_operator
+  sizes__background__mimeType: Media_sizes__background__mimeType_operator
+  sizes__background__url: Media_sizes__background__url_operator
+  sizes__background__width: Media_sizes__background__width_operator
   sizes__thumbnail__filename: Media_sizes__thumbnail__filename_operator
   sizes__thumbnail__filesize: Media_sizes__thumbnail__filesize_operator
   sizes__thumbnail__height: Media_sizes__thumbnail__height_operator
@@ -1211,6 +1634,12 @@ input Media_where_and {
   height: Media_height_operator
   id: Media_id_operator
   mimeType: Media_mimeType_operator
+  sizes__background__filename: Media_sizes__background__filename_operator
+  sizes__background__filesize: Media_sizes__background__filesize_operator
+  sizes__background__height: Media_sizes__background__height_operator
+  sizes__background__mimeType: Media_sizes__background__mimeType_operator
+  sizes__background__url: Media_sizes__background__url_operator
+  sizes__background__width: Media_sizes__background__width_operator
   sizes__thumbnail__filename: Media_sizes__thumbnail__filename_operator
   sizes__thumbnail__filesize: Media_sizes__thumbnail__filesize_operator
   sizes__thumbnail__height: Media_sizes__thumbnail__height_operator
@@ -1229,6 +1658,12 @@ input Media_where_or {
   height: Media_height_operator
   id: Media_id_operator
   mimeType: Media_mimeType_operator
+  sizes__background__filename: Media_sizes__background__filename_operator
+  sizes__background__filesize: Media_sizes__background__filesize_operator
+  sizes__background__height: Media_sizes__background__height_operator
+  sizes__background__mimeType: Media_sizes__background__mimeType_operator
+  sizes__background__url: Media_sizes__background__url_operator
+  sizes__background__width: Media_sizes__background__width_operator
   sizes__thumbnail__filename: Media_sizes__thumbnail__filename_operator
   sizes__thumbnail__filesize: Media_sizes__thumbnail__filesize_operator
   sizes__thumbnail__height: Media_sizes__thumbnail__height_operator
@@ -1361,6 +1796,69 @@ input Post_CoverImage_mimeType_operator {
   not_in: [String]
 }
 
+input Post_CoverImage_sizes__background__filename_operator {
+  all: [String]
+  contains: String
+  equals: String
+  exists: Boolean
+  in: [String]
+  like: String
+  not_equals: String
+  not_in: [String]
+}
+
+input Post_CoverImage_sizes__background__filesize_operator {
+  equals: Float
+  exists: Boolean
+  greater_than: Float
+  greater_than_equal: Float
+  less_than: Float
+  less_than_equal: Float
+  not_equals: Float
+}
+
+input Post_CoverImage_sizes__background__height_operator {
+  equals: Float
+  exists: Boolean
+  greater_than: Float
+  greater_than_equal: Float
+  less_than: Float
+  less_than_equal: Float
+  not_equals: Float
+}
+
+input Post_CoverImage_sizes__background__mimeType_operator {
+  all: [String]
+  contains: String
+  equals: String
+  exists: Boolean
+  in: [String]
+  like: String
+  not_equals: String
+  not_in: [String]
+}
+
+input Post_CoverImage_sizes__background__url_operator {
+  all: [String]
+  contains: String
+  equals: String
+  exists: Boolean
+  in: [String]
+  like: String
+  not_equals: String
+  not_in: [String]
+}
+
+input Post_CoverImage_sizes__background__width_operator {
+  equals: Float
+  exists: Boolean
+  greater_than: Float
+  greater_than_equal: Float
+  less_than: Float
+  less_than_equal: Float
+  not_equals: Float
+}
+
 input Post_CoverImage_sizes__thumbnail__filename_operator {
   all: [String]
   contains: String
@@ -1455,6 +1953,12 @@ input Post_CoverImage_where {
   height: Post_CoverImage_height_operator
   id: Post_CoverImage_id_operator
   mimeType: Post_CoverImage_mimeType_operator
+  sizes__background__filename: Post_CoverImage_sizes__background__filename_operator
+  sizes__background__filesize: Post_CoverImage_sizes__background__filesize_operator
+  sizes__background__height: Post_CoverImage_sizes__background__height_operator
+  sizes__background__mimeType: Post_CoverImage_sizes__background__mimeType_operator
+  sizes__background__url: Post_CoverImage_sizes__background__url_operator
+  sizes__background__width: Post_CoverImage_sizes__background__width_operator
   sizes__thumbnail__filename: Post_CoverImage_sizes__thumbnail__filename_operator
   sizes__thumbnail__filesize: Post_CoverImage_sizes__thumbnail__filesize_operator
   sizes__thumbnail__height: Post_CoverImage_sizes__thumbnail__height_operator
@@ -1473,6 +1977,12 @@ input Post_CoverImage_where_and {
   height: Post_CoverImage_height_operator
   id: Post_CoverImage_id_operator
   mimeType: Post_CoverImage_mimeType_operator
+  sizes__background__filename: Post_CoverImage_sizes__background__filename_operator
+  sizes__background__filesize: Post_CoverImage_sizes__background__filesize_operator
+  sizes__background__height: Post_CoverImage_sizes__background__height_operator
+  sizes__background__mimeType: Post_CoverImage_sizes__background__mimeType_operator
+  sizes__background__url: Post_CoverImage_sizes__background__url_operator
+  sizes__background__width: Post_CoverImage_sizes__background__width_operator
   sizes__thumbnail__filename: Post_CoverImage_sizes__thumbnail__filename_operator
   sizes__thumbnail__filesize: Post_CoverImage_sizes__thumbnail__filesize_operator
   sizes__thumbnail__height: Post_CoverImage_sizes__thumbnail__height_operator
@@ -1491,6 +2001,12 @@ input Post_CoverImage_where_or {
   height: Post_CoverImage_height_operator
   id: Post_CoverImage_id_operator
   mimeType: Post_CoverImage_mimeType_operator
+  sizes__background__filename: Post_CoverImage_sizes__background__filename_operator
+  sizes__background__filesize: Post_CoverImage_sizes__background__filesize_operator
+  sizes__background__height: Post_CoverImage_sizes__background__height_operator
+  sizes__background__mimeType: Post_CoverImage_sizes__background__mimeType_operator
+  sizes__background__url: Post_CoverImage_sizes__background__url_operator
+  sizes__background__width: Post_CoverImage_sizes__background__width_operator
   sizes__thumbnail__filename: Post_CoverImage_sizes__thumbnail__filename_operator
   sizes__thumbnail__filesize: Post_CoverImage_sizes__thumbnail__filesize_operator
   sizes__thumbnail__height: Post_CoverImage_sizes__thumbnail__height_operator
@@ -2938,7 +3454,17 @@ input mutationMediaUpdateInput {
 }
 
 input mutationMediaUpdate_SizesInput {
+  background: mutationMediaUpdate_Sizes_BackgroundInput
   thumbnail: mutationMediaUpdate_Sizes_ThumbnailInput
+}
+
+input mutationMediaUpdate_Sizes_BackgroundInput {
+  filename: String
+  filesize: Float
+  height: Float
+  mimeType: String
+  url: String
+  width: Float
 }
 
 input mutationMediaUpdate_Sizes_ThumbnailInput {
@@ -2951,7 +3477,17 @@ input mutationMediaUpdate_Sizes_ThumbnailInput {
 }
 
 input mutationMedia_SizesInput {
+  background: mutationMedia_Sizes_BackgroundInput
   thumbnail: mutationMedia_Sizes_ThumbnailInput
+}
+
+input mutationMedia_Sizes_BackgroundInput {
+  filename: String
+  filesize: Float
+  height: Float
+  mimeType: String
+  url: String
+  width: Float
 }
 
 input mutationMedia_Sizes_ThumbnailInput {
