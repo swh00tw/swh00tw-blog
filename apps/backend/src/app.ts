@@ -6,6 +6,6 @@ const corsOptions = {
 };
 
 const app = express();
-app.use(cors());
+app.use(cors(corsOptions));
 
 export default app;
