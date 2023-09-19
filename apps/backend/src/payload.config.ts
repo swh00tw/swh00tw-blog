@@ -6,13 +6,8 @@ import Posts from "./collections/Posts";
 import Tags from "./collections/Tags";
 import Users from "./collections/Users";
 import Media from "./collections/Media";
-import dotenv from "dotenv";
-dotenv.config();
-const isDev = process.env["BACKEND_ENV"] === "dev";
+
 const config = buildConfig({
-  serverURL: `http${isDev ? "" : "s"}://${isDev ? "localhost" : "0.0.0.0"}:${
-    process.env["PORT"] || 3000
-  }`,
   admin: {
     user: Users.slug,
   },
