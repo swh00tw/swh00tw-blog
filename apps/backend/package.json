@@ -15,7 +15,8 @@
     "generate:graphQLSchema": "cross-env PAYLOAD_CONFIG_PATH=src/payload.config.ts payload generate:graphQLSchema",
     "lint": "eslint \"**/*.ts*\"",
     "lint-fix": "eslint \"**/*.ts*\" . --cache --fix",
-    "ts:check": "tsc --noEmit"
+    "ts:check": "tsc --noEmit",
+    "vercel-build": "echo VERCEL BUILD COMMAND"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": "eslint \"**/*.ts*\" . --cache --fix"
