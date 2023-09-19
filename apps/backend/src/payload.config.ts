@@ -8,12 +8,11 @@ import Users from "./collections/Users";
 import Media from "./collections/Media";
 import dotenv from "dotenv";
 dotenv.config();
-
+const isDev = process.env["BACKEND_ENV"] === "dev";
 const config = buildConfig({
-  serverURL:
-    process.env["BACKEND_ENV"] === "dev"
-      ? "http://localhost:3000"
-      : `https://0.0.0.0:${process.env["PORT"]}`,
+  serverURL: `http${isDev ? "" : "s"}://${isDev ? "localhost" : "0.0.0.0"}:${
+    process.env["PORT"] || 3000
+  }`,
   admin: {
     user: Users.slug,
   },
