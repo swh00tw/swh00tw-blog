@@ -11,6 +11,7 @@ app.get("/", (_, res) => {
 });
 
 const start = async (app: Express) => {
+  dotenv.config();
   // Initialize Payload
   await payload.init({
     secret: process.env["BACKEND_PAYLOAD_SECRET"] as string,
