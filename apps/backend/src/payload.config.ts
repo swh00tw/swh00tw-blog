@@ -6,9 +6,13 @@ import Posts from "./collections/Posts";
 import Tags from "./collections/Tags";
 import Users from "./collections/Users";
 import Media from "./collections/Media";
+import dotenv from "dotenv";
+dotenv.config();
 
 export default buildConfig({
-  serverURL: "http://localhost:3000",
+  serverURL: `http://${
+    process.env["BACKEND_ENV"] === "dev" ? "localhost" : "0.0.0.0"
+  }:${process.env["PORT"] || 3000}`,
   admin: {
     user: Users.slug,
   },
