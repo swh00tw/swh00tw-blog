@@ -1,6 +1,7 @@
 import payload from "payload";
 import dotenv from "dotenv";
 import app from "./app";
+import { Express } from "express";
 
 dotenv.config();
 
@@ -9,11 +10,11 @@ app.get("/", (_, res) => {
   res.redirect("/admin");
 });
 
-const start = async () => {
+const start = async (app: Express) => {
   // Initialize Payload
   await payload.init({
-    secret: process.env.BACKEND_PAYLOAD_SECRET as string,
-    mongoURL: process.env.BACKEND_MONGODB_URI as string,
+    secret: process.env["BACKEND_PAYLOAD_SECRET"] as string,
+    mongoURL: process.env["BACKEND_MONGODB_URI"] as string,
     express: app,
     onInit: async () => {
       payload.logger.info(`Payload Admin URL: ${payload.getAdminURL()}`);
@@ -21,8 +22,11 @@ const start = async () => {
   });
 
   // Add your own express routes here
-
   app.listen(3000);
 };
 
-start();
+if (process.env["BACKEND_ENV"] === "dev") {
+  start(app);
+}
+
+export { app, start };
