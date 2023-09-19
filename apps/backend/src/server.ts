@@ -2,9 +2,8 @@ import payload from "payload";
 import dotenv from "dotenv";
 import app from "./app";
 
-const PORT = process.env["PORT"] || 3000;
-
 dotenv.config();
+const PORT = process.env["PORT"] || 3000;
 
 // Redirect root to Admin panel
 app.get("/", (_, res) => {
