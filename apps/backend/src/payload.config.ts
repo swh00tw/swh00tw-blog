@@ -9,10 +9,11 @@ import Media from "./collections/Media";
 import dotenv from "dotenv";
 dotenv.config();
 
-export default buildConfig({
-  serverURL: `http://${
-    process.env["BACKEND_ENV"] === "dev" ? "localhost" : "0.0.0.0"
-  }:${process.env["PORT"] || 3000}`,
+const config = buildConfig({
+  serverURL:
+    process.env["BACKEND_ENV"] === "dev"
+      ? "http://localhost:3000"
+      : `https://0.0.0.0:${process.env["PORT"]}`,
   admin: {
     user: Users.slug,
   },
@@ -25,3 +26,5 @@ export default buildConfig({
     schemaOutputFile: path.resolve(__dirname, "generated-schema.graphql"),
   },
 });
+
+export default config;
