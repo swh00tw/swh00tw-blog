@@ -69,7 +69,7 @@ importers:
         specifier: ^7.32.0
         version: 7.32.0
       eslint-config-custom:
-        specifier: workspace:*
+        specifier: '*'
         version: link:../../packages/eslint-config-custom
       nodemon:
         specifier: ^2.0.6
@@ -78,8 +78,8 @@ importers:
         specifier: ^9.1.1
         version: 9.1.1(typescript@4.9.5)
       tsconfig:
-        specifier: workspace:*
-        version: link:../../packages/tsconfig
+        specifier: '*'
+        version: 0.0.1
       typescript:
         specifier: ^4.8.4
         version: 4.9.5
@@ -5176,6 +5176,7 @@ packages:
   /esprima@4.0.1:
     resolution: {integrity: sha512-eGuFFw7Upda+g4p+QHvnW0RyTX/SVeJBDM/gCtMARO0cLuT2HcEKnTPvhjV6aGeqrCB/sbNop0Kszm0jsaWU4A==}
     engines: {node: '>=4'}
+    hasBin: true
 
   /esquery@1.5.0:
     resolution: {integrity: sha512-YQLXUplAwJgCydQ78IMJywZCceoqk1oH01OERdSAJc/7U2AylwjhSCLDEtqwg811idIS/9fIU5GjG73IgjKMVg==}
@@ -5688,6 +5689,13 @@ packages:
     resolution: {integrity: sha512-SyHy3T1v2NUXn29OsWdxmK6RwHD+vkj3v8en8AOBZ1wBQ/hCAQ5bAQTD02kW4W9tUp/3Qh6J8r9EvntiyCmOOw==}
     dev: false
 
+  /glob-expand@0.0.2:
+    resolution: {integrity: sha512-V7T7b7xanrS2mXnvCc4KyakQLV2G7wrtBVjf+IePWskZukv3DejEM6wYyJwIidFJKePXOxQN0B6EYpODDmLNZw==}
+    dependencies:
+      glob: 3.1.21
+      lodash: 1.2.1
+    dev: true
+
   /glob-parent@5.1.2:
     resolution: {integrity: sha512-AOIgSQCepiJYwP3ARnGx+5VnTu2HBYdzbGP45eLw1vr3zB3vZLeyed1sC9hnbcOc9/SrMyM5RPQrkGz4aS9Zow==}
     engines: {node: '>= 6'}
@@ -5714,6 +5722,14 @@ packages:
   /glob-to-regexp@0.4.1:
     resolution: {integrity: sha512-lkX1HJXwyMcprw/5YUZc2s7DrpAiHB21/V+E1rHUrVNokkvB6bqMzT0VfV6/86ZNabt1k14YOIaT7nDvOX3Iiw==}
     dev: false
+
+  /glob@3.1.21:
+    resolution: {integrity: sha512-ANhy2V2+tFpRajE3wN4DhkNQ08KDr0Ir1qL12/cUe5+a7STEK8jkW4onUYuY8/06qAFuT5je7mjAqzx0eKI2tQ==}
+    dependencies:
+      graceful-fs: 1.2.3
+      inherits: 1.0.2
+      minimatch: 0.2.14
+    dev: true
 
   /glob@7.1.6:
     resolution: {integrity: sha512-LwaxwyZ72Lk7vZINtNNrywX0ZuLyStrdDtabefZKAY5ZGJhVtgdznluResxNmPitE0SAO+O26sWTHeKSI2wMBA==}
@@ -5837,6 +5853,12 @@ packages:
     resolution: {integrity: sha512-d65bNlIadxvpb/A2abVdlqKqV563juRnZ1Wtk6s1sIR8uNsXR70xqIzVqxVf1eTqDunwT2MkczEeaezCKTZhwA==}
     dependencies:
       get-intrinsic: 1.2.0
+
+  /graceful-fs@1.2.3:
+    resolution: {integrity: sha512-iiTUZ5vZ+2ZV+h71XAgwCSu6+NAizhFU3Yw8aC/hH5SQ3SnISqEqAek40imAFGtDcwJKNhXvSY+hzIolnLwcdQ==}
+    engines: {node: '>=0.4.0'}
+    deprecated: please upgrade to graceful-fs 4 for compatibility with current and future versions of Node.js
+    dev: true
 
   /graceful-fs@4.2.11:
     resolution: {integrity: sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==}
@@ -6334,6 +6356,10 @@ packages:
       once: 1.4.0
       wrappy: 1.0.2
 
+  /inherits@1.0.2:
+    resolution: {integrity: sha512-Al67oatbRSo3RV5hRqIoln6Y5yMVbJSIn4jEJNL7VCImzq/kLr7vvb6sFRJXqr8rpHc/2kJOM+y0sPKN47VdzA==}
+    dev: true
+
   /inherits@2.0.4:
     resolution: {integrity: sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==}
 
@@ -6789,6 +6815,7 @@ packages:
 
   /js-yaml@3.14.1:
     resolution: {integrity: sha512-okMH7OXXJ7YrN9Ok3/SXrnu4iX9yOk+25nqX4imS2npuvTYDmo/QEZoqwZkYaIDk3jVvBOTOIEgEhaLOynBS9g==}
+    hasBin: true
     dependencies:
       argparse: 1.0.10
       esprima: 4.0.1
@@ -7136,6 +7163,11 @@ packages:
   /lodash.uniq@4.5.0:
     resolution: {integrity: sha512-xfBaXQd9ryd9dlSDvnvI0lvxfLJlYAZzXomUYzLKtUeOQvOP5piqAWuGtrhWeqaXK9hhoM/iyJc5AV+XfsX3HQ==}
 
+  /lodash@1.2.1:
+    resolution: {integrity: sha512-EKI82Edm8glH3FUu17sQIF+Ly1cW2ROPc0qgf1L4DBUysBlQVL+/b+WtufJw0O8FtMo7Vq9KTrzUboyWSgW/tg==}
+    engines: {'0': node, '1': rhino}
+    dev: true
+
   /lodash@4.17.21:
     resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
 
@@ -7183,6 +7215,10 @@ packages:
     resolution: {integrity: sha512-7fm3l3NAF9WfN6W3JOmf5drwpVqX78JtoGJ3A6W0a6ZnldM41w2fV5D490psKFTpMds8TJse/eHLFFsNHHjHgg==}
     dependencies:
       tslib: 2.5.0
+
+  /lru-cache@2.7.3:
+    resolution: {integrity: sha512-WpibWJ60c3AgAz8a2iYErDrcT2C7OmKnsWhIcHOjkUHFjkXncJhtLxNSqUmxRxRunpb5I8Vprd7aNSd2NtksJQ==}
+    dev: true
 
   /lru-cache@6.0.0:
     resolution: {integrity: sha512-Jo6dJ04CmSjuznwJSS3pUeWmd/H0ffTlkXXgwZi+eq1UCmqQwCh+eLsYOYCwY991i2Fah4h1BEMCx4qThGbsiA==}
@@ -7407,6 +7443,14 @@ packages:
       webpack: 5.88.2(@swc/core@1.3.70)(webpack-cli@4.10.0)
       webpack-sources: 1.4.3
     dev: false
+
+  /minimatch@0.2.14:
+    resolution: {integrity: sha512-zZ+Jy8lVWlvqqeM8iZB7w7KmQkoJn8djM585z88rywrEbzoqawVa9FR5p2hwD+y74nfuKOjmNvi9gtWJNLqHvA==}
+    deprecated: Please update to minimatch 3.0.2 or higher to avoid a RegExp DoS issue
+    dependencies:
+      lru-cache: 2.7.3
+      sigmund: 1.0.1
+    dev: true
 
   /minimatch@3.1.2:
     resolution: {integrity: sha512-J7p63hRiAjw1NDEww1W7i37+ByIrOWO5XQQAzZ3VOcL0PNybwpfmV/N05zFAzwQ9USyEcX6t3UO+K5aqBQOIHw==}
@@ -10164,6 +10208,10 @@ packages:
     resolution: {integrity: sha512-ILTjdP2Mv9V1kIxWMXeMTIRbOBrqKc4JAXmFMnFq3fKeyQ2Qwa3Dw1ubcye3vR+Y6ofA0b9gNDr/y2t6eUeIzQ==}
     dev: false
 
+  /sigmund@1.0.1:
+    resolution: {integrity: sha512-fCvEXfh6NWpm+YSuY2bpXb/VIihqWA6hLsgboC+0nl71Q7N7o2eaCW8mJa/NLvQhs6jpd3VZV4UiUQlV6+lc8g==}
+    dev: true
+
   /signal-exit@3.0.7:
     resolution: {integrity: sha512-wnD2ZE+l+SPC/uoS0vXeE9L1+0wuaMqKlfz9AMUo38JsyLSBWSFcHR1Rri62LZc12vLr1gb3jl7iwQhgwpAbGQ==}
 
@@ -11123,6 +11171,13 @@ packages:
       minimist: 1.2.8
       strip-bom: 3.0.0
     dev: false
+
+  /tsconfig@0.0.1:
+    resolution: {integrity: sha512-niUm+6k+CDY/e2vHxy2o6VAJLWvbLzOGFMEgaJ+8x2MjslMK83g9LhFLxxWmBSeZDsI4Amk3bdtmT7WCpP+nuA==}
+    dependencies:
+      glob-expand: 0.0.2
+      js-yaml: 3.14.1
+    dev: true
 
   /tslib@1.14.1:
     resolution: {integrity: sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==}
