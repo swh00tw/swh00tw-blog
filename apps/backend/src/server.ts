@@ -7,7 +7,11 @@ dotenv.config();
 
 // Redirect root to Admin panel
 app.get("/", async (_, res) => {
-  await setupPayload(app);
+  try {
+    await setupPayload(app);
+  } catch (e) {
+    console.log(e);
+  }
   res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
   res.redirect("/admin");
 });
