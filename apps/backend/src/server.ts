@@ -10,7 +10,7 @@ app.get("/", (_, res) => {
   res.redirect("/admin");
 });
 
-const start = async (app: Express) => {
+const setupPayload = async (app: Express) => {
   dotenv.config();
   // Initialize Payload
   await payload.init({
@@ -21,13 +21,12 @@ const start = async (app: Express) => {
       payload.logger.info(`Payload Admin URL: ${payload.getAdminURL()}`);
     },
   });
-
-  // Add your own express routes here
-  app.listen(3000);
 };
 
 if (process.env["BACKEND_ENV"] === "dev") {
-  start(app);
+  setupPayload(app);
+  // Add your own express routes here
+  app.listen(3000);
 }
 
-export { app, start };
+export { app, setupPayload };

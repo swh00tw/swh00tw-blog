@@ -1,5 +1,5 @@
-import { app, start } from "../src/server";
+import { app, setupPayload } from "../src/server";
 
-start(app);
+setupPayload(app);
 
 export default app;
