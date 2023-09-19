@@ -1,5 +1,3 @@
-import { app, setupPayload } from "../src/server";
-
-setupPayload(app);
+import app from "../src/server";
 
 export default app;

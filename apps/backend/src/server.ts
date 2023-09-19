@@ -29,10 +29,10 @@ const setupPayload = async (app: Express) => {
   });
 };
 
+setupPayload(app);
 if (process.env["BACKEND_ENV"] === "dev") {
-  setupPayload(app);
   // Add your own express routes here
   app.listen(3000);
 }
 
-export { app, setupPayload };
+export default app;
