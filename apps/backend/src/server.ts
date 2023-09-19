@@ -6,7 +6,8 @@ import { Express } from "express";
 dotenv.config();
 
 // Redirect root to Admin panel
-app.get("/", (_, res) => {
+app.get("/", async (_, res) => {
+  await setupPayload(app);
   res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
   res.redirect("/admin");
 });
@@ -29,8 +30,8 @@ const setupPayload = async (app: Express) => {
   });
 };
 
-setupPayload(app);
 if (process.env["BACKEND_ENV"] === "dev") {
+  setupPayload(app);
   // Add your own express routes here
   app.listen(3000);
 }
