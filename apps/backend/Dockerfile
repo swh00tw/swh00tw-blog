@@ -1,4 +1,4 @@
-FROM node:18.8-alpine as base
+FROM node:20-alpine as base
 
 FROM base as builder
 
@@ -13,6 +13,9 @@ FROM base as runtime
 
 ENV NODE_ENV=production
 ENV PAYLOAD_CONFIG_PATH=dist/payload.config.js
+ARG BACKEND_MONGODB_URI
+ARG BACKEND_PAYLOAD_SECRET
+ARG BACKEND_ENV
 
 WORKDIR /home/node/app
 COPY package*.json  ./

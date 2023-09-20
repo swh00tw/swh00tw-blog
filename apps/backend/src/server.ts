@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import app from "./app";
 
 dotenv.config();
+const PORT = process.env["PORT"] || 3000;
 
 // Redirect root to Admin panel
 app.get("/", (_, res) => {
@@ -22,7 +23,7 @@ const start = async () => {
 
   // Add your own express routes here
 
-  app.listen(3000);
+  app.listen(PORT);
 };
 
 start();
