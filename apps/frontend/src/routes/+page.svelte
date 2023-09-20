@@ -6,7 +6,7 @@
 	import PostCard from "@/lib/components/PostCard/index.svelte";
 	import { notEmpty } from "@/lib/notEmpty";
 	import { faker } from "@faker-js/faker";
-	import { PUBLIC_FRONTEND_ENV } from "$env/static/public";
+	import { PUBLIC_FRONTEND_ENV, PUBLIC_FRONTEND_GQL_API_ENDPOINT } from "$env/static/public";
 	export let data: PageData;
 
 	const fallbackImageUrl = "https://loremflickr.com/800/450?lock=5528848091316224";
@@ -15,7 +15,10 @@
 		.map((post) =>
 			post
 				? {
-						coverImgSrc: post.coverImage.sizes?.thumbnail?.url ?? fallbackImageUrl,
+						coverImgSrc:
+							`${PUBLIC_FRONTEND_GQL_API_ENDPOINT.split("/").slice(0, -2).join("/")}${
+								post.coverImage.sizes?.thumbnail?.url
+							}` ?? fallbackImageUrl,
 						title: post.title,
 						description: post.description ?? "",
 						readingTime: Math.ceil(((post.content.words as number) * 7.7) / 1000),
