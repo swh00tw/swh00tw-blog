@@ -9,7 +9,6 @@
 	import { parseJson } from "$lib/serializer/parse";
 	import type { JsonContent } from "$lib/serializer/types";
 	import LexicalNodes from "@/lib/serializer/LexicalNodes.svelte";
-	import { PUBLIC_FRONTEND_GQL_API_ENDPOINT } from "$env/static/public";
 
 	export let data: PageData;
 	let json: JsonContent | null = null;
@@ -43,9 +42,7 @@
 
 <div class={cn("relative", "overflow-x-hidden")}>
 	<img
-		src={`${PUBLIC_FRONTEND_GQL_API_ENDPOINT.split("/").slice(0, -2).join("/")}${
-			$PagePost?.data?.Post?.coverImage?.sizes?.background?.url
-		}`}
+		src={`${$PagePost?.data?.Post?.coverImage?.sizes?.background?.url}`}
 		alt={`${$PagePost?.data?.Post?.title ?? "$title"}-coverImage`}
 		class={cn("absolute", "top-[60px]", "md:top-0", "left-0", "w-full", "z-[-2]")}
 	/>
