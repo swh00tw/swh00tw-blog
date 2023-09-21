@@ -10,6 +10,7 @@
     "ts:check": "turbo run ts:check"
   },
   "devDependencies": {
+    "@sveltejs/adapter-vercel": "^3.0.3",
     "@turbo/gen": "^1.9.7",
     "class-variance-authority": "^0.7.0",
     "cz-conventional-changelog": "^3.3.0",
