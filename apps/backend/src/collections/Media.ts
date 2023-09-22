@@ -8,6 +8,8 @@ const Media: CollectionConfig = {
   },
   upload: {
     staticDir: path.resolve(__dirname, "../../media"),
+    staticURL: "/media",
+    disableLocalStorage: true,
     // Specify the size name that you'd like to use as admin thumbnail
     adminThumbnail: "thumbnail",
     imageSizes: [
