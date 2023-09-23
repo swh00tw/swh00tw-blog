@@ -4,11 +4,15 @@ import { lexicalRichTextField } from "payload-plugin-lexical";
 const Posts: CollectionConfig = {
   slug: "posts",
   admin: {
-    defaultColumns: ["title", "author", "category", "tags", "status"],
+    defaultColumns: ["title", "author", "category", "tags"],
     useAsTitle: "title",
   },
   access: {
     read: () => true,
+    readVersions: () => true,
+  },
+  versions: {
+    drafts: true,
   },
   fields: [
     {
@@ -53,24 +57,6 @@ const Posts: CollectionConfig = {
       label: "Lexical Rich Text Editor",
       required: true,
     }),
-    {
-      name: "status",
-      type: "select",
-      options: [
-        {
-          value: "draft",
-          label: "Draft",
-        },
-        {
-          value: "published",
-          label: "Published",
-        },
-      ],
-      defaultValue: "draft",
-      admin: {
-        position: "sidebar",
-      },
-    },
   ],
 };
 
