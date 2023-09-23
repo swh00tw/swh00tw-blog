@@ -6,8 +6,8 @@ import { error } from "@sveltejs/kit";
 import { PUBLIC_FRONTEND_ENV } from "$env/static/public";
 
 export const _houdini_load = graphql`
-	query PagePost($id: String!, $draft: Boolean!) {
-		Post(id: $id, draft: $draft) {
+	query PagePost($id: String!, $postWhereInput: Post_where!) {
+		Post(id: $id) {
 			id
 			title
 			description
@@ -22,7 +22,7 @@ export const _houdini_load = graphql`
 				}
 			}
 		}
-		Posts(draft: $draft) {
+		Posts(where: $postWhereInput) {
 			docs {
 				id
 				title
@@ -34,16 +34,28 @@ export const _houdini_load = graphql`
 export const _PagePostVariables: PageLoad = async (event) => {
 	const { AllPosts } = await load_AllPosts({
 		event,
-		variables: { draft: PUBLIC_FRONTEND_ENV === "dev" }
+		variables: {
+			postWhereInput: {
+				_status: {
+					in: PUBLIC_FRONTEND_ENV === "dev" ? ["draft", "published"] : ["published"]
+				}
+			}
+		}
 	});
 	const posts = get(AllPosts);
 	const key = (event.params as { postKey: string }).postKey;
-	const id = posts.data?.Posts?.docs?.find((post) => post && encodePostKey(post.title) === key)?.id;
+	const id = posts.data?.Posts?.docs?.find(
+		(post) => post && encodePostKey(post?.title ?? "") === key
+	)?.id;
 	if (!id) {
 		throw error(404, "Post not found");
 	}
 	return {
 		id,
-		draft: PUBLIC_FRONTEND_ENV === "dev"
+		postWhereInput: {
+			_status: {
+				in: PUBLIC_FRONTEND_ENV === "dev" ? ["draft", "published"] : ["published"]
+			}
+		}
 	};
 };
