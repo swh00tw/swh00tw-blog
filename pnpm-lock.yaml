@@ -10,9 +10,6 @@ importers:
       '@turbo/gen':
         specifier: ^1.9.7
         version: 1.9.7(@types/node@17.0.45)(typescript@5.1.6)
-      class-variance-authority:
-        specifier: ^0.7.0
-        version: 0.7.0
       cz-conventional-changelog:
         specifier: ^3.3.0
         version: 3.3.0
@@ -125,6 +122,9 @@ importers:
       autoprefixer:
         specifier: ^10.4.14
         version: 10.4.14(postcss@8.4.27)
+      class-variance-authority:
+        specifier: ^0.7.0
+        version: 0.7.0
       clsx:
         specifier: ^2.0.0
         version: 2.0.0
