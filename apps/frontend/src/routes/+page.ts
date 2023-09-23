@@ -3,8 +3,8 @@ import type { PageLoad } from "./$types";
 import { PUBLIC_FRONTEND_ENV } from "$env/static/public";
 
 export const _houdini_load = graphql`
-	query AllPosts($draft: Boolean!) {
-		Posts(draft: $draft) {
+	query AllPosts($postWhereInput: Post_where!) {
+		Posts(where: $postWhereInput) {
 			docs {
 				id
 				title
@@ -29,6 +29,10 @@ export const _houdini_load = graphql`
 
 export const _AllPostsVariables: PageLoad = async () => {
 	return {
-		draft: PUBLIC_FRONTEND_ENV === "dev"
+		postWhereInput: {
+			_status: {
+				in: PUBLIC_FRONTEND_ENV === "dev" ? ["draft", "published"] : ["published"]
+			}
+		}
 	};
 };
