@@ -103,7 +103,9 @@
 						)}
 					>
 						<p>
-							{getDateString($PagePost.data.Post.publishedDate)}
+							{#if $PagePost.data.Post.publishedDate}
+								{getDateString($PagePost.data.Post.publishedDate)}
+							{/if}
 						</p>
 						<div class={cn("h-[21px]", "w-[1px]", "bg-text02")} />
 						<p>
