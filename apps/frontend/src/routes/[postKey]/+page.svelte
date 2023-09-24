@@ -11,6 +11,7 @@
 	import LexicalNodes from "@/lib/serializer/LexicalNodes.svelte";
 	import { getImagePrefix } from "@/lib/getImagePrefix";
 	import Toc from "@/lib/components/Toc/index.svelte";
+	import { inview } from "svelte-inview";
 
 	export let data: PageData;
 	let json: JsonContent | null = null;
@@ -40,6 +41,8 @@
 			}
 		}
 	}
+
+	let isInView = true;
 </script>
 
 <div class={cn("relative", "overflow-x-hidden")}>
@@ -116,8 +119,15 @@
 							<LexicalNodes nodes={json.root.children} />
 						{/if}
 					</div>
-					<div class={cn("hidden", "lg:block", "lg:w-[26%]")}>
-						<Toc nodes={json?.root?.children ?? []} />
+					<div class={cn("hidden", "lg:block", "lg:w-[26%]", "relative")}>
+						<Toc isSticky={!isInView} nodes={json?.root?.children ?? []} />
+						<div
+							class={cn("absolute", "h-[1px]", "w-full", "bg-text02", "top-[-100px]")}
+							use:inview={{}}
+							on:inview_change={(event) => {
+								isInView = event.detail.inView;
+							}}
+						/>
 					</div>
 				</div>
 			</div>

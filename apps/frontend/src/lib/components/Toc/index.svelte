@@ -12,7 +12,15 @@
 	import type { LexicalNode } from "@/lib/serializer/types";
 	import { cn } from "$lib/cn";
 	import Node from "./Node.svelte";
+	import { onMount } from "svelte";
 	export let nodes: LexicalNode[];
+
+	export let isSticky: boolean;
+	let leftOffset = "left-0";
+	let el: HTMLDivElement | null = null;
+	onMount(() => {
+		leftOffset = `left-${el?.offsetLeft ?? 0}`;
+	});
 
 	function getTitles(nodes: LexicalNode[]): Title[] {
 		if (!nodes) return [];
@@ -24,7 +32,6 @@
 			const indent = title.tag === "h1" ? 0 : title.tag === "h2" ? 1 : 2;
 			minIndent = Math.min(minIndent, indent);
 		}
-		console.log(minIndent);
 		return titles.map((title) => ({
 			indent: (title.tag === "h1" ? 0 : title.tag === "h2" ? 1 : 2) - minIndent,
 			text: title?.children?.[0].text as string,
@@ -32,11 +39,24 @@
 			tag: title?.tag as "h1" | "h2" | "h3"
 		}));
 	}
-	console.log(nodes);
-	console.log(getTitles(nodes));
 </script>
 
-<div class={cn("flex", "flex-col", "gap-[10px]", "mt-3", "ml-3")}>
+<div
+	class={cn(
+		"flex",
+		"w-[calc(100svw*0.15)]",
+		"flex-col",
+		"gap-[10px]",
+		"transition-all",
+		"ease-in-out",
+		{
+			fixed: isSticky,
+			"top-[100px]": isSticky,
+			leftOffset: isSticky
+		}
+	)}
+	bind:this={el}
+>
 	<div class={cn("text-[14px]", "font-bold")}>Table Of Content</div>
 	{#each getTitles(nodes) as title}
 		<Node {title} />
