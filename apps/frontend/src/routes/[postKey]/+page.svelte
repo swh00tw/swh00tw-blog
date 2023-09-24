@@ -50,6 +50,7 @@
 		src={`${getImagePrefix()}${$PagePost?.data?.Post?.coverImage?.sizes?.background?.url}`}
 		alt={`${$PagePost?.data?.Post?.title ?? "$title"}-coverImage`}
 		class={cn("absolute", "top-[60px]", "md:top-0", "left-0", "w-full", "z-[-2]")}
+		fetchpriority="high"
 	/>
 	<div
 		class={cn(

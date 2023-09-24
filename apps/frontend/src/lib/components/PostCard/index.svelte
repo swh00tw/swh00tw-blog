@@ -67,7 +67,12 @@
 	on:mousemove={handleMouseMove}
 	role="group"
 >
-	<img src={coverImgSrc} alt={`$${title}-cover-imgae`} class="rounded-[12.6px]" />
+	<img
+		src={coverImgSrc}
+		alt={`$${title}-cover-imgae`}
+		class="rounded-[12.6px]"
+		fetchpriority="high"
+	/>
 	<div
 		class={textVariant({
 			size: "subheading",
