@@ -122,7 +122,7 @@
 					<div class={cn("hidden", "lg:block", "lg:w-[26%]", "relative")}>
 						<Toc isSticky={!isInView} nodes={json?.root?.children ?? []} />
 						<div
-							class={cn("absolute", "h-[1px]", "w-full", "bg-text02", "top-[-100px]")}
+							class={cn("absolute", "h-[1px]", "w-full", "bg-transparent", "top-[-100px]")}
 							use:inview={{}}
 							on:inview_change={(event) => {
 								isInView = event.detail.inView;
