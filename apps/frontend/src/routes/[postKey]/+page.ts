@@ -6,7 +6,7 @@ import { PUBLIC_FRONTEND_ENV } from "$env/static/public";
 
 export const _houdini_load = graphql`
 	query PagePost($id: String!, $postWhereInput: Post_where!) {
-		Post(id: $id) {
+		Post(id: $id, draft: true) {
 			id
 			title
 			description
@@ -21,7 +21,7 @@ export const _houdini_load = graphql`
 				}
 			}
 		}
-		Posts(where: $postWhereInput) {
+		Posts(where: $postWhereInput, draft: true) {
 			docs {
 				id
 				title

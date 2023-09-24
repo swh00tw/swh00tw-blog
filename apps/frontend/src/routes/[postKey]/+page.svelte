@@ -10,6 +10,7 @@
 	import type { JsonContent } from "$lib/serializer/types";
 	import LexicalNodes from "@/lib/serializer/LexicalNodes.svelte";
 	import { getImagePrefix } from "@/lib/getImagePrefix";
+	import Toc from "@/lib/components/Toc/index.svelte";
 
 	export let data: PageData;
 	let json: JsonContent | null = null;
@@ -110,12 +111,14 @@
 					</div>
 				</div>
 				<div class={cn("flex", "flex-row", "justify-between", "w-full", "mt-[calc(100vw*0.15)]")}>
-					<div class={cn("w-full", "lg:w-[72%]", "text-text02", "text-[14px]", "min-h-[43svh]")}>
+					<div class={cn("w-full", "lg:w-[72%]", "text-content", "text-[14px]", "min-h-[43svh]")}>
 						{#if json}
 							<LexicalNodes nodes={json.root.children} />
 						{/if}
 					</div>
-					<div class={cn("hidden", "lg:block", "lg:w-[26%]")}>toc</div>
+					<div class={cn("hidden", "lg:block", "lg:w-[26%]")}>
+						<Toc nodes={json?.root?.children ?? []} />
+					</div>
 				</div>
 			</div>
 		{:else if $PagePost.fetching}

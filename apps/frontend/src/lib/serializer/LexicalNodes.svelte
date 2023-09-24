@@ -49,7 +49,7 @@
 			{@const tag = node?.tag ?? "ul"}
 			<svelte:element
 				this={tag}
-				class={cn("list-inside", "marker:text-text02", "my-3", {
+				class={cn("list-inside", "marker:text-content", "my-3", {
 					"list-decimal": node?.tag === "ol",
 					"list-disc": node?.tag === "ul"
 				})}
@@ -71,7 +71,8 @@
 						"before:h-full",
 						"before:bg-accent",
 						"before:left-0",
-						"pl-4"
+						"pl-4",
+						"text-text02"
 					)}
 				>
 					<svelte:self nodes={childrenNodes} />

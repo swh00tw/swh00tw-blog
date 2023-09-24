@@ -10,7 +10,8 @@ export default {
 				border: "#3e3e3e",
 				text02: "#bbbbbb",
 				primary: "#7D00C9",
-				secondary: "#2E2E2E"
+				secondary: "#2E2E2E",
+				content: "#e0e0e0"
 			},
 			fontFamily: {
 				dmSans: ["DM Sans", "sans-serif"],
