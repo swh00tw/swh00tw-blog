@@ -167,6 +167,9 @@ importers:
       svelte-check:
         specifier: ^3.4.3
         version: 3.4.6(postcss@8.4.27)(svelte@4.1.1)
+      svelte-scrolling:
+        specifier: ^1.2.2
+        version: 1.2.2(svelte@4.1.1)
       svooltip:
         specifier: ^0.7.4
         version: 0.7.4
@@ -12041,6 +12044,14 @@ packages:
       strip-indent: 3.0.0
       svelte: 4.1.1
       typescript: 5.1.6
+    dev: true
+
+  /svelte-scrolling@1.2.2(svelte@4.1.1):
+    resolution: {integrity: sha512-vlVbC8OGte6nqlw2lu9r4L1G48W1h2Aq16fNd0Y2YAUTjM10f55inMGN7zm2rFDPH/tPRIfqZBui+u5i8RD6mA==}
+    peerDependencies:
+      svelte: ^3.38.3
+    dependencies:
+      svelte: 4.1.1
     dev: true
 
   /svelte@3.59.2:

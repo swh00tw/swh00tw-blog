@@ -1,6 +1,5 @@
 <script lang="ts" context="module">
 	export interface Title {
-		key: string;
 		text: string;
 		indent: number;
 		tag: "h1" | "h2" | "h3";
@@ -35,7 +34,6 @@
 		return titles.map((title) => ({
 			indent: (title.tag === "h1" ? 0 : title.tag === "h2" ? 1 : 2) - minIndent,
 			text: title?.children?.[0].text as string,
-			key: title?.children?.[0].text as string,
 			tag: title?.tag as "h1" | "h2" | "h3"
 		}));
 	}

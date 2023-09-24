@@ -10,6 +10,7 @@
 	} from "$lib/serializer/richTextNodeFormat";
 
 	import type { LexicalNode } from "./types";
+	import { scrollRef } from "svelte-scrolling";
 
 	interface $$Prop {
 		node: LexicalNode;
@@ -59,7 +60,9 @@
 </script>
 
 {#if node.text}
-	{@html renderText(node.text)}
+	<span use:scrollRef={node.text}>
+		{@html renderText(node.text)}
+	</span>
 {:else}
 	<div />
 {/if}
