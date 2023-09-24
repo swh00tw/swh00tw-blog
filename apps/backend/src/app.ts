@@ -5,7 +5,7 @@ const corsOptions = {
   origin: [
     "http://localhost:5173",
     "https://swh00tw-blog.vercel.app",
-    /^https:\/\/swh00tw-blog([a-zA-Z0-9-]+)\.vercel\.app\/$/,
+    /swh00tw-blog([a-zA-Z0-9-]+)\.vercel\.app\/$/,
   ],
 };
 
