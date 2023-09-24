@@ -12,7 +12,7 @@
 	import { cn } from "$lib/cn";
 	import Node from "./Node.svelte";
 	import { onMount } from "svelte";
-	import { initCurrSection, currSection } from "./currSection";
+	import { initCurrSection } from "./currSection";
 	export let nodes: LexicalNode[];
 	export let pageId: string | undefined;
 

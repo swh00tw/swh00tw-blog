@@ -9,7 +9,7 @@ const linkAttributesSchema = z
 export const lexicalNodeBaseSchema = z
 	.object({
 		direction: z.string().or(z.null()).optional(),
-		format: z.number().or(z.string()),
+		format: z.number().or(z.string()).optional(),
 		indent: z.union([z.number(), z.string()]).optional(),
 		type: z.string(),
 		version: z.number(),
