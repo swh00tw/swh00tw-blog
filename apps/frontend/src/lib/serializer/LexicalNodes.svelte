@@ -6,6 +6,7 @@
 	import { textVariant } from "../variants";
 	import { inview } from "svelte-inview";
 	import { addSection, removeSection } from "$lib/components/Toc/currSection";
+	import LexicalImage from "./LexicalImage.svelte";
 
 	export let pageId: string | undefined = undefined;
 	export let nodes: LexicalNode[];
@@ -37,12 +38,14 @@
 {#each nodes as node (node)}
 	{#if node.type === "text"}
 		<LexicalText {node} />
+	{:else if node.type === "upload"}
+		<LexicalImage {node} />
 	{:else if prepareSerializedChildren(node) !== null}
 		{@const childrenNodes = prepareSerializedChildren(node)}
 		{#if node.type === "linebreak"}
 			<br />
 		{:else if node.type === "paragraph"}
-			<p class="my-3"><svelte:self nodes={childrenNodes} /></p>
+			<div class="my-3"><svelte:self nodes={childrenNodes} /></div>
 		{:else if node.type === "heading"}
 			{@const tag = node?.tag ?? "h4"}
 			{@const text = node?.children?.[0]?.text ?? ""}
@@ -115,9 +118,6 @@
 					<svelte:self nodes={childrenNodes} />
 				</Link>
 			{/if}
-		{:else if node.type === "inline-image"}
-			<!-- TODO: add image -->
-			<div />
 		{/if}
 	{/if}
 {/each}
