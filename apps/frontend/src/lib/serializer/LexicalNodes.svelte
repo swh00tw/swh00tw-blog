@@ -4,7 +4,10 @@
 	import { cn } from "$lib/cn";
 	import Link from "../components/Link/index.svelte";
 	import { textVariant } from "../variants";
+	import { inview } from "svelte-inview";
+	import { addSection, removeSection } from "$lib/components/Toc/currSection";
 
+	export let pageId: string | undefined = undefined;
 	export let nodes: LexicalNode[];
 
 	function prepareSerializedChildren(node: LexicalNode): LexicalNode[] | null {
@@ -42,8 +45,29 @@
 			<p class="my-3"><svelte:self nodes={childrenNodes} /></p>
 		{:else if node.type === "heading"}
 			{@const tag = node?.tag ?? "h4"}
-			<svelte:element this={tag} class={cn(castTextVariant(tag), "my-3")}>
+			{@const text = node?.children?.[0]?.text ?? ""}
+			<svelte:element
+				this={tag}
+				class={cn(castTextVariant(tag), "my-3", "relative", "scroll-mt-[100px]")}
+				id={text}
+			>
 				<svelte:self nodes={childrenNodes} />
+				<div
+					class={cn("absolute", "top-[250px]", "w-full", "h-[1px]", "bg-red-100")}
+					use:inview={{}}
+					on:inview_enter={() => {
+						if (pageId === undefined) {
+							return;
+						}
+						addSection(pageId, text);
+					}}
+					on:inview_leave={() => {
+						if (pageId === undefined) {
+							return;
+						}
+						removeSection(pageId, text);
+					}}
+				/>
 			</svelte:element>
 		{:else if node.type === "list"}
 			{@const tag = node?.tag ?? "ul"}

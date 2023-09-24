@@ -116,11 +116,15 @@
 				<div class={cn("flex", "flex-row", "justify-between", "w-full", "mt-[calc(100vw*0.15)]")}>
 					<div class={cn("w-full", "lg:w-[72%]", "text-content", "text-[14px]", "min-h-[43svh]")}>
 						{#if json}
-							<LexicalNodes nodes={json.root.children} />
+							<LexicalNodes nodes={json.root.children} pageId={$PagePost.variables?.id} />
 						{/if}
 					</div>
 					<div class={cn("hidden", "lg:block", "lg:w-[26%]", "relative")}>
-						<Toc isSticky={!isInView} nodes={json?.root?.children ?? []} />
+						<Toc
+							isSticky={!isInView}
+							nodes={json?.root?.children ?? []}
+							pageId={$PagePost.variables?.id}
+						/>
 						<div
 							class={cn("absolute", "h-[1px]", "w-full", "bg-transparent", "top-[-100px]")}
 							use:inview={{}}
