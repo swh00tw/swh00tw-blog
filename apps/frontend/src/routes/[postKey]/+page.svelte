@@ -10,6 +10,8 @@
 	import type { JsonContent } from "$lib/serializer/types";
 	import LexicalNodes from "@/lib/serializer/LexicalNodes.svelte";
 	import { getImagePrefix } from "@/lib/getImagePrefix";
+	import Toc from "@/lib/components/Toc/index.svelte";
+	import { inview } from "svelte-inview";
 
 	export let data: PageData;
 	let json: JsonContent | null = null;
@@ -39,6 +41,8 @@
 			}
 		}
 	}
+
+	let isInView = true;
 </script>
 
 <div class={cn("relative", "overflow-x-hidden")}>
@@ -99,7 +103,9 @@
 						)}
 					>
 						<p>
-							{getDateString($PagePost.data.Post.publishedDate)}
+							{#if $PagePost.data.Post.publishedDate}
+								{getDateString($PagePost.data.Post.publishedDate)}
+							{/if}
 						</p>
 						<div class={cn("h-[21px]", "w-[1px]", "bg-text02")} />
 						<p>
@@ -110,12 +116,25 @@
 					</div>
 				</div>
 				<div class={cn("flex", "flex-row", "justify-between", "w-full", "mt-[calc(100vw*0.15)]")}>
-					<div class={cn("w-full", "lg:w-[72%]", "text-text02", "text-[14px]", "min-h-[43svh]")}>
+					<div class={cn("w-full", "lg:w-[72%]", "text-content", "text-[16px]", "min-h-[43svh]")}>
 						{#if json}
-							<LexicalNodes nodes={json.root.children} />
+							<LexicalNodes nodes={json.root.children} pageId={$PagePost.variables?.id} />
 						{/if}
 					</div>
-					<div class={cn("hidden", "lg:block", "lg:w-[26%]")}>toc</div>
+					<div class={cn("hidden", "lg:block", "lg:w-[22%]", "relative")}>
+						<Toc
+							isSticky={!isInView}
+							nodes={json?.root?.children ?? []}
+							pageId={$PagePost.variables?.id}
+						/>
+						<div
+							class={cn("absolute", "h-[1px]", "w-full", "bg-transparent", "top-[-100px]")}
+							use:inview={{}}
+							on:inview_change={(event) => {
+								isInView = event.detail.inView;
+							}}
+						/>
+					</div>
 				</div>
 			</div>
 		{:else if $PagePost.fetching}

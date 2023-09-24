@@ -25,7 +25,8 @@
 		"flex",
 		"justify-center",
 		"fixed",
-		"top-0"
+		"top-0",
+		"z-50"
 	)}
 >
 	<div class={cn("flex", "justify-between", "lg:w-[60%]", "w-full", "md:w-[80%]")}>

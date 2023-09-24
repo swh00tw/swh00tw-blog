@@ -4,7 +4,11 @@
 	import { cn } from "$lib/cn";
 	import Link from "../components/Link/index.svelte";
 	import { textVariant } from "../variants";
+	import { inview } from "svelte-inview";
+	import { addSection, removeSection } from "$lib/components/Toc/currSection";
+	import LexicalImage from "./LexicalImage.svelte";
 
+	export let pageId: string | undefined = undefined;
 	export let nodes: LexicalNode[];
 
 	function prepareSerializedChildren(node: LexicalNode): LexicalNode[] | null {
@@ -34,22 +38,52 @@
 {#each nodes as node (node)}
 	{#if node.type === "text"}
 		<LexicalText {node} />
+	{:else if node.type === "upload"}
+		<LexicalImage {node} />
 	{:else if prepareSerializedChildren(node) !== null}
 		{@const childrenNodes = prepareSerializedChildren(node)}
 		{#if node.type === "linebreak"}
 			<br />
 		{:else if node.type === "paragraph"}
-			<p class="my-3"><svelte:self nodes={childrenNodes} /></p>
+			<div class="my-3"><svelte:self nodes={childrenNodes} /></div>
 		{:else if node.type === "heading"}
 			{@const tag = node?.tag ?? "h4"}
-			<svelte:element this={tag} class={cn(castTextVariant(tag), "my-3")}>
+			{@const text = node?.children?.[0]?.text ?? ""}
+			<svelte:element
+				this={tag}
+				class={cn(
+					castTextVariant(tag),
+					"font-bold",
+					"mb-4",
+					"mt-12",
+					"relative",
+					"scroll-mt-[100px]"
+				)}
+				id={text}
+			>
 				<svelte:self nodes={childrenNodes} />
+				<div
+					class={cn("absolute", "top-[450px]", "w-full", "h-[1px]", "bg-transparent")}
+					use:inview={{}}
+					on:inview_enter={() => {
+						if (pageId === undefined) {
+							return;
+						}
+						addSection(pageId, text);
+					}}
+					on:inview_leave={() => {
+						if (pageId === undefined) {
+							return;
+						}
+						removeSection(pageId, text);
+					}}
+				/>
 			</svelte:element>
 		{:else if node.type === "list"}
 			{@const tag = node?.tag ?? "ul"}
 			<svelte:element
 				this={tag}
-				class={cn("list-inside", "marker:text-text02", "my-3", {
+				class={cn("list-inside", "marker:text-content", "my-3", {
 					"list-decimal": node?.tag === "ol",
 					"list-disc": node?.tag === "ul"
 				})}
@@ -71,7 +105,8 @@
 						"before:h-full",
 						"before:bg-accent",
 						"before:left-0",
-						"pl-4"
+						"pl-4",
+						"text-text02"
 					)}
 				>
 					<svelte:self nodes={childrenNodes} />
@@ -83,9 +118,6 @@
 					<svelte:self nodes={childrenNodes} />
 				</Link>
 			{/if}
-		{:else if node.type === "inline-image"}
-			<!-- TODO: add image -->
-			<div />
 		{/if}
 	{/if}
 {/each}
