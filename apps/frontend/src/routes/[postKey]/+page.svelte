@@ -116,12 +116,12 @@
 					</div>
 				</div>
 				<div class={cn("flex", "flex-row", "justify-between", "w-full", "mt-[calc(100vw*0.15)]")}>
-					<div class={cn("w-full", "lg:w-[72%]", "text-content", "text-[14px]", "min-h-[43svh]")}>
+					<div class={cn("w-full", "lg:w-[72%]", "text-content", "text-[16px]", "min-h-[43svh]")}>
 						{#if json}
 							<LexicalNodes nodes={json.root.children} pageId={$PagePost.variables?.id} />
 						{/if}
 					</div>
-					<div class={cn("hidden", "lg:block", "lg:w-[26%]", "relative")}>
+					<div class={cn("hidden", "lg:block", "lg:w-[22%]", "relative")}>
 						<Toc
 							isSticky={!isInView}
 							nodes={json?.root?.children ?? []}

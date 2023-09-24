@@ -54,6 +54,7 @@
 		"w-[calc(100svw*0.15)]",
 		"flex-col",
 		"gap-[10px]",
+		"mt-8",
 		"transition-all",
 		"ease-in-out",
 		{

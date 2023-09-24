@@ -48,7 +48,14 @@
 			{@const text = node?.children?.[0]?.text ?? ""}
 			<svelte:element
 				this={tag}
-				class={cn(castTextVariant(tag), "my-3", "relative", "scroll-mt-[100px]")}
+				class={cn(
+					castTextVariant(tag),
+					"font-bold",
+					"mb-4",
+					"mt-12",
+					"relative",
+					"scroll-mt-[100px]"
+				)}
 				id={text}
 			>
 				<svelte:self nodes={childrenNodes} />
