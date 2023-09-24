@@ -53,7 +53,7 @@
 			>
 				<svelte:self nodes={childrenNodes} />
 				<div
-					class={cn("absolute", "top-[250px]", "w-full", "h-[1px]", "bg-red-100")}
+					class={cn("absolute", "top-[450px]", "w-full", "h-[1px]", "bg-transparent")}
 					use:inview={{}}
 					on:inview_enter={() => {
 						if (pageId === undefined) {
