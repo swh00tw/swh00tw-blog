@@ -41,7 +41,7 @@
 						return `<span class="underline">${text}</span>`;
 					}
 					case IS_CODE: {
-						return `<code>${text}</code>`;
+						return `<code class="text-[#8F34C9] bg-[#00000030] px-[6px] py-[2px] rounded-[4px]">${text}</code>`;
 					}
 					case IS_SUBSCRIPT: {
 						return `<sub>${text}</sub>`;
