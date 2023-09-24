@@ -1,16 +1,12 @@
 import express, { Express } from "express";
 import cors from "cors";
 
-const allowedOrigin = /^https:\/\/swh00tw-blog([a-zA-Z0-9-]+)\.vercel\.app\/$/;
-
 const corsOptions = {
-  origin: (origin, callback) => {
-    if (origin === "http://localhost:5173" || allowedOrigin.test(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
+  origin: [
+    "http://localhost:5173",
+    "https://swh00tw-blog.vercel.app",
+    /^https:\/\/swh00tw-blog([a-zA-Z0-9-]+)\.vercel\.app\/$/,
+  ],
 };
 
 const app: Express = express();
