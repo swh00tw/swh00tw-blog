@@ -46,6 +46,11 @@
 	$: posts = [...postProps, ...fakePostProps];
 </script>
 
+<svelte:head>
+	<title>swh00tw.dev</title>
+	<meta name="description" content="Personal Blog by swh00tw" />
+</svelte:head>
+
 <div class={cn("w-full", "min-h-[calc(100svh-100px)]", "flex", "flex-col", "items-center")}>
 	<div class={cn("py-[86px]")}>
 		<IntroCard />

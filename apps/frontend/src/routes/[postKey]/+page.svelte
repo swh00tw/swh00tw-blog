@@ -52,6 +52,11 @@
 </script>
 
 <svelte:head>
+	<title>{$PagePost?.data?.Post?.title ?? "swh00tw.dev"}</title>
+	<meta
+		name="description"
+		content={$PagePost?.data?.Post?.description ?? "Personal blog by swh00tw"}
+	/>
 	<link rel="preload" as="image" href={coverImageUrl} />
 </svelte:head>
 
