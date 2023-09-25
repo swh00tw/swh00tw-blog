@@ -2,7 +2,7 @@ import { ImageResponse } from "@ethercorps/sveltekit-og";
 import type { RequestHandler } from "@sveltejs/kit";
 
 const template = (props: { title?: string; desc?: string }) => {
-	const { title = "Personal Blog by Frank Hsu", desc = "Web Dev / UI / UX / Life" } = props;
+	const { title, desc } = props;
 	return `
  <div tw="flex w-full h-full items-center justify-between bg-[#242424] flex-row text-[DM_Sans] px-12">
     <div tw="flex flex-col w-[50%] py-12 justify-between">
@@ -35,13 +35,15 @@ async function getFont(path: string): Promise<ArrayBuffer> {
 export const GET: RequestHandler = async (event) => {
 	const { url } = event;
 	const query = url.searchParams;
+	console.log(query.get("title"));
+	console.log(query.get("desc"));
 	const fontDataBold = await getFont(`${url.origin}${dmSans700}`);
 	const fontDataMedium = await getFont(`${url.origin}${dmSans500}`);
 	const fontDataRegular = await getFont(`${url.origin}${dmSans400}`);
 	return await ImageResponse(
 		template({
-			title: query.get("title"),
-			desc: query.get("desc")
+			title: query.get?.("title") ?? "Personal Blog by Frank Hsu",
+			desc: query.get?.("desc") ?? "Web Dev / UI / UX / Life"
 		}),
 		{
 			height: 250,
