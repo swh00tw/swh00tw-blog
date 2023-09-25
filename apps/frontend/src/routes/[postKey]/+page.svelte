@@ -68,7 +68,7 @@
 		property="og:image"
 		content={`https://swh00tw-blog.vercel.app/og?${
 			$PagePost?.data?.Post?.title ? `title=${$PagePost?.data?.Post?.title}` : ""
-		}&${$PagePost?.data?.Post?.description ? `desc=${$PagePost?.data?.Post?.description}` : ""}`}
+		}${$PagePost?.data?.Post?.description ? `&desc=${$PagePost?.data?.Post?.description}` : ""}`}
 	/>
 </svelte:head>
 
