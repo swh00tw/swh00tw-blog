@@ -50,10 +50,11 @@
 	<title>swh00tw.dev</title>
 	<meta name="description" content="Personal Blog by swh00tw" />
 	<!-- Open Graph / Facebook -->
-	<meta property="og:url" content="https://swh00tw-blog.vercel.app/og" />
+	<meta property="og:url" content="https://swh00tw-blog.vercel.app/" />
 	<meta property="og:type" content="website" />
 	<meta property="og:title" content="swh00tw.dev" />
 	<meta property="og:description" content="Personal Blog by Frank Hsu" />
+	<meta property="og:image" content="https://swh00tw-blog.vercel.app/og" />
 </svelte:head>
 
 <div class={cn("w-full", "min-h-[calc(100svh-100px)]", "flex", "flex-col", "items-center")}>
