@@ -2,6 +2,7 @@
 	import { cn } from "@/lib/cn";
 	import { textVariant } from "@/lib/variants";
 	import Link from "$lib/components/Link/index.svelte";
+	import ImageLoader from "$lib/components/ImageLoader/index.svelte";
 </script>
 
 <div
@@ -28,22 +29,45 @@
 		</div>
 		<div class={cn("flex", "gap-x-[15px]")}>
 			<a href="https://www.linkedin.com/in/swh00tw/" target="_blank">
-				<img src="/Logos/linkedin-plain.png" alt="linkedin" />
+				<ImageLoader
+					src="/Logos/linkedin-plain.png"
+					alt="linkedin"
+					class="w-[24px] h-[24px]"
+					wrapperClass="w-[24px] h-[24px] rounded-full bg-background"
+				/>
 			</a>
 			<a href="https://github.com/swh00tw" target="_blank">
-				<img src="/Logos/github-original.png" alt="github" />
+				<ImageLoader
+					src="/Logos/github-original.png"
+					alt="github"
+					class="w-[24px] h-[24px]"
+					wrapperClass="w-[24px] h-[24px] rounded-full bg-background"
+				/>
 			</a>
 			<a href="https://www.threads.net/@swh00tw/post/Cv1DvVSNeXy" target="_blank">
-				<img src="/Logos/threads.png" alt="threads" />
+				<ImageLoader
+					src="/Logos/threads.png"
+					alt="threads"
+					class="w-[24px] h-[24px]"
+					wrapperClass="w-[24px] h-[24px] rounded-full bg-background"
+				/>
 			</a>
 			<a href="mailto:a6140000@gmail.com">
-				<img src="/Logos/mail.png" alt="email" />
+				<ImageLoader
+					src="/Logos/mail.png"
+					alt="email"
+					class="w-[24px] h-[24px]"
+					wrapperClass="w-[24px] h-[24px] rounded-full bg-background"
+				/>
 			</a>
 		</div>
 	</div>
-	<img
-		src="/avatar.png"
-		alt="avatar"
-		class={cn("w-[160px]", "h-[160px]", "rounded-full", "object-cover")}
-	/>
+	<div class="w-[160px]">
+		<ImageLoader
+			src="/avatar.png"
+			alt="avatar"
+			class={cn("w-[160px]", "h-[160px]", "rounded-full", "object-cover")}
+			wrapperClass={cn("w-[160px]", "h-[160px]", "rounded-full", "bg-background")}
+		/>
+	</div>
 </div>
