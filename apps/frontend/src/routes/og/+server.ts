@@ -1,36 +1,54 @@
-import { componentToImageResponse } from "@ethercorps/sveltekit-og";
+import { ImageResponse } from "@ethercorps/sveltekit-og";
 import type { RequestHandler } from "@sveltejs/kit";
-import OG from "$lib/components/OG/index.svelte";
 
-const fontFile = await fetch(
-	"https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100;0,9..40,200;0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;0,9..40,900;0,9..40,1000;1,9..40,100;1,9..40,200;1,9..40,300;1,9..40,400;1,9..40,500;1,9..40,600;1,9..40,700;1,9..40,800;1,9..40,900;1,9..40,1000&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
-);
-const fontData: ArrayBuffer = await fontFile.arrayBuffer();
+const template = (text1 = "swh00tw.dev", text2 = "Personal Blog by Frank Hsu") => `
+ <div tw="flex w-full h-full items-center justify-center bg-[#242424] flex-row text-[DM_Sans]">
+    <div tw="flex flex-col md:flex-row w-[70%] py-12 px-4 md:items-center justify-between p-8">
+      <h2 tw="flex flex-col text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 text-left">
+        <span tw="text-white">${text1}</span>
+        <span tw="text-[#9f3ae0] mt-4 text-[20px]">${text2}</span>
+      </h2>
+    </div>
+  </div>
+`;
 
-export const GET: RequestHandler = async () => {
-	return await componentToImageResponse(
-		OG,
-		{},
-		{
-			height: 250,
-			width: 500,
-			fonts: [
-				{
-					name: "DM Sans",
-					data: fontData,
-					weight: 700
-				},
-				{
-					name: "DM Sans",
-					data: fontData,
-					weight: 400
-				},
-				{
-					name: "DM Sans",
-					data: fontData,
-					weight: 500
-				}
-			]
-		}
-	);
+import dmSans700 from "$lib/fonts/DM_Sans/static/DMSans-Bold.ttf";
+import dmSans500 from "$lib/fonts/DM_Sans/static/DMSans-Medium.ttf";
+import dmSans400 from "$lib/fonts/DM_Sans/static/DMSans-Regular.ttf";
+
+const fontMemo = {};
+
+async function getFont(path: string): Promise<ArrayBuffer> {
+	if (fontMemo[path]) return fontMemo[path];
+	const result = await fetch(path).then((r) => r.arrayBuffer());
+	fontMemo[path] = result;
+	return result;
+}
+
+export const GET: RequestHandler = async (event) => {
+	const { url } = event;
+	const fontDataBold = await getFont(`${url.origin}${dmSans700}`);
+	const fontDataMedium = await getFont(`${url.origin}${dmSans500}`);
+	const fontDataRegular = await getFont(`${url.origin}${dmSans400}`);
+	return await ImageResponse(template(), {
+		height: 250,
+		width: 500,
+		fonts: [
+			{
+				name: "DM Sans",
+				data: fontDataBold,
+				weight: 700
+			},
+			{
+				name: "DM Sans",
+				data: fontDataMedium,
+				weight: 500
+			},
+			{
+				name: "DM Sans",
+				data: fontDataRegular,
+				weight: 400
+			}
+		]
+	});
 };
