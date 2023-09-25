@@ -15,7 +15,7 @@
 		<ImageLoader
 			src={imageInfo.url}
 			alt={imageInfo.url + "imageAlt"}
-			wrapperClass="lg:w-[calc(100vw*0.6*0.72)] lg:h-[calc(100vw*0.6*0.72*9/16)] md:w-[calc(100vw*0.8*0.72)] md:h-[calc(100vw*0.8*0.72*9/16)] w-[calc(100vw*0.72)] h-[calc(100vw*0.72*9/16)] bg-background"
+			wrapperClass="lg:w-[calc(100vw*0.6*0.72)] lg:h-[calc(100vw*0.6*0.72*9/16)] md:w-[calc(100vw*0.8)] md:h-[calc(100vw*0.8*9/16)] w-[calc(100vw-48px)] h-[calc((100vw-48px)*9/16)] bg-background"
 		/>
 		<p class={cn("text-[#808080]", "text-[12px]")}>
 			{#if imageNodeRes.success}

@@ -38,7 +38,6 @@
 		if ($PagePost?.data?.Post?.content) {
 			const res = parseJson($PagePost?.data?.Post?.content?.jsonContent);
 			if (res.success) {
-				parseError = true;
 				json = res.data;
 			} else {
 				parseError = true;
