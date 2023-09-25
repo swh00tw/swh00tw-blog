@@ -72,6 +72,9 @@
 		alt={`$${title}-cover-imgae`}
 		class="rounded-[12.6px]"
 		fetchpriority="high"
+		loading="eager"
+		width="256"
+		height="144"
 	/>
 	<div
 		class={textVariant({

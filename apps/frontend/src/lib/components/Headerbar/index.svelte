@@ -31,7 +31,7 @@
 >
 	<div class={cn("flex", "justify-between", "lg:w-[60%]", "w-full", "md:w-[80%]")}>
 		<Button variant="unstyled">
-			<a href="/">
+			<a href="/" data-sveltekit-preload-data>
 				<div class="flex flex-row">
 					<ChevronLeft size="24" />
 					<p class={textVariant()}>swh00tw.dev</p>

@@ -44,14 +44,22 @@
 	}
 
 	let isInView = true;
+	$: coverImageUrl = `${getImagePrefix()}${
+		$PagePost?.data?.Post?.coverImage?.sizes?.background?.url
+	}`;
 </script>
+
+<svelte:head>
+	<link rel="preload" as="image" href={coverImageUrl} />
+</svelte:head>
 
 <div class={cn("relative", "overflow-x-hidden")}>
 	<img
-		src={`${getImagePrefix()}${$PagePost?.data?.Post?.coverImage?.sizes?.background?.url}`}
+		src={coverImageUrl}
 		alt={`${$PagePost?.data?.Post?.title ?? "$title"}-coverImage`}
 		class={cn("absolute", "top-[60px]", "md:top-0", "left-0", "w-full", "z-[-2]")}
 		fetchpriority="high"
+		loading="eager"
 	/>
 	<div
 		class={cn(
