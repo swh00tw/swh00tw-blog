@@ -59,6 +59,17 @@
 		content={$PagePost?.data?.Post?.description ?? "Personal blog by swh00tw"}
 	/>
 	<link rel="preload" as="image" href={coverImageUrl} />
+	<!-- Open Graph / Facebook -->
+	<meta property="og:url" content="https://swh00tw-blog.vercel.app/" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="swh00tw.dev" />
+	<meta property="og:description" content="Personal Blog by Frank Hsu" />
+	<meta
+		property="og:image"
+		content={`https://swh00tw-blog.vercel.app/og?${
+			$PagePost?.data?.Post?.title ? `title=${$PagePost?.data?.Post?.title}` : ""
+		}&${$PagePost?.data?.Post?.description ? `desc=${$PagePost?.data?.Post?.description}` : ""}`}
+	/>
 </svelte:head>
 
 <div class={cn("relative", "overflow-x-hidden")}>

@@ -1,16 +1,23 @@
 import { ImageResponse } from "@ethercorps/sveltekit-og";
 import type { RequestHandler } from "@sveltejs/kit";
 
-const template = (text1 = "swh00tw.dev", text2 = "Personal Blog by Frank Hsu") => `
- <div tw="flex w-full h-full items-center justify-center bg-[#242424] flex-row text-[DM_Sans]">
-    <div tw="flex flex-col md:flex-row w-[70%] py-12 px-4 md:items-center justify-between p-8">
-      <h2 tw="flex flex-col text-3xl sm:text-4xl font-bold tracking-tight text-gray-900 text-left">
-        <span tw="text-white">${text1}</span>
-        <span tw="text-[#9f3ae0] mt-4 text-[20px]">${text2}</span>
+const template = (props: { title?: string; desc?: string }) => {
+	const { title = "Personal Blog by Frank Hsu", desc = "Web Dev / UI / UX / Life" } = props;
+	return `
+ <div tw="flex w-full h-full items-center justify-between bg-[#242424] flex-row text-[DM_Sans] px-12">
+    <div tw="flex flex-col w-[50%] py-12 justify-between">
+      <h2 tw="flex flex-col text-3xl text-gray-900 text-left">
+        <span tw="text-white font-bold">swh00tw.dev</span>
+        <span tw="text-[#9f3ae0] mt-4 text-[20px]">${title}</span>
+        <span tw="text-[14px] mt-4 text-[#bbbbbb80]">${desc}</span>
       </h2>
+    </div>
+    <div tw="flex w-[40%] justify-center">
+      <img src="https://imgur.com/Rz101jA.png" width="150" height="150" tw="rounded-full" />
     </div>
   </div>
 `;
+};
 
 import dmSans700 from "$lib/fonts/DM_Sans/static/DMSans-Bold.ttf";
 import dmSans500 from "$lib/fonts/DM_Sans/static/DMSans-Medium.ttf";
@@ -27,28 +34,35 @@ async function getFont(path: string): Promise<ArrayBuffer> {
 
 export const GET: RequestHandler = async (event) => {
 	const { url } = event;
+	const query = url.searchParams;
 	const fontDataBold = await getFont(`${url.origin}${dmSans700}`);
 	const fontDataMedium = await getFont(`${url.origin}${dmSans500}`);
 	const fontDataRegular = await getFont(`${url.origin}${dmSans400}`);
-	return await ImageResponse(template(), {
-		height: 250,
-		width: 500,
-		fonts: [
-			{
-				name: "DM Sans",
-				data: fontDataBold,
-				weight: 700
-			},
-			{
-				name: "DM Sans",
-				data: fontDataMedium,
-				weight: 500
-			},
-			{
-				name: "DM Sans",
-				data: fontDataRegular,
-				weight: 400
-			}
-		]
-	});
+	return await ImageResponse(
+		template({
+			title: query.get("title"),
+			desc: query.get("desc")
+		}),
+		{
+			height: 250,
+			width: 500,
+			fonts: [
+				{
+					name: "DM Sans",
+					data: fontDataBold,
+					weight: 700
+				},
+				{
+					name: "DM Sans",
+					data: fontDataMedium,
+					weight: 500
+				},
+				{
+					name: "DM Sans",
+					data: fontDataRegular,
+					weight: 400
+				}
+			]
+		}
+	);
 };
