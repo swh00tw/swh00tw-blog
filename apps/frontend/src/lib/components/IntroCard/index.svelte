@@ -48,16 +48,16 @@
 				<ImageLoader
 					src="/Logos/threads.png"
 					alt="threads"
-					class="w-[24px] h-[24px]"
-					wrapperClass="w-[24px] h-[24px] rounded-full bg-background"
+					class="w-[20.65px] h-[24px]"
+					wrapperClass="w-[20.65px] h-[24px] rounded-full bg-background"
 				/>
 			</a>
 			<a href="mailto:a6140000@gmail.com">
 				<ImageLoader
 					src="/Logos/mail.png"
 					alt="email"
-					class="w-[24px] h-[24px]"
-					wrapperClass="w-[24px] h-[24px] rounded-full bg-background"
+					class="w-[28px] h-[24px]"
+					wrapperClass="w-[28px] h-[24px] rounded-full bg-background"
 				/>
 			</a>
 		</div>
