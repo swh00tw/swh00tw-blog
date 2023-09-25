@@ -83,7 +83,7 @@
 			{@const tag = node?.tag ?? "ul"}
 			<svelte:element
 				this={tag}
-				class={cn("list-inside", "marker:text-content", "my-3", {
+				class={cn("list-inside", "marker:text-content", "my-4", "flex-col", "gap-y-2", "flex", {
 					"list-decimal": node?.tag === "ol",
 					"list-disc": node?.tag === "ul"
 				})}

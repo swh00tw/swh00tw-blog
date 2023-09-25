@@ -12,6 +12,9 @@
 	import { getImagePrefix } from "@/lib/getImagePrefix";
 	import Toc from "@/lib/components/Toc/index.svelte";
 	import { inview } from "svelte-inview";
+	import { Stretch } from "svelte-loading-spinners";
+	import ImageLoader from "$lib/components/ImageLoader/index.svelte";
+	import ErrorModal from "$lib/components/ErrorModal/index.svelte";
 
 	export let data: PageData;
 	let json: JsonContent | null = null;
@@ -43,13 +46,28 @@
 	}
 
 	let isInView = true;
+	$: coverImageUrl = `${getImagePrefix()}${
+		$PagePost?.data?.Post?.coverImage?.sizes?.background?.url
+	}`;
+	const coverImageStyle = "absolute top-[30px] md:top-0 left-0 w-full z-[-2]";
 </script>
 
+<svelte:head>
+	<title>{$PagePost?.data?.Post?.title ?? "swh00tw.dev"}</title>
+	<meta
+		name="description"
+		content={$PagePost?.data?.Post?.description ?? "Personal blog by swh00tw"}
+	/>
+	<link rel="preload" as="image" href={coverImageUrl} />
+</svelte:head>
+
 <div class={cn("relative", "overflow-x-hidden")}>
-	<img
-		src={`${getImagePrefix()}${$PagePost?.data?.Post?.coverImage?.sizes?.background?.url}`}
+	<ImageLoader
+		src={coverImageUrl}
 		alt={`${$PagePost?.data?.Post?.title ?? "$title"}-coverImage`}
-		class={cn("absolute", "top-[60px]", "md:top-0", "left-0", "w-full", "z-[-2]")}
+		class={cn(coverImageStyle)}
+		fetchpriority="high"
+		wrapperClass={cn(coverImageStyle, "bg-background")}
 	/>
 	<div
 		class={cn(
@@ -80,7 +98,9 @@
 	>
 		{#if $PagePost?.errors || parseError}
 			<!-- TODO: add 404 -->
-			<div class={cn("h-[80vh]")}>404</div>
+			<div class={cn("h-[60vh]")}>
+				<ErrorModal />
+			</div>
 		{:else if $PagePost?.data?.Post}
 			<div class={cn("flex", "lg:w-[60%]", "w-full", "md:w-[80%]", "flex-col")}>
 				<div class={cn("flex", "flex-col", "px-2", "md:px-0", "gap-y-5")}>
@@ -138,8 +158,9 @@
 				</div>
 			</div>
 		{:else if $PagePost.fetching}
-			<!-- TODO: add loading -->
-			<div class={cn("h-[100vh]")}>loading...</div>
+			<div class={cn("h-[70vh]", "flex", "w-full", "justify-center", "items-center")}>
+				<Stretch size="60" color="#3e3e3e" unit="px" duration="1s" />
+			</div>
 		{/if}
 		<div
 			class={cn(

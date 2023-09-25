@@ -55,7 +55,7 @@
 				}
 			}
 			return text;
-		}, `<span class="hyphens-auto">${nodeText}</span>`);
+		}, `<span class="hyphens-none">${nodeText}</span>`);
 </script>
 
 {#if node.text}
