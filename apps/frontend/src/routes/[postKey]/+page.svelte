@@ -13,6 +13,7 @@
 	import Toc from "@/lib/components/Toc/index.svelte";
 	import { inview } from "svelte-inview";
 	import { Stretch } from "svelte-loading-spinners";
+	import ImageLoader from "$lib/components/ImageLoader/index.svelte";
 
 	export let data: PageData;
 	let json: JsonContent | null = null;
@@ -47,6 +48,7 @@
 	$: coverImageUrl = `${getImagePrefix()}${
 		$PagePost?.data?.Post?.coverImage?.sizes?.background?.url
 	}`;
+	const coverImageStyle = "absolute top-[60px] md:top-0 left-0 w-full z-[-2]";
 </script>
 
 <svelte:head>
@@ -54,12 +56,12 @@
 </svelte:head>
 
 <div class={cn("relative", "overflow-x-hidden")}>
-	<img
+	<ImageLoader
 		src={coverImageUrl}
 		alt={`${$PagePost?.data?.Post?.title ?? "$title"}-coverImage`}
-		class={cn("absolute", "top-[60px]", "md:top-0", "left-0", "w-full", "z-[-2]")}
+		class={cn(coverImageStyle)}
 		fetchpriority="high"
-		loading="eager"
+		wrapperClass={cn(coverImageStyle, "bg-background")}
 	/>
 	<div
 		class={cn(

@@ -6,6 +6,7 @@
 	import { ChevronRight } from "lucide-svelte";
 	import { encodePostKey } from "$lib/encodePostKey";
 	import { getDateString } from "$lib/getDateString";
+	import ImageLoader from "$lib/components/ImageLoader/index.svelte";
 
 	interface $$Props extends HTMLAttributes<HTMLDivElement> {
 		coverImgSrc: string;
@@ -67,14 +68,14 @@
 	on:mousemove={handleMouseMove}
 	role="group"
 >
-	<img
+	<ImageLoader
 		src={coverImgSrc}
 		alt={`$${title}-cover-imgae`}
 		class="rounded-[12.6px]"
 		fetchpriority="high"
-		loading="eager"
 		width="256"
 		height="144"
+		wrapperClass="w-[256px] h-[144px] rounded-[12.6px]"
 	/>
 	<div
 		class={textVariant({
