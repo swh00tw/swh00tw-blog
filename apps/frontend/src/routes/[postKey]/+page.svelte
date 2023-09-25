@@ -12,6 +12,7 @@
 	import { getImagePrefix } from "@/lib/getImagePrefix";
 	import Toc from "@/lib/components/Toc/index.svelte";
 	import { inview } from "svelte-inview";
+	import { Stretch } from "svelte-loading-spinners";
 
 	export let data: PageData;
 	let json: JsonContent | null = null;
@@ -139,8 +140,9 @@
 				</div>
 			</div>
 		{:else if $PagePost.fetching}
-			<!-- TODO: add loading -->
-			<div class={cn("h-[100vh]")}>loading...</div>
+			<div class={cn("h-[70vh]", "flex", "w-full", "justify-center", "items-center")}>
+				<Stretch size="60" color="#3e3e3e" unit="px" duration="1s" />
+			</div>
 		{/if}
 		<div
 			class={cn(
