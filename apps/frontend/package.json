@@ -24,6 +24,7 @@
 		"*.{js,ts,svelte}": "eslint --cache --fix"
 	},
 	"devDependencies": {
+		"@ethercorps/sveltekit-og": "^2.0.1",
 		"@faker-js/faker": "^8.0.2",
 		"@fontsource-variable/work-sans": "^5.0.9",
 		"@fontsource/dm-sans": "^5.0.8",
