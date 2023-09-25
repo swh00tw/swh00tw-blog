@@ -14,6 +14,7 @@
 	import { inview } from "svelte-inview";
 	import { Stretch } from "svelte-loading-spinners";
 	import ImageLoader from "$lib/components/ImageLoader/index.svelte";
+	import ErrorModal from "$lib/components/ErrorModal/index.svelte";
 
 	export let data: PageData;
 	let json: JsonContent | null = null;
@@ -37,6 +38,7 @@
 		if ($PagePost?.data?.Post?.content) {
 			const res = parseJson($PagePost?.data?.Post?.content?.jsonContent);
 			if (res.success) {
+				parseError = true;
 				json = res.data;
 			} else {
 				parseError = true;
@@ -48,7 +50,7 @@
 	$: coverImageUrl = `${getImagePrefix()}${
 		$PagePost?.data?.Post?.coverImage?.sizes?.background?.url
 	}`;
-	const coverImageStyle = "absolute top-[60px] md:top-0 left-0 w-full z-[-2]";
+	const coverImageStyle = "absolute top-[30px] md:top-0 left-0 w-full z-[-2]";
 </script>
 
 <svelte:head>
@@ -97,7 +99,9 @@
 	>
 		{#if $PagePost?.errors || parseError}
 			<!-- TODO: add 404 -->
-			<div class={cn("h-[80vh]")}>404</div>
+			<div class={cn("h-[60vh]")}>
+				<ErrorModal />
+			</div>
 		{:else if $PagePost?.data?.Post}
 			<div class={cn("flex", "lg:w-[60%]", "w-full", "md:w-[80%]", "flex-col")}>
 				<div class={cn("flex", "flex-col", "px-2", "md:px-0", "gap-y-5")}>
