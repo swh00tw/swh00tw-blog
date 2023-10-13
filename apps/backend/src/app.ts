@@ -2,7 +2,12 @@ import express, { Express } from "express";
 import cors from "cors";
 
 const corsOptions = {
-  origin: ["http://localhost:5173", "https://swh00tw-blog.vercel.app"],
+  origin: [
+    "http://localhost:5173",
+    "https://swh00tw-blog.vercel.app",
+    "https://swh00tw.dev",
+    "https://www.swh00tw.dev",
+  ],
 };
 
 const app: Express = express();
