@@ -5,20 +5,18 @@
 	import Footer from "@/lib/components/Footer/index.svelte";
 	import PostCard from "@/lib/components/PostCard/index.svelte";
 	import { notEmpty } from "@/lib/notEmpty";
-	import { faker } from "@faker-js/faker";
-	import { PUBLIC_FRONTEND_ENV } from "$env/static/public";
 	import { getImagePrefix } from "@/lib/getImagePrefix";
 	export let data: PageData;
 
 	const fallbackImageUrl = "https://loremflickr.com/800/450?lock=5528848091316224";
 	$: ({ AllPosts } = data);
-	$: postProps = ($AllPosts.data?.Posts?.docs ?? [])
+	$: posts = ($AllPosts.data?.Posts?.docs ?? [])
 		.map((post) =>
 			post
 				? {
 						coverImgSrc:
 							`${getImagePrefix()}${post.coverImage.sizes?.thumbnail?.url}` ?? fallbackImageUrl,
-						title: post.title,
+						title: post.title as string,
 						description: post.description ?? "",
 						readingTime: Math.ceil(((post.content.words as number) * 7.7) / 1000),
 						publishedAt: post.publishedDate as string,
@@ -27,23 +25,6 @@
 				: null
 		)
 		.filter(notEmpty);
-	const fakePostProps =
-		PUBLIC_FRONTEND_ENV === "dev"
-			? Array.from({ length: 6 }, (_) => ({
-					coverImgSrc: faker.image.url({
-						height: 450,
-						width: 800
-					}),
-					publishedAt: faker.date.past().toISOString(),
-					title: faker.lorem.sentence({ min: 4, max: 8 }),
-					tags: Array.from({ length: faker.number.int({ min: 1, max: 5 }) }, (_) =>
-						faker.lorem.word({ length: { min: 3, max: 6 } })
-					),
-					description: faker.lorem.paragraph({ min: 3, max: 10 }),
-					readingTime: faker.number.int({ min: 1, max: 30 })
-			  }))
-			: [];
-	$: posts = [...postProps, ...fakePostProps];
 </script>
 
 <svelte:head>
