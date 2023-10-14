@@ -1,5 +1,8 @@
 import { ImageResponse } from "@ethercorps/sveltekit-og";
 import type { RequestHandler } from "@sveltejs/kit";
+import dmSans700 from "$lib/fonts/DM_Sans/static/DMSans-Bold.ttf";
+import dmSans500 from "$lib/fonts/DM_Sans/static/DMSans-Medium.ttf";
+import dmSans400 from "$lib/fonts/DM_Sans/static/DMSans-Regular.ttf";
 
 const template = (props: { title?: string; desc?: string }) => {
 	const { title, desc } = props;
@@ -13,17 +16,13 @@ const template = (props: { title?: string; desc?: string }) => {
       </h2>
     </div>
     <div tw="flex w-[40%] justify-center">
-      <img src="https://imgur.com/Rz101jA.png" width="150" height="150" tw="rounded-full" />
+      <img src="https://i.imgur.com/vSsC8EE.png" width="150" height="150" tw="rounded-full" />
     </div>
   </div>
 `;
 };
 
-import dmSans700 from "$lib/fonts/DM_Sans/static/DMSans-Bold.ttf";
-import dmSans500 from "$lib/fonts/DM_Sans/static/DMSans-Medium.ttf";
-import dmSans400 from "$lib/fonts/DM_Sans/static/DMSans-Regular.ttf";
-
-const fontMemo = {};
+const fontMemo: Record<string, ArrayBuffer> = {};
 
 async function getFont(path: string): Promise<ArrayBuffer> {
 	if (fontMemo[path]) return fontMemo[path];
@@ -43,7 +42,7 @@ export const GET: RequestHandler = async (event) => {
 	return await ImageResponse(
 		template({
 			title: query.get?.("title") ?? "Personal Blog by Frank Hsu",
-			desc: query.get?.("desc") ?? "Web Dev / UI / UX / Life"
+			desc: query.get?.("desc") ?? "Web Dev / UI/UX / Life"
 		}),
 		{
 			height: 250,
