@@ -48,7 +48,10 @@ export const GET: RequestHandler = async (event) => {
 	return await ImageResponse(
 		template({
 			title: query.get?.("title") ?? "Personal Blog by Frank Hsu",
-			desc: query.get?.("desc") ?? "Web Dev / Life"
+			desc:
+				query.get?.("desc") ?? query.get?.("title")
+					? "Personal Blog by Frank Hsu"
+					: "Web Dev / Life"
 		}),
 		{
 			height: 250,
