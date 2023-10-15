@@ -14,6 +14,7 @@ const Posts: CollectionConfig = {
   versions: {
     drafts: true,
   },
+  defaultSort: "-publishedDate",
   fields: [
     {
       name: "title",
