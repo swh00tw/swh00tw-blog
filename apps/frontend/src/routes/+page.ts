@@ -4,7 +4,7 @@ import { PUBLIC_FRONTEND_ENV } from "$env/static/public";
 
 export const _houdini_load = graphql`
 	query AllPosts($postWhereInput: Post_where!) {
-		Posts(where: $postWhereInput, draft: true) {
+		Posts(where: $postWhereInput, draft: true, sort: "desc") {
 			docs {
 				id
 				title
