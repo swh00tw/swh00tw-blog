@@ -20,9 +20,7 @@
 	let json: JsonContent | null = null;
 	let parseError = false;
 	$: ({ PagePost } = data);
-	$: readingTime = Math.ceil(
-		((($PagePost?.data?.Post?.content?.words ?? 0) as number) * 7.7) / 1000
-	);
+	$: readingTime = Math.ceil((($PagePost?.data?.Post?.content?.characters ?? 0) as number) / 1200);
 	$: idx = ($PagePost?.data?.Posts?.docs ?? []).findIndex(
 		(post) => post && post.id === $PagePost?.data?.Post?.id
 	);
