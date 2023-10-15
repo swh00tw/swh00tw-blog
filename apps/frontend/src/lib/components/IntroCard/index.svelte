@@ -24,8 +24,8 @@
 		<div class={textVariant({ size: "subheading", class: cn("text-text02") })}>
 			Personal blog by <Link content="Frank Hsu" href="https://swh00tw.me" />
 		</div>
-		<div class={textVariant({ class: cn("text-text02") })}>
-			I write code and share random good shit.
+		<div class={textVariant({ size: "h4", class: cn("text-text02") })}>
+			📍 NY-based Full stack Dev 🗽 <br /> 🗣️ Talk about tech, life, and everything in between
 		</div>
 		<div class={cn("flex", "gap-x-[15px]")}>
 			<a href="https://www.linkedin.com/in/swh00tw/" target="_blank">
