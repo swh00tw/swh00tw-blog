@@ -3,11 +3,14 @@ import type { RequestHandler } from "@sveltejs/kit";
 import dmSans700 from "$lib/fonts/DM_Sans/static/DMSans-Bold.ttf";
 import dmSans500 from "$lib/fonts/DM_Sans/static/DMSans-Medium.ttf";
 import dmSans400 from "$lib/fonts/DM_Sans/static/DMSans-Regular.ttf";
+import notoSans700 from "$lib/fonts/Noto_Sans_TC/static/NotoSansTC-Bold.ttf";
+import notoSans500 from "$lib/fonts/Noto_Sans_TC/static/NotoSansTC-Medium.ttf";
+import notoSans400 from "$lib/fonts/Noto_Sans_TC/static/NotoSansTC-Regular.ttf";
 
 const template = (props: { title?: string; desc?: string }) => {
 	const { title, desc } = props;
 	return `
- <div tw="flex w-full h-full items-center justify-between bg-[#242424] flex-row text-[DM_Sans] px-12">
+ <div tw="flex w-full h-full items-center justify-between bg-[#242424] flex-row text-['DM Sans'] px-12">
     <div tw="flex flex-col w-[50%] py-12 justify-between">
       <h2 tw="flex flex-col text-3xl text-gray-900 text-left">
         <span tw="text-white font-bold">swh00tw.dev</span>
@@ -36,13 +39,16 @@ export const GET: RequestHandler = async (event) => {
 	const query = url.searchParams;
 	console.log(query.get("title"));
 	console.log(query.get("desc"));
-	const fontDataBold = await getFont(`${url.origin}${dmSans700}`);
-	const fontDataMedium = await getFont(`${url.origin}${dmSans500}`);
-	const fontDataRegular = await getFont(`${url.origin}${dmSans400}`);
+	const dmSansBold = await getFont(`${url.origin}${dmSans700}`);
+	const dmSansMedium = await getFont(`${url.origin}${dmSans500}`);
+	const dmSansRegular = await getFont(`${url.origin}${dmSans400}`);
+	const notoSansBold = await getFont(`${url.origin}${notoSans700}`);
+	const notoSansMedium = await getFont(`${url.origin}${notoSans500}`);
+	const notoSansRegular = await getFont(`${url.origin}${notoSans400}`);
 	return await ImageResponse(
 		template({
 			title: query.get?.("title") ?? "Personal Blog by Frank Hsu",
-			desc: query.get?.("desc") ?? "Web Dev / UI/UX / Life"
+			desc: query.get?.("desc") ?? "Web Dev / Life"
 		}),
 		{
 			height: 250,
@@ -50,17 +56,32 @@ export const GET: RequestHandler = async (event) => {
 			fonts: [
 				{
 					name: "DM Sans",
-					data: fontDataBold,
+					data: dmSansBold,
 					weight: 700
 				},
 				{
 					name: "DM Sans",
-					data: fontDataMedium,
+					data: dmSansMedium,
 					weight: 500
 				},
 				{
 					name: "DM Sans",
-					data: fontDataRegular,
+					data: dmSansRegular,
+					weight: 400
+				},
+				{
+					name: "Noto Sans TC",
+					data: notoSansBold,
+					weight: 700
+				},
+				{
+					name: "Noto Sans TC",
+					data: notoSansMedium,
+					weight: 500
+				},
+				{
+					name: "Noto Sans TC",
+					data: notoSansRegular,
 					weight: 400
 				}
 			]

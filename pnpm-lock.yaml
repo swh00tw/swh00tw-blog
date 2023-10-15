@@ -99,8 +99,8 @@ importers:
   apps/frontend:
     devDependencies:
       '@ethercorps/sveltekit-og':
-        specifier: ^2.0.2
-        version: 2.0.2(svelte@4.1.1)
+        specifier: ^2.0.1
+        version: 2.0.1
       '@fontsource-variable/work-sans':
         specifier: ^5.0.9
         version: 5.0.9
@@ -1604,14 +1604,11 @@ packages:
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
 
-  /@ethercorps/sveltekit-og@2.0.2(svelte@4.1.1):
-    resolution: {integrity: sha512-RGYd9zesazclNmOa1FVYUZXcUl2W8owwDwlUde4I8KB2dMofoJPaQ7nvof990HNbUDlb87joNcfxrtFVYumNFg==}
-    peerDependencies:
-      svelte: ^4.0.0
+  /@ethercorps/sveltekit-og@2.0.1:
+    resolution: {integrity: sha512-DUsqa5uCbkNSoh5Q8e54/7UsQ1Dy+hLURMHbI1zcWdeqD7KAZph3nZ+e4D+fy4DFMLdvXHCpY5G/z95ikjLp1Q==}
     dependencies:
-      '@vercel/og': 0.5.18
-      satori-html: 0.3.2
-      svelte: 4.1.1
+      satori: 0.10.9
+      svg2png-wasm: 1.4.1
     dev: true
 
   /@faceless-ui/modal@2.0.1(react-dom@18.2.0)(react@18.2.0):
@@ -2262,11 +2259,6 @@ packages:
   /@popperjs/core@2.11.8:
     resolution: {integrity: sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==}
     dev: false
-
-  /@resvg/resvg-wasm@2.4.1:
-    resolution: {integrity: sha512-yi6R0HyHtsoWTRA06Col4WoDs7SvlXU3DLMNP2bdAgs7HK18dTEVl1weXgxRzi8gwLteGUbIg29zulxIB3GSdg==}
-    engines: {node: '>= 10'}
-    dev: true
 
   /@rollup/pluginutils@4.2.1:
     resolution: {integrity: sha512-iKnFXr7NkdZAIHiIWE+BX5ULi/ucVFYWD6TbAV+rZctiRTY2PL6tsIKhoIOaoskiWAkgu+VsbXgUVDNLHf+InQ==}
@@ -3680,15 +3672,6 @@ packages:
     transitivePeerDependencies:
       - encoding
       - supports-color
-    dev: true
-
-  /@vercel/og@0.5.18:
-    resolution: {integrity: sha512-l519y6hscj14VkORBKshExoWaXWB4MqGUCIhY3gcXYir4aJ3J+9BU1E/CQ9yKsNmkgY+1VXOgjnq9zUT4B49KQ==}
-    engines: {node: '>=16'}
-    dependencies:
-      '@resvg/resvg-wasm': 2.4.1
-      satori: 0.10.9
-      yoga-wasm-web: 0.3.3
     dev: true
 
   /@webassemblyjs/ast@1.11.6:
@@ -11347,12 +11330,6 @@ packages:
       source-map-js: 1.0.2
     dev: false
 
-  /satori-html@0.3.2:
-    resolution: {integrity: sha512-wjTh14iqADFKDK80e51/98MplTGfxz2RmIzh0GqShlf4a67+BooLywF17TvJPD6phO0Hxm7Mf1N5LtRYvdkYRA==}
-    dependencies:
-      ultrahtml: 1.5.2
-    dev: true
-
   /satori@0.10.9:
     resolution: {integrity: sha512-XU9EELUEZuioT4acLIpCXxHcFzrsC8muvg0MY28d+TlqwxbkTzBmWbw+3+hnCzXT7YZ0Qm8k3eXktDaEu+qmEw==}
     engines: {node: '>=16'}
@@ -12189,6 +12166,10 @@ packages:
       periscopic: 3.1.0
     dev: true
 
+  /svg2png-wasm@1.4.1:
+    resolution: {integrity: sha512-ZFy1NtwZVAsslaTQoI+/QqX2sg0vjmgJ/jGAuLZZvYcRlndI54hLPiwLC9JzXlFBerfxN5JiS7kpEUG0mrXS3Q==}
+    dev: true
+
   /svgo@3.0.2:
     resolution: {integrity: sha512-Z706C1U2pb1+JGP48fbazf3KxHrWOsLme6Rv7imFBn5EnuanDW1GPaA/P1/dvObE670JDePC3mnj0k0B7P0jjQ==}
     engines: {node: '>=14.0.0'}
@@ -12740,10 +12721,6 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
-
-  /ultrahtml@1.5.2:
-    resolution: {integrity: sha512-qh4mBffhlkiXwDAOxvSGxhL0QEQsTbnP9BozOK3OYPEGvPvdWzvAUaXNtUSMdNsKDtuyjEbyVUPFZ52SSLhLqw==}
-    dev: true
 
   /unbox-primitive@1.0.2:
     resolution: {integrity: sha512-61pPlCD9h51VoreyJ0BReideM3MDKMKnh6+V9L08331ipq6Q8OFXZYiqP6n/tbHx4s5I9uRhcye6BrbkizkBDw==}

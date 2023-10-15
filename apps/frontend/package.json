@@ -24,7 +24,7 @@
 		"*.{js,ts,svelte}": "eslint --cache --fix"
 	},
 	"devDependencies": {
-		"@ethercorps/sveltekit-og": "^2.0.2",
+		"@ethercorps/sveltekit-og": "^2.0.1",
 		"@fontsource-variable/work-sans": "^5.0.9",
 		"@fontsource/dm-sans": "^5.0.8",
 		"@histoire/plugin-svelte": "^0.16.3",
