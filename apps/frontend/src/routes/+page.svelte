@@ -15,10 +15,10 @@
 			post
 				? {
 						coverImgSrc:
-							`${getImagePrefix()}${post.coverImage.sizes?.thumbnail?.url}` ?? fallbackImageUrl,
+							`${getImagePrefix()}${post.coverImage?.sizes?.thumbnail?.url}` ?? fallbackImageUrl,
 						title: post.title as string,
 						description: post.description ?? "",
-						readingTime: Math.ceil((post.content.characters as number) / 1200),
+						readingTime: Math.ceil(((post.content?.characters ?? 0) as number) / 1200),
 						publishedAt: post.publishedDate as string,
 						tags: (post?.tags ?? []).map((tag) => tag.name ?? null).filter(notEmpty)
 				  }
