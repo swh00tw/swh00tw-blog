@@ -33,9 +33,7 @@
 		class="rounded-xl w-full md:w-[80%] scale-120 md:scale-100"
 		wrapperClass="rounded-xl bg-transparent flex justify-center w-full"
 	/>
-	<p class={cn("mt-10", "text-center", "font-bold", "text-[20px]")}>
-		Oops! Something went wrong 😿
-	</p>
+	<p class={cn("mt-10", "text-center", "font-bold", "text-[20px]")}>Oops! Something went wrong😿</p>
 	<div class={cn("flex", "flex-row", "gap-x-4", "items-center", "mt-10")}>
 		<a href="mailto:a614000@gmail.com"> <Button>Report this</Button></a>
 		<div>or</div>
