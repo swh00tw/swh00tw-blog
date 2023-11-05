@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { cn } from "$lib/cn";
-	import Headerbar from "@/lib/components/Headerbar/index.svelte";
 	import { textVariant } from "@/lib/variants";
 	import { getDateString } from "@/lib/getDateString";
 	import AuthorCard from "@/lib/components/AuthorCard/index.svelte";
@@ -56,7 +55,6 @@
 			"h-[calc(100vw*9/16)]"
 		)}
 	/>
-	<Headerbar />
 	<div
 		class={cn(
 			"px-6",
