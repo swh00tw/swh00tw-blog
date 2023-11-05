@@ -22,6 +22,7 @@
 	export let tags: string[];
 	export let description: string;
 	export let readingTime: number;
+	export let slug: string;
 
 	let isHovered = false;
 
@@ -100,7 +101,7 @@
 				""
 			)} ${readingTime} min read`}
 		</div>
-		<a href={encodePostKey(title)} data-sveltekit-preload-data>
+		<a href={slug} data-sveltekit-preload-data>
 			<div
 				class={cn(
 					textVariant({ size: "h4" }),

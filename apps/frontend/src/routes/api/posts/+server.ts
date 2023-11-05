@@ -13,7 +13,7 @@ async function getPosts() {
 
 		if (file && typeof file === "object" && "metadata" in file && slug) {
 			const metadata = file.metadata as Omit<Post, "slug">;
-			const post = { ...metadata, slug };
+			const post = { ...metadata, slug, tags: metadata.tags ?? [] };
 			const parseRes = postSchema.safeParse(post);
 			if (parseRes.success && post.published) {
 				posts.push(post);

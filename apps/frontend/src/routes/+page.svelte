@@ -11,7 +11,8 @@
 		title: post.title,
 		description: post.description,
 		tags: post.tags,
-		readingTime: 0
+		readingTime: 0,
+		slug: post.slug
 	}));
 </script>
 
