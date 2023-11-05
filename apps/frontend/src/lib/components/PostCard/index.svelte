@@ -4,7 +4,6 @@
 	import type { HTMLAttributes, MouseEventHandler } from "svelte/elements";
 	import Tag from "$lib/components/Tag/index.svelte";
 	import { ChevronRight } from "lucide-svelte";
-	import { encodePostKey } from "$lib/encodePostKey";
 	import { getDateString } from "$lib/getDateString";
 	import ImageLoader from "$lib/components/ImageLoader/index.svelte";
 
@@ -15,6 +14,7 @@
 		tags: string[];
 		description: string;
 		readingTime: number;
+		slug: string;
 	}
 	export let coverImgSrc: string;
 	export let publishedAt: string;
