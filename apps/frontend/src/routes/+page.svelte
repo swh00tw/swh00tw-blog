@@ -3,27 +3,16 @@
 	import { cn } from "@/lib/cn";
 	import Footer from "@/lib/components/Footer/index.svelte";
 	import PostCard from "@/lib/components/PostCard/index.svelte";
-	import { notEmpty } from "@/lib/notEmpty";
+	export let data;
 
-	const fallbackImageUrl = "https://loremflickr.com/800/450?lock=5528848091316224";
-	// $: ({ AllPosts } = data);
-	// $: posts = ($AllPosts.data?.Posts?.docs ?? [])
-	// 	.map((post) =>
-	// 		post
-	// 			? {
-	// 					coverImgSrc:
-	// 						`${getImagePrefix()}${post.coverImage?.sizes?.thumbnail?.url}` ?? fallbackImageUrl,
-	// 					title: post.title as string,
-	// 					description: post.description ?? "",
-	// 					readingTime: Math.ceil(((post.content?.characters ?? 0) as number) / 1200),
-	// 					publishedAt: post.publishedDate as string,
-	// 					tags: (post?.tags ?? []).map((tag) => tag.name ?? null).filter(notEmpty)
-	// 			  }
-	// 			: null
-	// 	)
-	// 	.filter(notEmpty);
-	// $: console.log($AllPosts);
-	$: posts = [];
+	$: posts = data.posts.map((post) => ({
+		coverImgSrc: post.coverImgSrc,
+		publishedAt: post.publishedAt,
+		title: post.title,
+		description: post.description,
+		tags: post.tags,
+		readingTime: 0
+	}));
 </script>
 
 <svelte:head>
