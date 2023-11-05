@@ -15,15 +15,11 @@
 
 	$: coverImageUrl = "";
 	const coverImageStyle = "absolute top-[30px] md:top-0 left-0 w-full z-[-2]";
-	// TODO: add head meta tags
 </script>
 
-<!-- <svelte:head>
-	<title>{$PagePost?.data?.Post?.title ?? "swh00tw.dev"}</title>
-	<meta
-		name="description"
-		content={$PagePost?.data?.Post?.description ?? "Personal blog by swh00tw"}
-	/>
+<svelte:head>
+	<title>{data.meta.title ?? "swh00tw.dev"}</title>
+	<meta name="description" content={data.meta.description ?? "Personal blog by swh00tw"} />
 	<link rel="preload" as="image" href={coverImageUrl} />
 	<meta property="og:url" content="https://swh00tw-blog.vercel.app/" />
 	<meta property="og:type" content="website" />
@@ -31,17 +27,11 @@
 	<meta property="og:description" content="Personal Blog by Frank Hsu" />
 	<meta
 		property="og:image"
-		content={`https://swh00tw-blog.vercel.app/og?${
-			$PagePost?.data?.Post?.title
-				? `title=${encodeURIComponent($PagePost?.data?.Post?.title)}`
-				: ""
-		}${
-			$PagePost?.data?.Post?.description
-				? `&desc=${encodeURIComponent($PagePost?.data?.Post?.description)}`
-				: ""
-		}`}
+		content={`https://swh00tw-blog.vercel.app/og?${`title=${encodeURIComponent(
+			data.meta.title
+		)}`}${`&desc=${encodeURIComponent(data.meta.description)}`}`}
 	/>
-</svelte:head> -->
+</svelte:head>
 
 <div class={cn("relative", "overflow-x-hidden")}>
 	<ImageLoader
