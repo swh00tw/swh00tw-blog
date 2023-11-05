@@ -15,15 +15,15 @@
 	class={cn(
 		"flex",
 		"flex-col",
-		"md:flex-row",
 		"justify-start",
 		"items-center",
 		"gap-y-[24px]",
 		"w-full",
-		"md:w-[87vw]",
-		"lg:w-[60vw]",
+		"mx-auto",
 		"px-12",
 		"py-6",
+		"md:flex-row",
+		"lg:w-[60vw]",
 		"md:w-fit",
 		"md:gap-x-[64px]",
 		"lg:gap-x-[96px]"
@@ -59,7 +59,7 @@
 		</div>
 	</div>
 </div>
-<div class={cn("w-full", "md:w-[87vw]", "lg:w-[60vw]", "relative", "mt-12", "pb-6")}>
+<div class={cn("w-full", "md:w-[87vw]", "lg:w-[60vw]", "relative", "mt-12", "pb-6", "mx-auto")}>
 	{#if prevUrl}
 		<Link href={prevUrl} content={"< Prev Post"} class={cn("absolute", "left-[24px]")} />
 	{/if}

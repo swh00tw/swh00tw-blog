@@ -1,4 +1,3 @@
-// TODO: update this file to match your data model
 import { z } from "zod";
 
 export const postSchema = z.object({
