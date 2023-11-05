@@ -13,7 +13,6 @@ const config = {
 			dir: "."
 		},
 		alias: {
-			$houdini: "./$houdini",
 			"@": "./src"
 		},
 		csp: {

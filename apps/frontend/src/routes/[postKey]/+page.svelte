@@ -1,5 +1,4 @@
 <script lang="ts">
-	import type { PageData } from "./$houdini";
 	import { cn } from "$lib/cn";
 	import Headerbar from "@/lib/components/Headerbar/index.svelte";
 	import { textVariant } from "@/lib/variants";
@@ -9,55 +8,52 @@
 	import { parseJson } from "$lib/serializer/parse";
 	import type { JsonContent } from "$lib/serializer/types";
 	import LexicalNodes from "@/lib/serializer/LexicalNodes.svelte";
-	import { getImagePrefix } from "@/lib/getImagePrefix";
 	import Toc from "@/lib/components/Toc/index.svelte";
 	import { inview } from "svelte-inview";
 	import { Stretch } from "svelte-loading-spinners";
 	import ImageLoader from "$lib/components/ImageLoader/index.svelte";
 	import ErrorModal from "$lib/components/ErrorModal/index.svelte";
 
-	export let data: PageData;
-	let json: JsonContent | null = null;
-	let parseError = false;
-	$: ({ PagePost } = data);
-	$: readingTime = Math.ceil((($PagePost?.data?.Post?.content?.characters ?? 0) as number) / 1200);
-	$: idx = ($PagePost?.data?.Posts?.docs ?? []).findIndex(
-		(post) => post && post.id === $PagePost?.data?.Post?.id
-	);
-	$: prevUrl =
-		idx > 0
-			? encodePostKey($PagePost?.data?.Posts?.docs?.[idx - 1]?.title ?? "") ?? undefined
-			: undefined;
-	$: nextUrl =
-		idx < ($PagePost?.data?.Posts?.docs?.length ?? 0) - 1
-			? encodePostKey($PagePost?.data?.Posts?.docs?.[idx + 1]?.title ?? "") ?? undefined
-			: undefined;
-	$: {
-		if ($PagePost?.data?.Post?.content) {
-			const res = parseJson($PagePost?.data?.Post?.content?.jsonContent);
-			if (res.success) {
-				json = res.data;
-			} else {
-				parseError = true;
-			}
-		}
-	}
+	// let json: JsonContent | null = null;
+	// let parseError = false;
+	// $: ({ PagePost } = data);
+	// $: readingTime = Math.ceil((($PagePost?.data?.Post?.content?.characters ?? 0) as number) / 1200);
+	// $: idx = ($PagePost?.data?.Posts?.docs ?? []).findIndex(
+	// 	(post) => post && post.id === $PagePost?.data?.Post?.id
+	// );
+	// $: prevUrl =
+	// 	idx > 0
+	// 		? encodePostKey($PagePost?.data?.Posts?.docs?.[idx - 1]?.title ?? "") ?? undefined
+	// 		: undefined;
+	// $: nextUrl =
+	// 	idx < ($PagePost?.data?.Posts?.docs?.length ?? 0) - 1
+	// 		? encodePostKey($PagePost?.data?.Posts?.docs?.[idx + 1]?.title ?? "") ?? undefined
+	// 		: undefined;
+	// $: {
+	// 	if ($PagePost?.data?.Post?.content) {
+	// 		const res = parseJson($PagePost?.data?.Post?.content?.jsonContent);
+	// 		if (res.success) {
+	// 			json = res.data;
+	// 		} else {
+	// 			parseError = true;
+	// 		}
+	// 	}
+	// }
 
-	let isInView = true;
-	$: coverImageUrl = `${getImagePrefix()}${
-		$PagePost?.data?.Post?.coverImage?.sizes?.background?.url
-	}`;
-	const coverImageStyle = "absolute top-[30px] md:top-0 left-0 w-full z-[-2]";
+	// let isInView = true;
+	// $: coverImageUrl = `${getImagePrefix()}${
+	// 	$PagePost?.data?.Post?.coverImage?.sizes?.background?.url
+	// }`;
+	// const coverImageStyle = "absolute top-[30px] md:top-0 left-0 w-full z-[-2]";
 </script>
 
-<svelte:head>
+<!-- <svelte:head>
 	<title>{$PagePost?.data?.Post?.title ?? "swh00tw.dev"}</title>
 	<meta
 		name="description"
 		content={$PagePost?.data?.Post?.description ?? "Personal blog by swh00tw"}
 	/>
 	<link rel="preload" as="image" href={coverImageUrl} />
-	<!-- Open Graph / Facebook -->
 	<meta property="og:url" content="https://swh00tw-blog.vercel.app/" />
 	<meta property="og:type" content="website" />
 	<meta property="og:title" content="swh00tw.dev" />
@@ -74,9 +70,9 @@
 				: ""
 		}`}
 	/>
-</svelte:head>
+</svelte:head> -->
 
-<div class={cn("relative", "overflow-x-hidden")}>
+<!-- <div class={cn("relative", "overflow-x-hidden")}>
 	<ImageLoader
 		src={coverImageUrl}
 		alt={`${$PagePost?.data?.Post?.title ?? "$title"}-coverImage`}
@@ -112,7 +108,6 @@
 		)}
 	>
 		{#if $PagePost?.errors || parseError}
-			<!-- TODO: add 404 -->
 			<div class={cn("h-[60vh]")}>
 				<ErrorModal />
 			</div>
@@ -194,4 +189,4 @@
 			<AuthorCard {prevUrl} {nextUrl} />
 		</div>
 	</div>
-</div>
+</div> -->
