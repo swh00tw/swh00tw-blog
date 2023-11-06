@@ -88,12 +88,12 @@
 					<p>
 						{getDateString(data.meta.publishedAt)}
 					</p>
-					<div class={cn("h-[21px]", "w-[1px]", "bg-text02")} />
+					<!-- <div class={cn("h-[21px]", "w-[1px]", "bg-text02")} />
 					<p>
 						{`${Array.from({ length: Math.ceil(readingTime / 10) }, (_) => "⌛").join(
 							""
 						)} ${readingTime} min read`}
-					</p>
+					</p> -->
 				</div>
 			</div>
 			<div class={cn("flex", "flex-row", "justify-between", "w-full", "mt-[calc(100vw*0.15)]")}>
