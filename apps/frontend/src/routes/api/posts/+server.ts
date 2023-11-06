@@ -1,6 +1,7 @@
 import { json } from "@sveltejs/kit";
 import { postSchema } from "$lib/mdsvex/types";
 import type { Post } from "$lib/mdsvex/types";
+import { PUBLIC_FRONTEND_ENV } from "$env/static/public";
 
 async function getPosts() {
 	let posts: Post[] = [];
@@ -15,7 +16,7 @@ async function getPosts() {
 			const metadata = file.metadata as Omit<Post, "slug">;
 			const post = { ...metadata, slug, tags: metadata.tags ?? [] };
 			const parseRes = postSchema.safeParse(post);
-			if (parseRes.success && post.published) {
+			if (parseRes.success && !(PUBLIC_FRONTEND_ENV === "prod" && !post.published)) {
 				posts.push(post);
 			} else if (!parseRes.success) {
 				console.log(parseRes.error);

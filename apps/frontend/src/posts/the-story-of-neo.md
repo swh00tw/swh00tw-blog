@@ -1,9 +1,9 @@
 ---
 title: The story of Neo
-description:
+description: foo
 publishedAt: 2023-11-05
 tags:
 published: false
-coverImgSrc: posts/
-backgroundImgSrc: posts/
+coverImgSrc: posts/cornelltech-small.jpeg
+backgroundImgSrc: posts/cornelltech-big.jpeg
 ---
