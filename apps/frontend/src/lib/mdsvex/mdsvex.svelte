@@ -11,8 +11,10 @@
 	import li from "./custom/li.svelte";
 	import ul from "./custom/ul.svelte";
 	import code from "./custom/code.svelte";
+	import blockquote from "./custom/blockquote.svelte";
+	import img from "./custom/img.svelte";
 
-	export { h1, h2, h3, h4, h5, h6, p, a, ol, li, ul, code };
+	export { h1, h2, h3, h4, h5, h6, p, a, ol, li, ul, code, blockquote, img };
 </script>
 
 <slot />

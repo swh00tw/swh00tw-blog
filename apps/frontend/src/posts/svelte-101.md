@@ -15,6 +15,8 @@ If you are a web developer or front-end enthusiast, you've probably heard of thi
 
 So... in case you haven't heard of it before, Svelte is a new JavaScript framework. It functions just like other UI frameworks such as React and Vue. The ultimate goal of them are building websites by writing JavaScript(or TypeScript), HTML, and CSS. Of course, you might want to ask why creating a new UI framework that solves the same problem. Let's dive into what makes Svelte special.
 
+![Svelte Interest Ratio Over Time, from https://2022.stateofjs.com](https://i.imgur.com/Osorwht.png)
+
 ## What's special?
 
 ### Compiler
