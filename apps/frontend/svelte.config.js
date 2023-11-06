@@ -6,6 +6,9 @@ import shiki from "shiki";
 /** @type {import('mdsvex').MdsvexOptions} */
 const mdsvexOptions = {
 	extensions: [".md"],
+	layout: {
+		_: "./src/lib/mdsvex/mdsvex.svelte"
+	},
 	highlight: {
 		highlighter: async (code, lang = "text") => {
 			const highlighter = await shiki.getHighlighter({ theme: "min-dark" });

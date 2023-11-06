@@ -96,7 +96,7 @@
 				</div>
 			</div>
 			<div class={cn("flex", "flex-row", "justify-between", "w-full", "mt-[calc(100vw*0.15)]")}>
-				<div class={cn("w-full", "text-content", "text-[16px]", "min-h-[43svh]")}>
+				<div class={cn("w-full", "text-content", "text-[18px]", "leading-loose", "min-h-[43svh]")}>
 					<svelte:component this={data.content} />
 				</div>
 			</div>
