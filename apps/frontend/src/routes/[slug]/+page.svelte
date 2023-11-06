@@ -4,9 +4,10 @@
 	import { getDateString } from "@/lib/getDateString";
 	import AuthorCard from "@/lib/components/AuthorCard/index.svelte";
 	import ImageLoader from "$lib/components/ImageLoader/index.svelte";
-	import { rootUrl } from "@/lib/config.js";
-
+	import { page } from "$app/stores";
 	export let data;
+
+	$: rootUrl = $page.url.origin;
 
 	$: prevUrl = data.prevSlug ? `${rootUrl}/${data.prevSlug}` : undefined;
 	$: nextUrl = data.nextSlug ? `${rootUrl}/${data.nextSlug}` : undefined;
