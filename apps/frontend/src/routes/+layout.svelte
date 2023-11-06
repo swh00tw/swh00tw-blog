@@ -9,6 +9,7 @@
 	import "@fontsource/dm-sans/700-italic.css";
 	import "@fontsource-variable/work-sans";
 	import "@fontsource-variable/work-sans/wght-italic.css";
+	import "@fontsource/jetbrains-mono";
 
 	import PageTransition from "$lib/components/Transition/index.svelte";
 	export let data;

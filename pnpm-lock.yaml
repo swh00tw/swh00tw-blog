@@ -107,6 +107,9 @@ importers:
       '@fontsource/dm-sans':
         specifier: ^5.0.8
         version: 5.0.8
+      '@fontsource/jetbrains-mono':
+        specifier: ^5.0.17
+        version: 5.0.17
       '@histoire/plugin-svelte':
         specifier: ^0.16.3
         version: 0.16.3(histoire@0.16.2)(svelte@4.1.1)(vite@4.4.6)
@@ -2317,6 +2320,10 @@ packages:
 
   /@fontsource/dm-sans@5.0.8:
     resolution: {integrity: sha512-A0wgG0xRKPs7sspDs35m9He64jMaNtf/RFU+HnjNpq7MqUeVbenk7mwFMBZ4o++buKTX2NkscfBTDnRIgCs02g==}
+    dev: true
+
+  /@fontsource/jetbrains-mono@5.0.17:
+    resolution: {integrity: sha512-Y/EtdbwKwNQTGpnMrexX8SVW6Jqlh0nX2bNHI9Z9m6FsyjbocZIFNJqwSY9bDUoi7irGtz8nuidAN7FF8wYuJA==}
     dev: true
 
   /@hapi/hoek@9.3.0:
