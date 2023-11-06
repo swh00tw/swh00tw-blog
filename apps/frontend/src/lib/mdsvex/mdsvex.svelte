@@ -6,8 +6,9 @@
 	import h5 from "./custom/h5.svelte";
 	import h6 from "./custom/h6.svelte";
 	import p from "./custom/p.svelte";
+	import a from "./custom/a.svelte";
 
-	export { h1, h2, h3, h4, h5, h6, p };
+	export { h1, h2, h3, h4, h5, h6, p, a };
 </script>
 
 <slot />

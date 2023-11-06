@@ -11,7 +11,8 @@ backgroundImgSrc: "posts/svelte-101-big.png"
 
 ## Svelte? What's that?
 
-If you are a web developer or front-end enthusiast, you've probably heard of this before. If not, it's also understandable. These years, new web frameworks keep showing up. It's not the old era that React/Vue/Angular dominate. Now, we have Qwik, Svelte, Solid, Lit, etc. Crazy.
+If you are a web developer or front-end enthusiast, you've probably heard of this before. If not, it's also understandable. These years, new web frameworks keep showing up. It's not the old era that React/Vue/Angular dominate. Now, we have [Qwik](https://qwik.builder.io/), [Svelte](https://svelte.dev/), [Solid](https://www.solidjs.com/), [Lit](https://lit.dev/), etc. Crazy.
+
 So... in case you haven't heard of it before, Svelte is a new JavaScript framework. It functions just like other UI frameworks such as React and Vue. The ultimate goal of them are building websites by writing JavaScript(or TypeScript), HTML, and CSS. Of course, you might want to ask why creating a new UI framework that solves the same problem. Let's dive into what makes Svelte special.
 
 ## What's special?
