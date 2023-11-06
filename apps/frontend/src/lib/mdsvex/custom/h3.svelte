@@ -6,8 +6,8 @@
 <h3
 	class={cn(
 		"font-bold",
+		"text-white",
 		"mb-4",
-		"mt-12",
 		"relative",
 		"scroll-mt-[100px]",
 		textVariant({
