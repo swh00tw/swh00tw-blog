@@ -4,7 +4,6 @@
 	import type { HTMLAttributes, MouseEventHandler } from "svelte/elements";
 	import Tag from "$lib/components/Tag/index.svelte";
 	import { ChevronRight } from "lucide-svelte";
-	import { encodePostKey } from "$lib/encodePostKey";
 	import { getDateString } from "$lib/getDateString";
 	import ImageLoader from "$lib/components/ImageLoader/index.svelte";
 
@@ -14,14 +13,16 @@
 		title: string;
 		tags: string[];
 		description: string;
-		readingTime: number;
+		// readingTime: number;
+		slug: string;
 	}
 	export let coverImgSrc: string;
 	export let publishedAt: string;
 	export let title: string;
 	export let tags: string[];
 	export let description: string;
-	export let readingTime: number;
+	// export let readingTime: number;
+	export let slug: string;
 
 	let isHovered = false;
 
@@ -93,14 +94,15 @@
 			<Tag content={tag} class="mr-1 mb-1" />
 		{/each}
 	</div>
-	<div class={cn(textVariant(), "text-[14px]", "text-text02")}>{description}</div>
+	<!-- <div class={cn(textVariant(), "text-[14px]", "text-text02")}>{description}</div> -->
 	<div class={cn("flex", "flex-row", "justify-between")}>
 		<div class={textVariant({ size: "h6", class: cn("text-text02") })}>
-			{`${Array.from({ length: Math.ceil(readingTime / 10) }, (_) => "⌛").join(
+			<!-- {`${Array.from({ length: Math.ceil(readingTime / 10) }, (_) => "⌛").join(
 				""
-			)} ${readingTime} min read`}
+			)} ${readingTime} min read`} -->
+			{description}
 		</div>
-		<a href={encodePostKey(title)} data-sveltekit-preload-data>
+		<a href={slug} data-sveltekit-preload-data>
 			<div
 				class={cn(
 					textVariant({ size: "h4" }),

@@ -11,3 +11,16 @@ body {
 html {
 	scroll-behavior: smooth;
 }
+
+pre {
+	padding: 1.5rem;
+	border-radius: 1rem;
+}
+
+code {
+	font-family: "JetBrains Mono", monospace;
+}
+
+pre {
+	font-family: "JetBrains Mono", monospace;
+}

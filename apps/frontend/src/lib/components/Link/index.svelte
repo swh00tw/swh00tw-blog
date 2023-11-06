@@ -5,10 +5,12 @@
 	interface $$Props extends HTMLAttributes<HTMLDivElement> {
 		content: string;
 		href: string;
+		external?: boolean;
 	}
 
 	export let content: string;
 	export let href: string;
+	export let external = false;
 </script>
 
 <div
@@ -58,7 +60,7 @@
 		$$props.class
 	)}
 >
-	<a {href}>
+	<a {href} target={external ? "_blank" : "_self"}>
 		{content}
 		<slot />
 	</a>

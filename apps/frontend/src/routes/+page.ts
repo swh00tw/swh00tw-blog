@@ -1,38 +1,7 @@
-import { graphql } from "$houdini";
-import type { PageLoad } from "./$types";
-import { PUBLIC_FRONTEND_ENV } from "$env/static/public";
+import type { Post } from "$lib/mdsvex/types";
 
-export const _houdini_load = graphql`
-	query AllPosts($postWhereInput: Post_where!) {
-		Posts(where: $postWhereInput, draft: true) {
-			docs {
-				id
-				title
-				description
-				publishedDate
-				tags {
-					name
-				}
-				content
-				coverImage {
-					id
-					sizes {
-						thumbnail {
-							url
-						}
-					}
-				}
-			}
-		}
-	}
-`;
-
-export const _AllPostsVariables: PageLoad = async () => {
-	return {
-		postWhereInput: {
-			_status: {
-				in: PUBLIC_FRONTEND_ENV === "dev" ? ["draft", "published"] : ["published"]
-			}
-		}
-	};
-};
+export async function load({ fetch }) {
+	const response = await fetch("api/posts");
+	const posts: Post[] = await response.json();
+	return { posts };
+}

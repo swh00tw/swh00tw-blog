@@ -2,7 +2,6 @@
 	import { cn } from "@/lib/cn";
 	import { textVariant } from "@/lib/variants";
 	import SvelteIcon from "@/lib/components/Footer/SvelteIcon.svelte";
-	import PayloadIcon from "./PayloadIcon.svelte";
 	import VercelIcon from "./VercelIcon.svelte";
 </script>
 
@@ -25,7 +24,6 @@
 			<div class="flex flex-row items-center gap-x-2">
 				<p>Built by</p>
 				<SvelteIcon />
-				<PayloadIcon />
 			</div>
 			<div class={cn("w-[1px]", "h-[26px]", "bg-text02")} />
 			<div class="flex flex-row items-center gap-x-2">
