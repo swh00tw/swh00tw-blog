@@ -6,11 +6,11 @@ tags:
   - blog
   - learning
 published: true
-coverImgSrc: posts/cornelltech-small.jpeg
-backgroundImgSrc: posts/cornelltech-big.jpeg
+coverImgSrc: posts/why-i-start-writing-small.png
+backgroundImgSrc: posts/why-i-start-writing-big.png
 ---
 
-## Why I start writing? AGAIN?
+## Why I start writing? Again?
 
 Great. Let's get straight to the point. I want to talk about the motivation of why I creating this blog.
 
