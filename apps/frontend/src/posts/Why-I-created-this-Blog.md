@@ -5,7 +5,7 @@ publishedAt: 2023-11-05
 tags:
   - blog
   - learning
-published: true
+published: false
 coverImgSrc: posts/why-i-start-writing-small.png
 backgroundImgSrc: posts/why-i-start-writing-big.png
 lang: en
