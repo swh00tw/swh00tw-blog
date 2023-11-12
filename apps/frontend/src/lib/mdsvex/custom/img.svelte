@@ -6,7 +6,19 @@
 	export let alt: string;
 </script>
 
-<div class={cn("my-12", "flex", "flex-col", "items-center", "w-full", "mx-auto")}>
+<div
+	class={cn(
+		"my-12",
+		"flex",
+		"flex-col",
+		"items-center",
+		"w-full",
+		"mx-auto",
+		"hover:scale-[120%]",
+		"transition-all",
+		"ease-in-out"
+	)}
+>
 	<ImageLoader
 		{src}
 		{alt}
