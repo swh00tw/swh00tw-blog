@@ -1,12 +1,13 @@
 ---
 title: Svelte 101
 description: Why not just write React
-publishedAt: "2023-10-24"
+publishedAt: 2023-10-24
 tags:
   - svelte
 published: true
-coverImgSrc: "posts/svelte-101-small.png"
-backgroundImgSrc: "posts/svelte-101-big.png"
+coverImgSrc: posts/svelte-101-small.png
+backgroundImgSrc: posts/svelte-101-big.png
+lang: en
 ---
 
 ## Svelte? What's that?

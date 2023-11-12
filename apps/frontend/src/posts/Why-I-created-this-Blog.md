@@ -8,6 +8,7 @@ tags:
 published: true
 coverImgSrc: posts/why-i-start-writing-small.png
 backgroundImgSrc: posts/why-i-start-writing-big.png
+lang: en
 ---
 
 ## Why I start writing? Again?

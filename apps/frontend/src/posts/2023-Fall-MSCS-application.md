@@ -6,6 +6,7 @@ tags:
 published: true
 coverImgSrc: posts/cornelltech-small.jpeg
 backgroundImgSrc: posts/cornelltech-big.jpeg
+lang: zh
 ---
 
 ## Preface

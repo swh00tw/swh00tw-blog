@@ -12,7 +12,8 @@
 		description: post.description,
 		tags: post.tags,
 		readingTime: 0,
-		slug: post.slug
+		slug: post.slug,
+		lang: post.lang
 	}));
 </script>
 

@@ -8,7 +8,8 @@ export const postSchema = z.object({
 	tags: z.array(z.string()),
 	published: z.boolean(),
 	coverImgSrc: z.string(),
-	backgroundImgSrc: z.string().optional()
+	backgroundImgSrc: z.string().optional(),
+	lang: z.union([z.literal("en"), z.literal("zh")])
 });
 
 export type Post = z.infer<typeof postSchema>;

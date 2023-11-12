@@ -2,8 +2,9 @@
 title: "{{title}}"
 description:
 publishedAt: "{{date}}"
-tags: []
+tags:
 published: false
 coverImgSrc: posts/
 backgroundImgSrc: posts/
+lang:
 ---

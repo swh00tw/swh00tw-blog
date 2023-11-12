@@ -15,6 +15,7 @@
 		description: string;
 		// readingTime: number;
 		slug: string;
+		lang: "en" | "zh";
 	}
 	export let coverImgSrc: string;
 	export let publishedAt: string;
@@ -23,6 +24,7 @@
 	export let description: string;
 	// export let readingTime: number;
 	export let slug: string;
+	export let lang: "en" | "zh";
 
 	let isHovered = false;
 
@@ -90,6 +92,7 @@
 		{dateString}
 	</div>
 	<div class={cn("flex", "flex-row", "flex-wrap")}>
+		<Tag content={lang === "en" ? "en" : "中文"} class="mr-1 mb-1" />
 		{#each tags as tag}
 			<Tag content={tag} class="mr-1 mb-1" />
 		{/each}

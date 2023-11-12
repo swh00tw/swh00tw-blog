@@ -6,4 +6,5 @@ tags:
 published: false
 coverImgSrc: posts/cornelltech-small.jpeg
 backgroundImgSrc: posts/cornelltech-big.jpeg
+lang: en
 ---
