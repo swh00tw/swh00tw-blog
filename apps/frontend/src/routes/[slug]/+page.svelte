@@ -14,7 +14,7 @@
 	$: readingTime = 0;
 
 	$: coverImageUrl = data.meta.backgroundImgSrc ?? data.meta.coverImgSrc;
-	const coverImageStyle = "absolute top-[30px] md:top-0 left-0 w-full z-[-2]";
+	const coverImageStyle = "absolute top-[30px] md:top-0 left-0 w-full z-[-2] h-[calc(100vw*9/16)]";
 </script>
 
 <svelte:head>
@@ -53,7 +53,7 @@
 			"inset-0",
 			"top-[60px]",
 			"md:top-0",
-			"h-[calc(100vw*9/16)+5px]"
+			"h-[calc(100vw*9/16)]"
 		)}
 	/>
 	<div
