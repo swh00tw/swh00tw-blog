@@ -10,10 +10,11 @@
 		"flex",
 		"flex-col-reverse",
 		"md:flex-row",
+		"mx-auto",
 		"justify-center",
 		"items-center",
 		"gap-y-[20px]",
-		"w-full",
+		"w-[calc(100%-40px)]",
 		"md:w-fit",
 		"md:gap-x-[100px]",
 		"lg:gap-x-[160px]"
