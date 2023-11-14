@@ -15,6 +15,7 @@ html {
 pre {
 	padding: 1.5rem;
 	border-radius: 1rem;
+	overflow-x: auto;
 }
 
 code {
