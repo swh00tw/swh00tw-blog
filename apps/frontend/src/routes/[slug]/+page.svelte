@@ -53,7 +53,7 @@
 			"inset-0",
 			"top-[60px]",
 			"md:top-0",
-			"h-[calc(100vw*9/16)]"
+			"h-[calc(100vw*9/16)+50px]"
 		)}
 	/>
 	<div
