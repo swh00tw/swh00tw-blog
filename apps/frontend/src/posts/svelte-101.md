@@ -44,7 +44,7 @@ The diffing algorithm is valuable but with certain caveats. Read the article pub
 ### Write less code
 
 <Callout type="Deprecated">
-	Note that, the syntax below would be outdated soon since Svelte 5 is coming out. Give a peek into latest Svelte API. 🎉
+	Some of the syntax below would be outdated soon since Svelte 5 is coming out. Give a peek into latest Svelte API. 🎉
 	<Youtube id="RVnxF3j3N8U" />
 </Callout>
 
