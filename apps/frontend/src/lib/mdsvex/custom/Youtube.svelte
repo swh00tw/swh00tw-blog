@@ -7,7 +7,7 @@
 	src="https://www.youtube.com/embed/{id}?autoplay=1&rel=0"
 	{title}
 	frameborder="0"
-	allow="autoplay; picture-in-picture; clipboard-write"
+	allow="picture-in-picture; clipboard-write"
 	allowfullscreen
 />
 
