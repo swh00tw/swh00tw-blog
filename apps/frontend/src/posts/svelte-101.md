@@ -11,7 +11,8 @@ lang: en
 ---
 
 <script>
-	import Callout from "../lib/mdsvex/custom/Callout.svelte"
+	import Callout from "../lib/mdsvex/custom/Callout.svelte";
+	import Youtube from "../lib/mdsvex/custom/Youtube.svelte";
 </script>
 
 ## Svelte? What's that?
@@ -43,7 +44,8 @@ The diffing algorithm is valuable but with certain caveats. Read the article pub
 ### Write less code
 
 <Callout type="Deprecated">
-	Note that, the syntax below would be outdated soon since Svelte 5 is coming out. Give a peek into latest Svelte API: https://youtu.be/RVnxF3j3N8U?si=5bBWxILS_nK9iS9Q 
+	Note that, the syntax below would be outdated soon since Svelte 5 is coming out. Give a peek into latest Svelte API. 🎉
+	<Youtube id="RVnxF3j3N8U" />
 </Callout>
 
 Actually, in my opinion, it's the main reason why people love Svelte. In React, when we want to create a state which has reactivity. We write something like this:
