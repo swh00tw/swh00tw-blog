@@ -10,6 +10,10 @@ backgroundImgSrc: posts/svelte-101-big.png
 lang: en
 ---
 
+<script>
+	import Callout from "../lib/mdsvex/custom/Callout.svelte"
+</script>
+
 ## Svelte? What's that?
 
 If you are a web developer or front-end enthusiast, you've probably heard of this before. If not, it's also understandable. These years, new web frameworks keep showing up. It's not the old era that React/Vue/Angular dominate. Now, we have [Qwik](https://qwik.builder.io/), [Svelte](https://svelte.dev/), [Solid](https://www.solidjs.com/), [Lit](https://lit.dev/), etc. Crazy.
@@ -37,6 +41,10 @@ It's actually the same thing as above. In React, it's easy you write something n
 The diffing algorithm is valuable but with certain caveats. Read the article published on Svelte blog to learn more!
 
 ### Write less code
+
+<Callout type="Deprecated">
+	Note that, the syntax below would be outdated soon since Svelte 5 is coming out. Give a peek into latest Svelte API: https://youtu.be/RVnxF3j3N8U?si=5bBWxILS_nK9iS9Q 
+</Callout>
 
 Actually, in my opinion, it's the main reason why people love Svelte. In React, when we want to create a state which has reactivity. We write something like this:
 `const [foo, setFoo] = useState(initValue)`
