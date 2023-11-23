@@ -5,7 +5,7 @@ publishedAt: 2023-07-22
 tags:
   - blockchain
   - web3
-published: false
+published: true
 coverImgSrc: posts/blockchain-101-small.png
 backgroundImgSrc: posts/blockchain-101-big.png
 lang: en
