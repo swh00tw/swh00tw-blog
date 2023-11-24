@@ -85,9 +85,9 @@ Cryptocurrency is a digital currency that operates on a blockchain. It's a mediu
 
 ### Wallet
 
-Wallets store cryptocurrency assets and allow users to make transactions. Each wallet contains information like a public key and a private key. You can think the public is like an email address. People can have your public key so that they can transfer money to you. However, you should never share private key. It's like the password of an account. Once you give people your private key(password), they have your money.
+Wallets store cryptocurrency assets and allow users to make transactions. Each wallet contains information like public keys and private keys. You can think a public key of a network is like an email address. People can have your public key so that they can transfer money to you. However, you should never share private key. It's like the password of an account. Once you give people your private key(password), they have your money.
 
-We can further categorize wallets on two different dimensions: **custody** and \*\*hot/cold.
+We can further categorize wallets on two different dimensions: **custody** and **hot/cold**.
 
 Custody:
 
@@ -98,3 +98,15 @@ Hot/cold:
 
 - **Hot**: How wallets are connected to the internet. It's basically a desktop application, mobile application, or browser extension. Hot wallets are generally **software wallets**.
 - **Cold**: Cold wallets are not connected to the internet. It allows us to store the keys in hardware devices like a USB drive (or you can write down the keys on paper, it's called the Paper wallet). It's generally considered safer and less likely to be hacked. However, they are not immune to all types of risks, such as physical damage or loss. Cold wallets are generally **hardware wallets**.
+
+Some wallet can support multiple cryptocurrencies and interaction with multiple networks. For example, MetaMask supports networks which are compatible to Ethereum technology. This kind of wallet is called "Multi-currency" wallet. This kind of wallet often offers a unified interface for you to manage all your cryptocurrencies and view them. It often uses a single master seed phrase to generate all the private keys for different networks. This seed phrase is super important and must be stored properly since it can restore your wallet when you lose it.
+
+## Notes
+
+🙋 Each cryptocurrency has its own native network. Is it correct to say that?
+
+Generally correct for most cryptocurrencies. But, for some special coins like some wrapped tokens and some stable coins, they do not have native networks. Furthermore, some cryptocurrencies are created using existing standard like ERC-20 on Ethereum, they do not have their own blockchains but uses infrastructure of existing network.
+
+🙋 Is the relationship between network to cryptocurrency 1-to-1 mapping or 1-to-N mapping?
+
+Both of cases exist. As I mentioned above, some special cryptocurrencies do not have their own native networks and can operate on multiple networks. A network can support multiple cryptocurrencies at the same time.
