@@ -43,7 +43,7 @@ Let me breakdown what did I actually learn a lot from this experience here.
 
 Among all the successful teams I observed from this event, they all had a great chemistry. I know it's a bit cliche but allow me to emphasize the importance of the teamwork here.
 
-We only have ~30 hrs to finish the challenges in the hackathon and, given that nearly all of participants had never contributed to the codebases of the sponsor companies, it was actually quite challenging to finish some perfect big features within that period if you did it on your own. (Unless you are a fking badass lol). What I want to convey is that, it's really important in hackathon to discuss the challenge and split the workload in this kind of competition. For example, when we wanted to extend a feature involving both frontend and backend in the existing codebase, I told my teammates:
+We only have ~30 hrs to finish the challenges in the hackathon and, given that nearly all of participants had never contributed to the codebases of the sponsor companies, it was actually quite challenging to finish some perfect big features within that period if you did it on your own. (Unless you are a fking badass lol). What I want to convey is that, it's really important in hackathon to discuss the challenge and split the workload. For example, when we wanted to extend a feature involving both frontend and backend in the existing codebase, I told my teammates:
 
 Okay, I can start working on frontend logic at first and using some mock data to test it, and you guys can look at the backend code and try to modify it.
 

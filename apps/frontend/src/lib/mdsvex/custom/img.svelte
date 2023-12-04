@@ -14,7 +14,7 @@
 		"items-center",
 		"w-full",
 		"mx-auto",
-		"hover:scale-[120%]",
+		"hover:scale-[110%]",
 		"transition-all",
 		"ease-in-out"
 	)}
