@@ -13,7 +13,7 @@ lang: en
 
 ## TLDR
 
-Before I forget this amazing feeling, I want to write down something to document my experience in this hackathon. This weekend, I participated in [OSS(open-source software) hackathon](https://osshack.com/) organized by [Cornell Tech](https://tech.cornell.edu/), [Cal.com](https://cal.com/) and other sponsors. It's my first hackathon in my life! And me and my teammates won the Best Performance Improvement award 🎊
+Before I forget this amazing feeling, I want to write down something to document my experience from this hackathon. This weekend, I participated in [OSS(open-source software) hackathon](https://osshack.com/) organized by [Cornell Tech](https://tech.cornell.edu/), [Cal.com](https://cal.com/) and other sponsors. It's my first hackathon in my life! And me and my teammates won the Best Performance Improvement award 🎊
 
 If you are my friends, you would probably find I am annoying since I post a lot about this hackathon and how happy I was on Instagram, Threads, and LinkedIn. Forgive me, that's because I am super happy.
 
