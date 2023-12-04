@@ -63,6 +63,6 @@ Surprisingly, the feedback from the judges was really nice. People seem impresse
 
 ## Kudos
 
-Thanks to folks to make this happen! Thanks to my awesome teammates in Team Losing! Thanks to sponsors for the prize. Definitely will do more hackathons in the future 🤑
+Thanks to folks who make this happen! Thanks to my awesome teammates in Team Losing! Thanks to sponsors for the prize. Definitely will do more hackathons in the future 🤑
 
 ![Our team name is Team Losing lol](https://i.imgur.com/PvVwa53.jpg)
