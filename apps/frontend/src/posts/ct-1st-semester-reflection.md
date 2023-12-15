@@ -5,7 +5,7 @@ publishedAt: 2023-12-04
 tags:
   - cornell
   - studyabroad
-published: false
+published: true
 coverImgSrc: posts/ct-1-semester-small.png
 backgroundImgSrc: posts/ct-1-semester-big.png
 lang: zh
