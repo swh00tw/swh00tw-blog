@@ -27,7 +27,7 @@
 	<meta property="og:description" content="Personal Blog by Frank Hsu" />
 	<meta
 		property="og:image"
-		content={`${rootUrl}/og?${`title=${encodeURIComponent(
+		content={`https://swh00tw-blog.vercel.app/og?${`title=${encodeURIComponent(
 			data.meta.title
 		)}`}${`&desc=${encodeURIComponent(data.meta.description)}`}${`$image=${encodeURIComponent(
 			coverImageUrl
