@@ -4,7 +4,8 @@
 	export let type = "Info";
 	const icon: Record<string, string> = {
 		Info: "💡",
-		Deprecated: "🚨"
+		Deprecated: "🚨",
+		Award: "🏆"
 	};
 </script>
 
