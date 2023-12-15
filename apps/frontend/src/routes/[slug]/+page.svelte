@@ -29,7 +29,9 @@
 		property="og:image"
 		content={`https://swh00tw-blog.vercel.app/og?${`title=${encodeURIComponent(
 			data.meta.title
-		)}`}${`&desc=${encodeURIComponent(data.meta.description)}`}`}
+		)}`}${`&desc=${encodeURIComponent(data.meta.description)}`}${`$image=${encodeURIComponent(
+			coverImageUrl
+		)}`}`}
 	/>
 </svelte:head>
 
