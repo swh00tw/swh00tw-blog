@@ -11,7 +11,6 @@
 
 	$: prevUrl = data.prevSlug ? `${rootUrl}/${data.prevSlug}` : undefined;
 	$: nextUrl = data.nextSlug ? `${rootUrl}/${data.nextSlug}` : undefined;
-	$: readingTime = 0;
 
 	$: coverImageUrl = data.meta.backgroundImgSrc ?? data.meta.coverImgSrc;
 	const coverImageStyle = "absolute top-[30px] md:top-0 left-0 w-full z-[-2] h-[calc(100vw*9/16)]";
