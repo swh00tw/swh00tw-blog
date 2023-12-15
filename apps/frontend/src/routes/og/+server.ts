@@ -57,7 +57,7 @@ export const GET: RequestHandler = async (event) => {
 			image: imagePathPrefix + (query.get?.("image") ?? "posts/og.png")
 		}),
 		{
-			height: 675,
+			height: 630,
 			width: 1200,
 			fonts: [
 				{
