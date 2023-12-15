@@ -13,10 +13,14 @@ const template = (props: { title?: string; desc?: string; image: string }) => {
 	return `
   <div tw="flex w-full h-full items-center justify-center bg-[#242424] flex-row text-['DM Sans']">
     <img src="${image}" alt="og" width="1200" height="675" tw="absolute inset-0 z-[-2]" />
-    <div tw="bg-[#00000080] absolute w-full h-full z-[-1] flex" />
+    <div tw="bg-[#00000099] absolute w-full h-full z-[-1] flex" />
     <div tw="flex flex-col w-[60%] text-white">
-      <p tw="text-[36px] font-bold">${title}</p>
-      <p>${desc}</p>
+      <p tw="text-[46px] font-bold">${title}</p>
+      <div tw="flex flex-row gap-4 items-center">
+        <p tw="text-[20px] font-medium">${desc}</p>
+        <div tw="h-[20px] w-[2px] bg-white mx-4 flex" />
+        <p tw="text-[16px] font-medium"> swh00tw.dev </p>
+      </div>
     </div>
   </div>
 `;
@@ -48,12 +52,9 @@ export const GET: RequestHandler = async (event) => {
 
 	return await ImageResponse(
 		template({
-			title: query.get?.("title") ?? "Personal Blog by Frank Hsu",
-			desc:
-				query.get?.("desc") ??
-				(query.get?.("title") ? "Personal Blog by Frank Hsu" : "Web Dev / Life"),
-			image:
-				imagePathPrefix + query.get?.("image") ?? "https://swh00tw.dev/posts/cornelltech-big.jpeg"
+			title: query.get?.("title") ?? "Blog by Frank Hsu",
+			desc: query.get?.("desc") ?? (query.get?.("title") ? "Blog by Frank Hsu" : "Web Dev / Life"),
+			image: imagePathPrefix + (query.get?.("image") ?? "posts/og.png")
 		}),
 		{
 			height: 675,
