@@ -24,6 +24,6 @@ export async function load({ params, fetch }) {
 		};
 	} catch (e) {
 		console.log(e);
-		throw error(404, `Could not find ${params.slug}`);
+		error(404, `Could not find ${params.slug}`);
 	}
 }
