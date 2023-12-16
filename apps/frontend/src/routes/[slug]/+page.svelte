@@ -21,7 +21,7 @@
 	<meta name="description" content={data.meta.description ?? "Personal blog by swh00tw"} />
 	<link rel="preload" as="image" href={coverImageUrl} />
 	<meta property="og:url" content="https://swh00tw-blog.vercel.app/" />
-	<meta property="og:type" content="website" />
+	<meta property="og:type" content="article" />
 	<meta property="og:title" content="swh00tw.dev" />
 	<meta property="og:description" content="Personal Blog by Frank Hsu" />
 	<meta
