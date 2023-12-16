@@ -34,6 +34,20 @@
 	/>
 	<meta property="og:image:width" content="1200" />
 	<meta property="og:image:height" content="630" />
+
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta property="twitter:domain" content="swh00tw.dev" />
+	<meta property="twitter:url" content="https://swh00tw.dev" />
+	<meta name="twitter:title" content="swh00tw.dev" />
+	<meta name="twitter:description" content="Personal Blog by Frank Hsu" />
+	<meta
+		property="twitter:image"
+		content={`https://swh00tw-blog.vercel.app/og?${`title=${encodeURIComponent(
+			data.meta.title
+		)}`}${`&desc=${encodeURIComponent(data.meta.description)}`}${`&image=${encodeURIComponent(
+			coverImageUrl
+		)}`}`}
+	/>
 </svelte:head>
 
 <div class={cn("relative", "overflow-x-hidden")}>
