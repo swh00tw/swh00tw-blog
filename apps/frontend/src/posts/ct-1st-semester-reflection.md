@@ -1,5 +1,5 @@
 ---
-title: 在 Cornell Tech 活了一學期
+title: Life at Cornell Tech (1/4)
 description: Some thoughts after the 1st semester @ CT
 publishedAt: 2023-12-04
 tags:
