@@ -19,7 +19,7 @@
     "lint-staged": "^13.2.3",
     "prettier": "^2.5.1",
     "svelte-inview": "^4.0.1",
-    "turbo": "latest"
+    "turbo": "^1.11.2"
   },
   "packageManager": "pnpm@7.15.0",
   "name": "swh00tw-blog",
