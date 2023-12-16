@@ -15,11 +15,11 @@ const template = (props: { title?: string; desc?: string; image: string }) => {
     <img src="${image}" alt="og" width="1200" height="675" tw="absolute inset-0 z-[-2]" />
     <div tw="bg-[#00000099] absolute w-full h-full z-[-1] flex" />
     <div tw="flex flex-col w-[60%] text-white">
-      <p tw="text-[46px] font-bold">${title}</p>
+      <p tw="text-[48px] font-bold">${title}</p>
       <div tw="flex flex-row gap-4 items-center">
-        <p tw="text-[20px] font-medium">${desc}</p>
-        <div tw="h-[20px] w-[2px] bg-white mx-4 flex" />
-        <p tw="text-[16px] font-medium"> swh00tw.dev </p>
+        <p tw="text-[24px] font-medium">${desc}</p>
+        <div tw="h-[26px] w-[2px] bg-white mx-4 flex" />
+        <p tw="text-[18px] font-medium"> swh00tw.dev </p>
       </div>
     </div>
   </div>
