@@ -26,6 +26,8 @@
 	<meta property="og:title" content="swh00tw.dev" />
 	<meta property="og:description" content="Personal Blog by Frank Hsu" />
 	<meta property="og:image" content="https://swh00tw-blog.vercel.app/og" />
+	<meta property="og:image:width" content="1200" />
+	<meta property="og:image:height" content="630" />
 	<!-- Twitter Meta Tags -->
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta property="twitter:domain" content="swh00tw.dev" />
