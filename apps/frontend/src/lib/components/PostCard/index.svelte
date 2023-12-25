@@ -16,6 +16,7 @@
 		// readingTime: number;
 		slug: string;
 		lang: "en" | "zh";
+		viewers?: number;
 	}
 	export let coverImgSrc: string;
 	export let publishedAt: string;
@@ -25,6 +26,7 @@
 	// export let readingTime: number;
 	export let slug: string;
 	export let lang: "en" | "zh";
+	export let viewers = 0;
 
 	let isHovered = false;
 
@@ -97,13 +99,14 @@
 			<Tag content={tag} class="mr-1 mb-1" />
 		{/each}
 	</div>
-	<!-- <div class={cn(textVariant(), "text-[14px]", "text-text02")}>{description}</div> -->
+	<div class={cn(textVariant(), "text-[14px]", "text-text02")}>{description}</div>
 	<div class={cn("flex", "flex-row", "justify-between")}>
-		<div class={textVariant({ size: "h6", class: cn("text-text02") })}>
-			<!-- {`${Array.from({ length: Math.ceil(readingTime / 10) }, (_) => "⌛").join(
-				""
-			)} ${readingTime} min read`} -->
-			{description}
+		<div class={textVariant({ size: "h6", class: cn("text-[#909090]") })}>
+			{#if viewers > 0}
+				{`👁️ ${viewers} views`}
+			{:else}
+				<div class="bg-primary px-2 bg-opacity-50 rounded-md text-[#999999]">🌱 New</div>
+			{/if}
 		</div>
 		<a href={slug} data-sveltekit-preload-data>
 			<div

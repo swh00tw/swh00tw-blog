@@ -13,7 +13,8 @@
 		tags: post.tags,
 		readingTime: 0,
 		slug: post.slug,
-		lang: post.lang
+		lang: post.lang,
+		viewers: data.viewers?.[post.slug] ?? 0
 	}));
 </script>
 

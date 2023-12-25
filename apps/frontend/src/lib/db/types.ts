@@ -8,16 +8,19 @@ export interface Database {
 					created_at: string;
 					id: string;
 					slug: string;
+					viewers: number;
 				};
 				Insert: {
 					created_at?: string;
 					id?: string;
 					slug: string;
+					viewers?: number;
 				};
 				Update: {
 					created_at?: string;
 					id?: string;
 					slug?: string;
+					viewers?: number;
 				};
 				Relationships: [];
 			};
