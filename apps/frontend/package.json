@@ -17,7 +17,7 @@
 		"story:preview": "histoire preview"
 	},
 	"lint-staged": {
-		"*.{js,ts,svelte,css,scss,postcss,md,json}": [
+		"*.{js,ts,svelte,css,scss,postcss,json}": [
 			"prettier --write --plugin-search-dir=.",
 			"prettier --check --plugin-search-dir=."
 		],

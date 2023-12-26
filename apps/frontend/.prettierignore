@@ -15,4 +15,4 @@ yarn.lock
 \$houdini
 *.graphql
 
-*.md
+**/*.md
