@@ -6,8 +6,8 @@ tags:
   - cornell
   - studyabroad
 published: true
-coverImgSrc: posts/ct-1-semester-small.png
-backgroundImgSrc: posts/ct-1-semester-big.png
+coverImgSrc: posts/ct-1-semester-small.webp
+backgroundImgSrc: posts/ct-1-semester-big.webp
 lang: zh
 ---
 

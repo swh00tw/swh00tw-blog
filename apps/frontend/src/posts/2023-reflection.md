@@ -12,3 +12,7 @@ lang:
 - What I accomplished?
 - What I did not do well
 - Next years' goals
+	- Self-discipline
+		- Regularly workout
+		- 記帳
+		- Tech news

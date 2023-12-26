@@ -8,8 +8,8 @@ tags:
   - solid
   - frontend
 published: true
-coverImgSrc: posts/reactivity-small.png
-backgroundImgSrc: posts/reactivity-big.png
+coverImgSrc: posts/reactivity-small.webp
+backgroundImgSrc: posts/reactivity-big.webp
 lang: en
 ---
 

@@ -6,8 +6,8 @@ tags:
   - blockchain
   - web3
 published: true
-coverImgSrc: posts/blockchain-101-small.png
-backgroundImgSrc: posts/blockchain-101-big.png
+coverImgSrc: posts/blockchain-101-small.webp
+backgroundImgSrc: posts/blockchain-101-big.webp
 lang: en
 ---
 
