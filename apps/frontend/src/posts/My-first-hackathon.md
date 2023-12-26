@@ -6,8 +6,8 @@ tags:
   - web-dev
   - hackathon
 published: true
-coverImgSrc: posts/my-first-hackathon-small.png
-backgroundImgSrc: posts/my-first-hackathon-big.png
+coverImgSrc: posts/my-first-hackathon-small.webp
+backgroundImgSrc: posts/my-first-hackathon-big.webp
 lang: en
 ---
 

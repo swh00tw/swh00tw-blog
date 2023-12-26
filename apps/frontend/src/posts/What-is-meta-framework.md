@@ -6,7 +6,7 @@ tags:
   - react
   - next
 published: false
-coverImgSrc: posts/svelte-101-small.png
-backgroundImgSrc: posts/svelte-101-big.png
+coverImgSrc: 
+backgroundImgSrc: 
 lang: en
 ---

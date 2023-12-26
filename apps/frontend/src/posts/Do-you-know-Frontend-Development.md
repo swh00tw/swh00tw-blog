@@ -6,8 +6,8 @@ tags:
   - web-dev
   - frontend
 published: false
-coverImgSrc: posts/why-i-start-writing-small.png
-backgroundImgSrc: posts/why-i-start-writing-big.png
+coverImgSrc: posts/why-i-start-writing-small.webp
+backgroundImgSrc: posts/why-i-start-writing-big.webp
 lang: en
 ---
 ## Motivation
