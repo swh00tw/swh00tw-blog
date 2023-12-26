@@ -11,8 +11,9 @@
 
 	$: prevUrl = data.prevSlug ? `${rootUrl}/${data.prevSlug}` : undefined;
 	$: nextUrl = data.nextSlug ? `${rootUrl}/${data.nextSlug}` : undefined;
-
 	$: coverImageUrl = data.meta.backgroundImgSrc ?? data.meta.coverImgSrc;
+	const viewers = data.viewers;
+
 	const coverImageStyle = "absolute top-[30px] md:top-0 left-0 w-full z-[-2] h-[calc(100vw*9/16)]";
 </script>
 
@@ -105,12 +106,10 @@
 					<p>
 						{getDateString(data.meta.publishedAt)}
 					</p>
-					<!-- <div class={cn("h-[21px]", "w-[1px]", "bg-text02")} />
+					<div class={cn("h-[21px]", "w-[1px]", "bg-text02")} />
 					<p>
-						{`${Array.from({ length: Math.ceil(readingTime / 10) }, (_) => "⌛").join(
-							""
-						)} ${readingTime} min read`}
-					</p> -->
+						{`${viewers} views`}
+					</p>
 				</div>
 			</div>
 			<div class={cn("flex", "flex-row", "justify-between", "w-full", "mt-[calc(100vw*0.15)]")}>
