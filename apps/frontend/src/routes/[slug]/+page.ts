@@ -3,6 +3,12 @@ import { postSchema } from "@/lib/mdsvex/types";
 import type { Post } from "@/lib/mdsvex/types";
 import type { PageLoadEvent } from "./$types";
 
+export const config = {
+	isr: {
+		expiration: 60
+	}
+};
+
 export async function load({ params, fetch }: PageLoadEvent) {
 	try {
 		// post data
