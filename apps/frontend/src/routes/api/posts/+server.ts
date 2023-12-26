@@ -32,7 +32,8 @@ async function getPosts() {
 	return posts;
 }
 
-export async function GET() {
+export async function GET({ setHeaders }) {
 	const posts = await getPosts();
+	setHeaders({ "Cache-Control": "public, max-age=36000" });
 	return json(posts);
 }
