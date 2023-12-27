@@ -3,6 +3,8 @@ import { postSchema } from "@/lib/mdsvex/types";
 import type { Post } from "@/lib/mdsvex/types";
 import type { PageLoadEvent } from "./$types";
 
+export const prerender = true;
+
 export async function load({ params, fetch }: PageLoadEvent) {
 	try {
 		// post data
