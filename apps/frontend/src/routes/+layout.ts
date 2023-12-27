@@ -1,6 +1,10 @@
 import type { LayoutLoadEvent } from "./$types";
 
-export const prerender = true;
+export const config = {
+	isr: {
+		expiration: 60
+	}
+};
 
 export async function load({ url }: LayoutLoadEvent) {
 	return {

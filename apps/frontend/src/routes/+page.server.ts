@@ -2,12 +2,6 @@ import type { Post } from "$lib/mdsvex/types";
 import { db } from "$lib/supabaseClient";
 import type { PageLoadEvent } from "./$types";
 
-export const config = {
-	isr: {
-		expiration: 60
-	}
-};
-
 async function getViewers(): Promise<Record<string, number>> {
 	const { data, error } = await db.from("posts").select();
 	if (error) {
