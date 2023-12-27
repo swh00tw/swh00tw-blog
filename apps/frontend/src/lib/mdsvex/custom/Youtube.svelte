@@ -4,7 +4,7 @@
 </script>
 
 <iframe
-	src="https://www.youtube.com/embed/{id}?autoplay=1&rel=0"
+	src="https://www.youtube.com/embed/{id}?autoplay=0&rel=0"
 	{title}
 	frameborder="0"
 	allow="picture-in-picture; clipboard-write"

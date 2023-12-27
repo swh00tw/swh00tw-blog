@@ -1,9 +1,11 @@
 import { error } from "@sveltejs/kit";
 import { postSchema } from "@/lib/mdsvex/types";
 import type { Post } from "@/lib/mdsvex/types";
+import type { PageLoadEvent } from "./$types";
 
-export async function load({ params, fetch }) {
+export async function load({ params, fetch }: PageLoadEvent) {
 	try {
+		// post data
 		const post = await import(`../../posts/${params.slug}.md`);
 		const postsRes = await fetch("api/posts");
 		const posts: Post[] = await postsRes.json();
