@@ -4,8 +4,8 @@ description: Hello, 2024
 publishedAt: 2023-12-27
 tags: 
 published: true
-coverImgSrc: posts/cornelltech-small.webp
-backgroundImgSrc: posts/cornelltech-big.webp
+coverImgSrc: posts/2023-reflection-small.webp
+backgroundImgSrc: posts/2023-reflection-big.webp
 lang: zh
 ---
 ## Bye, 2023
