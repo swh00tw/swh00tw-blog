@@ -18,17 +18,11 @@ export async function load({ params, fetch }: PageLoadEvent) {
 		const prevSlug = postIndex > 0 ? posts[postIndex - 1].slug : null;
 		const nextSlug = postIndex < posts.length - 1 ? posts[postIndex + 1].slug : null;
 
-		// viewer data
-		const viewersRes: {
-			viewers: number;
-		} = await (await fetch(`api/posts/${params.slug}`)).json();
-
 		return {
 			content: post.default,
 			meta: meta,
 			prevSlug,
-			nextSlug,
-			viewers: viewersRes.viewers
+			nextSlug
 		};
 	} catch (e) {
 		console.log(e);

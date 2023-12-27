@@ -5,6 +5,7 @@
 	import AuthorCard from "@/lib/components/AuthorCard/index.svelte";
 	import ImageLoader from "$lib/components/ImageLoader/index.svelte";
 	import { page } from "$app/stores";
+	import { onMount } from "svelte";
 	export let data;
 
 	$: rootUrl = $page.url.origin;
@@ -12,7 +13,18 @@
 	$: prevUrl = data.prevSlug ? `${rootUrl}/${data.prevSlug}` : undefined;
 	$: nextUrl = data.nextSlug ? `${rootUrl}/${data.nextSlug}` : undefined;
 	$: coverImageUrl = data.meta.backgroundImgSrc ?? data.meta.coverImgSrc;
-	const viewers = data.viewers;
+
+	// currently only hit the api to increment the view count
+	// not using the returned value for display yet
+	onMount(() => {
+		fetch(`api/posts/${data.meta.slug}`)
+			.then(async (res) => {
+				// console.log(await res.json());
+			})
+			.catch((err) => {
+				// console.log(err);
+			});
+	});
 
 	const coverImageStyle = "absolute top-[30px] md:top-0 left-0 w-full z-[-2] h-[calc(100vw*9/16)]";
 </script>
@@ -106,10 +118,10 @@
 					<p>
 						{getDateString(data.meta.publishedAt)}
 					</p>
-					<div class={cn("h-[21px]", "w-[1px]", "bg-text02")} />
+					<!-- <div class={cn("h-[21px]", "w-[1px]", "bg-text02")} />
 					<p>
 						{`${viewers} views`}
-					</p>
+					</p> -->
 				</div>
 			</div>
 			<div class={cn("flex", "flex-row", "justify-between", "w-full", "mt-[calc(100vw*0.15)]")}>
