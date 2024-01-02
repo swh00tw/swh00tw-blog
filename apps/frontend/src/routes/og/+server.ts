@@ -7,6 +7,7 @@ import notoSans700 from "$lib/fonts/Noto_Sans_TC/static/NotoSansTC-Bold.ttf";
 import notoSans500 from "$lib/fonts/Noto_Sans_TC/static/NotoSansTC-Medium.ttf";
 import notoSans400 from "$lib/fonts/Noto_Sans_TC/static/NotoSansTC-Regular.ttf";
 import { PUBLIC_FRONTEND_ENV } from "$env/static/public";
+import sharp from "sharp";
 
 const template = (props: { title?: string; desc?: string; image: string }) => {
 	const { title, desc, image } = props;
@@ -35,6 +36,27 @@ async function getFont(path: string): Promise<ArrayBuffer> {
 	return result;
 }
 
+async function getImageBase64(url: string) {
+	try {
+		const imageResponse = await fetch(url);
+
+		// check resp.status here
+		if (imageResponse.status !== 200) {
+			return null;
+		}
+
+		const arrayBuffer = await imageResponse.arrayBuffer();
+		// convert to png
+		const img = await sharp(arrayBuffer).toFormat("png").toBuffer();
+		// convert to getImageBase64
+		const base64 = Buffer.from(img).toString("base64");
+		return "data:image/png;base64," + base64;
+	} catch (e) {
+		console.log(e);
+		return null;
+	}
+}
+
 export const GET: RequestHandler = async (event) => {
 	const { url } = event;
 	const query = url.searchParams;
@@ -49,12 +71,15 @@ export const GET: RequestHandler = async (event) => {
 	const notoSansRegular = await getFont(`${url.origin}${notoSans400}`);
 	const imagePathPrefix =
 		PUBLIC_FRONTEND_ENV === "dev" ? "http://localhost:5173/" : "https://swh00tw.dev/";
+	const fallbackImage = imagePathPrefix + "posts/og.png";
+	const image = imagePathPrefix + query.get?.("image");
+	const imageBase64 = await getImageBase64(image);
 
 	return await ImageResponse(
 		template({
 			title: query.get?.("title") ?? "Blog by Frank Hsu",
 			desc: query.get?.("desc") ?? (query.get?.("title") ? "Blog by Frank Hsu" : "Web Dev / Life"),
-			image: imagePathPrefix + (query.get?.("image") ?? "posts/og.png")
+			image: imageBase64 ?? fallbackImage
 		}),
 		{
 			height: 630,
