@@ -13,7 +13,7 @@
 </script>
 
 <svelte:head>
-	<script async src="https://www.googletagmanager.com/gtag/js?id=MEASUREMENT_ID">
+	<script async src={`https://www.googletagmanager.com/gtag/js?id=${PUBLIC_GA_ID}`}>
 	</script>
 	<script>
 		window.dataLayer = window.dataLayer || [];
