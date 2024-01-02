@@ -55,10 +55,8 @@ export const GET: RequestHandler = async (event) => {
 	console.log(query.get("image"));
 	const dmSansBold = await getFont(`${url.origin}${dmSans700}`);
 	const dmSansMedium = await getFont(`${url.origin}${dmSans500}`);
-	const dmSansRegular = await getFont(`${url.origin}${dmSans400}`);
-	// const notoSansBold = await getFont(`${url.origin}${notoSans700}`);
-	// const notoSansMedium = await getFont(`${url.origin}${notoSans500}`);
-	// const notoSansRegular = await getFont(`${url.origin}${notoSans400}`);
+	const notoSansBold = await getFont(`${url.origin}${notoSans700}`);
+	const notoSansMedium = await getFont(`${url.origin}${notoSans500}`);
 	const imagePathPrefix =
 		PUBLIC_FRONTEND_ENV === "dev" ? "http://localhost:5173/" : "https://swh00tw.dev/";
 	const fallbackImage = imagePathPrefix + "posts/og.png";
@@ -84,21 +82,21 @@ export const GET: RequestHandler = async (event) => {
 					data: dmSansMedium,
 					weight: 500
 				},
+				// {
+				// 	name: "DM Sans",
+				// 	data: dmSansRegular,
+				// 	weight: 400
+				// }
 				{
-					name: "DM Sans",
-					data: dmSansRegular,
-					weight: 400
+					name: "Noto Sans TC",
+					data: notoSansBold,
+					weight: 700
+				},
+				{
+					name: "Noto Sans TC",
+					data: notoSansMedium,
+					weight: 500
 				}
-				// {
-				// 	name: "Noto Sans TC",
-				// 	data: notoSansBold,
-				// 	weight: 700
-				// },
-				// {
-				// 	name: "Noto Sans TC",
-				// 	data: notoSansMedium,
-				// 	weight: 500
-				// },
 				// {
 				// 	name: "Noto Sans TC",
 				// 	data: notoSansRegular,
