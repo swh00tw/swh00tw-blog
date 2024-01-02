@@ -3,6 +3,9 @@
 	import { cn } from "@/lib/cn";
 	import Footer from "@/lib/components/Footer/index.svelte";
 	import PostCard from "@/lib/components/PostCard/index.svelte";
+	import { page } from "$app/stores";
+	$: rootUrl = $page.url.origin;
+
 	export let data;
 
 	$: posts = data.posts.map((post) => ({
@@ -26,7 +29,7 @@
 	<meta property="og:type" content="website" />
 	<meta property="og:title" content="swh00tw.dev" />
 	<meta property="og:description" content="Personal Blog by Frank Hsu" />
-	<meta property="og:image" content="https://swh00tw-blog.vercel.app/og" />
+	<meta property="og:image" content={`${rootUrl}/og`} />
 	<meta property="og:image:width" content="1200" />
 	<meta property="og:image:height" content="630" />
 	<!-- Twitter Meta Tags -->
@@ -35,7 +38,7 @@
 	<meta property="twitter:url" content="https://swh00tw.dev" />
 	<meta name="twitter:title" content="swh00tw.dev" />
 	<meta name="twitter:description" content="Personal Blog by Frank Hsu" />
-	<meta name="twitter:image" content="https://swh00tw-blog.vercel.app/og" />
+	<meta name="twitter:image" content={`${rootUrl}/og`} />
 </svelte:head>
 
 <div class={cn("w-full", "min-h-[calc(100svh-100px)]", "flex", "flex-col", "items-center")}>
