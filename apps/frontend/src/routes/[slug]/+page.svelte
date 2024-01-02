@@ -40,7 +40,7 @@
 	<meta property="og:description" content="Personal Blog by Frank Hsu" />
 	<meta
 		property="og:image"
-		content={`https://swh00tw-blog.vercel.app/og?${`title=${encodeURIComponent(
+		content={`${rootUrl}}/og?${`title=${encodeURIComponent(
 			data.meta.title
 		)}`}${`&desc=${encodeURIComponent(data.meta.description)}`}${`&image=${encodeURIComponent(
 			coverImageUrl
@@ -56,7 +56,7 @@
 	<meta name="twitter:description" content="Personal Blog by Frank Hsu" />
 	<meta
 		property="twitter:image"
-		content={`https://swh00tw-blog.vercel.app/og?${`title=${encodeURIComponent(
+		content={`${rootUrl}}/og?${`title=${encodeURIComponent(
 			data.meta.title
 		)}`}${`&desc=${encodeURIComponent(data.meta.description)}`}${`&image=${encodeURIComponent(
 			coverImageUrl
