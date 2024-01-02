@@ -1,0 +1,57 @@
+<script lang="ts">
+	import Button from "$lib/components/Button/index.svelte";
+	import { onMount } from "svelte";
+	import { clickToCopy } from "$lib/copyToClipboard";
+	import { Share, Link, Check } from "lucide-svelte";
+
+	interface $$Props {
+		url: string;
+	}
+	export let url: string;
+
+	let isNavigatorAvailable: boolean | undefined = undefined;
+	onMount(() => {
+		isNavigatorAvailable =
+			typeof window !== "undefined" && navigator && navigator?.share !== undefined;
+	});
+
+	let copied = false;
+</script>
+
+<Button variant="unstyled"
+	><div>
+		{#if isNavigatorAvailable === undefined}
+			<div />
+		{:else if isNavigatorAvailable === false}
+			<div
+				class="flex flex-row items-center gap-x-1"
+				use:clickToCopy={{
+					url: url,
+					callback: () => {
+						console.log("copied");
+						copied = true;
+						setTimeout(() => {
+							copied = false;
+						}, 15000);
+					}
+				}}
+			>
+				{#if copied}
+					<Check size="14" />
+				{:else}
+					<Link size="14" />
+				{/if}
+				{#if copied}
+					Copied
+				{:else}
+					Link
+				{/if}
+			</div>
+		{:else}
+			<div class="flex flex-row items-center gap-x-1">
+				<Share size="14" />
+				Share
+			</div>
+		{/if}
+	</div></Button
+>
