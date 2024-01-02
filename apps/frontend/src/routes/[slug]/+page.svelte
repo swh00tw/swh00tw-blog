@@ -26,7 +26,8 @@
 			});
 	});
 
-	const coverImageStyle = "absolute top-[30px] md:top-0 left-0 w-full z-[-2] h-[calc(100vw*9/16)]";
+	const coverImageStyle = "absolute top-[30px] sm:top-0 left-0 w-full z-[-2] h-[calc(100vw*9/16)]";
+	const mobileCoverImageStyle = "w-full h-[calc(90vw*9/16)] rounded-lg mt-10";
 </script>
 
 <svelte:head>
@@ -69,7 +70,7 @@
 		alt={`title-coverImage`}
 		class={cn(coverImageStyle)}
 		fetchpriority="high"
-		wrapperClass={cn(coverImageStyle, "bg-background")}
+		wrapperClass={cn(coverImageStyle, "bg-background", "hidden", "sm:block")}
 	/>
 	<div
 		class={cn(
@@ -82,7 +83,7 @@
 			"absolute",
 			"inset-0",
 			"top-[60px]",
-			"md:top-0",
+			"sm:top-0",
 			"h-[calc(100vw*9/16)]"
 		)}
 	/>
@@ -124,7 +125,23 @@
 					</p> -->
 				</div>
 			</div>
-			<div class={cn("flex", "flex-row", "justify-between", "w-full", "mt-[calc(100vw*0.15)]")}>
+			<ImageLoader
+				src={coverImageUrl}
+				alt={`title-coverImage`}
+				class={cn(mobileCoverImageStyle)}
+				fetchpriority="high"
+				wrapperClass={cn(mobileCoverImageStyle, "bg-background", "sm:hidden", "block")}
+			/>
+			<div
+				class={cn(
+					"flex",
+					"flex-row",
+					"justify-between",
+					"w-full",
+					"mt-0",
+					"sm:mt-[calc(100vw*0.15)]"
+				)}
+			>
 				<div class={cn("w-full", "text-content", "text-[18px]", "leading-loose", "min-h-[43svh]")}>
 					<svelte:component this={data.content} />
 				</div>

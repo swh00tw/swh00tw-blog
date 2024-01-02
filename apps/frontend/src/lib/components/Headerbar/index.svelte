@@ -1,15 +1,18 @@
 <script lang="ts">
 	import type { HTMLAttributes } from "svelte/elements";
 	import Button from "$lib/components/Button/index.svelte";
+	import ShareButton from "$lib/components/ShareBtn/index.svelte";
 	import { cn } from "$lib/cn";
 	import { ChevronLeft } from "lucide-svelte";
 	import { textVariant } from "@/lib/variants";
-	import { clickToCopy } from "$lib/copyToClipboard";
+	import { onMount } from "svelte";
 
 	type $$Props = HTMLAttributes<HTMLDivElement>;
 
-	let content = "Share";
-	let copied = false;
+	let sharedUrl = "";
+	onMount(() => {
+		sharedUrl = window.location.href;
+	});
 </script>
 
 <div
@@ -38,16 +41,8 @@
 				</div>
 			</a>
 		</Button>
-		<Button class={cn("text-[16px]")} variant={copied ? "accent" : "primary"}>
-			<span
-				use:clickToCopy={{
-					url: window.location.href,
-					callback: () => {
-						copied = true;
-						content = copied ? "Copied!" : "Share";
-					}
-				}}>{content}</span
-			>
-		</Button>
+		{#key sharedUrl}
+			<ShareButton url={sharedUrl} />
+		{/key}
 	</div>
 </div>

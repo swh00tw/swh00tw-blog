@@ -1,7 +1,4 @@
-export function clickToCopy(
-	node: HTMLElement,
-	{ url, callback }: { url?: string; callback?: () => void }
-) {
+export function clickToCopy(node: HTMLElement, { url }: { url?: string }) {
 	async function copyText() {
 		const text = url ? url : node.innerText;
 
@@ -13,7 +10,6 @@ export function clickToCopy(
 					bubbles: true
 				})
 			);
-			callback?.();
 		} catch (error) {
 			node.dispatchEvent(
 				new CustomEvent("copyerror", {
