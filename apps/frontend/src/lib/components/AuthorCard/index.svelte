@@ -30,7 +30,7 @@
 	)}
 >
 	<img
-		src="/avatar.png"
+		src="/avatar.webp"
 		alt="avatar"
 		class={cn("w-[100px]", "h-[100px]", "rounded-full", "object-cover")}
 	/>

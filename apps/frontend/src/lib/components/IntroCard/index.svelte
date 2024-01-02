@@ -65,7 +65,7 @@
 	</div>
 	<div class="w-[160px]">
 		<ImageLoader
-			src="/avatar_160.png"
+			src="/avatar.webp"
 			alt="avatar"
 			class={cn("w-[160px]", "h-[160px]", "rounded-full", "object-cover")}
 			wrapperClass={cn("w-[160px]", "h-[160px]", "rounded-full", "bg-background")}
