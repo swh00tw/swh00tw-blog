@@ -24,7 +24,6 @@
 		title: $page?.data?.meta?.title ?? "swh00tw.dev",
 		text: $page?.data?.meta?.description ?? "Check out this post on swh00tw.dev"
 	};
-	$: console.log(shareData);
 </script>
 
 <Button variant="unstyled"
