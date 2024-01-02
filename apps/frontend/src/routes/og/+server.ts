@@ -38,36 +38,16 @@ async function getFont(path: string): Promise<ArrayBuffer> {
 	return result;
 }
 
-async function getImageBase64(url: string | null) {
+function webp2PngPath(url: string | null) {
 	if (!url) return null;
-	try {
-		// read from local file system
-		const filePath =
-			PUBLIC_FRONTEND_ENV === "dev"
-				? path.resolve("static", url)
-				: path.resolve(
-						"vercel",
-						"path0",
-						"apps",
-						"frontend",
-						".svelte-kit",
-						"output",
-						"client",
-						url
-				  );
-		console.log(filePath);
-
-		const arrayBuffer = readFileSync(filePath);
-
-		// convert to png
-		const img = await sharp(arrayBuffer).toFormat("png").toBuffer();
-		// convert to getImageBase64
-		const base64 = Buffer.from(img).toString("base64");
-		return "data:image/png;base64," + base64;
-	} catch (e) {
-		console.log(e);
-		return null;
-	}
+	// split by slash
+	const parts = url.split("/");
+	// insert build after posts
+	parts.splice(1, 0, "build");
+	// replace webp with png
+	parts[parts.length - 1] = parts[parts.length - 1].replace(".webp", ".png");
+	// join back
+	return parts.join("/");
 }
 
 export const GET: RequestHandler = async (event) => {
@@ -85,13 +65,13 @@ export const GET: RequestHandler = async (event) => {
 	const imagePathPrefix =
 		PUBLIC_FRONTEND_ENV === "dev" ? "http://localhost:5173/" : "https://swh00tw.dev/";
 	const fallbackImage = imagePathPrefix + "posts/og.png";
-	const imageBase64 = await getImageBase64(query.get?.("image"));
+	const imagePath = imagePathPrefix + webp2PngPath(query.get?.("image"));
 
 	return await ImageResponse(
 		template({
 			title: query.get?.("title") ?? "Blog by Frank Hsu",
 			desc: query.get?.("desc") ?? (query.get?.("title") ? "Blog by Frank Hsu" : "Web Dev / Life"),
-			image: imageBase64 ?? fallbackImage
+			image: imagePath ?? fallbackImage
 		}),
 		{
 			height: 630,

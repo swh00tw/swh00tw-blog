@@ -19,7 +19,7 @@ async function getPosts() {
 			if (parseRes.success && !(PUBLIC_FRONTEND_ENV === "prod" && !post.published)) {
 				posts.push(post);
 			} else if (!parseRes.success) {
-				console.log(parseRes.error);
+				// console.log(parseRes.error);
 			}
 		}
 	}
