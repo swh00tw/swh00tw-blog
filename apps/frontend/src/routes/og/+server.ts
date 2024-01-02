@@ -43,9 +43,18 @@ async function getImageBase64(url: string | null) {
 	try {
 		// read from local file system
 		const filePath =
-			PUBLIC_FRONTEND_ENV === "dev1"
+			PUBLIC_FRONTEND_ENV === "dev"
 				? path.resolve("static", url)
-				: path.resolve(`.svelte-kit/output/client/${url}`);
+				: path.resolve(
+						"vercel",
+						"path0",
+						"apps",
+						"frontend",
+						".svelte-kit",
+						"output",
+						"client",
+						url
+				  );
 		console.log(filePath);
 
 		const arrayBuffer = readFileSync(filePath);
