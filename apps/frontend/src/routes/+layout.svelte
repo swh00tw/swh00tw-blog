@@ -12,9 +12,11 @@
 	import "@fontsource/jetbrains-mono";
 
 	import PageTransition from "$lib/components/Transition/index.svelte";
+	import GoogleAnalytic from "$lib/ga.svelte";
 	export let data;
 </script>
 
+<GoogleAnalytic />
 <PageTransition url={data.url}>
 	<slot />
 </PageTransition>

@@ -34,6 +34,12 @@ module.exports = {
 			rules: {
 				"no-import-assign": "off"
 			}
+		},
+		{
+			files: ["ga.svelte"],
+			rules: {
+				"no-undef": "off"
+			}
 		}
 	]
 };
