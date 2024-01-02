@@ -8,6 +8,8 @@ import notoSans500 from "$lib/fonts/Noto_Sans_TC/static/NotoSansTC-Medium.ttf";
 import notoSans400 from "$lib/fonts/Noto_Sans_TC/static/NotoSansTC-Regular.ttf";
 import { PUBLIC_FRONTEND_ENV } from "$env/static/public";
 import sharp from "sharp";
+import { readFileSync } from "fs";
+import path from "path";
 
 const template = (props: { title?: string; desc?: string; image: string }) => {
 	const { title, desc, image } = props;
@@ -36,16 +38,13 @@ async function getFont(path: string): Promise<ArrayBuffer> {
 	return result;
 }
 
-async function getImageBase64(url: string) {
+async function getImageBase64(url: string | null) {
+	if (!url) return null;
 	try {
-		const imageResponse = await fetch(url);
+		// read from local file system
+		const filePath = path.join(process.cwd(), "static", url);
+		const arrayBuffer = readFileSync(filePath);
 
-		// check resp.status here
-		if (imageResponse.status !== 200) {
-			return null;
-		}
-
-		const arrayBuffer = await imageResponse.arrayBuffer();
 		// convert to png
 		const img = await sharp(arrayBuffer).toFormat("png").toBuffer();
 		// convert to getImageBase64
@@ -72,8 +71,7 @@ export const GET: RequestHandler = async (event) => {
 	const imagePathPrefix =
 		PUBLIC_FRONTEND_ENV === "dev" ? "http://localhost:5173/" : "https://swh00tw.dev/";
 	const fallbackImage = imagePathPrefix + "posts/og.png";
-	const image = imagePathPrefix + query.get?.("image");
-	const imageBase64 = await getImageBase64(image);
+	const imageBase64 = await getImageBase64(query.get?.("image"));
 
 	return await ImageResponse(
 		template({
