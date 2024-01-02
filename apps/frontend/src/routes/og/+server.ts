@@ -42,7 +42,12 @@ async function getImageBase64(url: string | null) {
 	if (!url) return null;
 	try {
 		// read from local file system
-		const filePath = path.join(process.cwd(), "static", url);
+		const filePath =
+			PUBLIC_FRONTEND_ENV === "dev"
+				? path.join(process.cwd(), "static", url)
+				: `/var/task/vercel/path0/apps/frontend/.svelte-kit/output/client/${url}`;
+		console.log(filePath);
+
 		const arrayBuffer = readFileSync(filePath);
 
 		// convert to png
