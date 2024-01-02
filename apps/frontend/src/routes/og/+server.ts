@@ -7,9 +7,6 @@ import notoSans700 from "$lib/fonts/Noto_Sans_TC/static/NotoSansTC-Bold.ttf";
 import notoSans500 from "$lib/fonts/Noto_Sans_TC/static/NotoSansTC-Medium.ttf";
 import notoSans400 from "$lib/fonts/Noto_Sans_TC/static/NotoSansTC-Regular.ttf";
 import { PUBLIC_FRONTEND_ENV } from "$env/static/public";
-import sharp from "sharp";
-import { readFileSync } from "fs";
-import path from "path";
 
 const template = (props: { title?: string; desc?: string; image: string }) => {
 	const { title, desc, image } = props;
@@ -59,9 +56,9 @@ export const GET: RequestHandler = async (event) => {
 	const dmSansBold = await getFont(`${url.origin}${dmSans700}`);
 	const dmSansMedium = await getFont(`${url.origin}${dmSans500}`);
 	const dmSansRegular = await getFont(`${url.origin}${dmSans400}`);
-	const notoSansBold = await getFont(`${url.origin}${notoSans700}`);
-	const notoSansMedium = await getFont(`${url.origin}${notoSans500}`);
-	const notoSansRegular = await getFont(`${url.origin}${notoSans400}`);
+	// const notoSansBold = await getFont(`${url.origin}${notoSans700}`);
+	// const notoSansMedium = await getFont(`${url.origin}${notoSans500}`);
+	// const notoSansRegular = await getFont(`${url.origin}${notoSans400}`);
 	const imagePathPrefix =
 		PUBLIC_FRONTEND_ENV === "dev" ? "http://localhost:5173/" : "https://swh00tw.dev/";
 	const fallbackImage = imagePathPrefix + "posts/og.png";
@@ -71,7 +68,7 @@ export const GET: RequestHandler = async (event) => {
 		template({
 			title: query.get?.("title") ?? "Blog by Frank Hsu",
 			desc: query.get?.("desc") ?? (query.get?.("title") ? "Blog by Frank Hsu" : "Web Dev / Life"),
-			image: imagePath ?? fallbackImage
+			image: query.get?.("image") ? imagePath : fallbackImage
 		}),
 		{
 			height: 630,
@@ -91,22 +88,22 @@ export const GET: RequestHandler = async (event) => {
 					name: "DM Sans",
 					data: dmSansRegular,
 					weight: 400
-				},
-				{
-					name: "Noto Sans TC",
-					data: notoSansBold,
-					weight: 700
-				},
-				{
-					name: "Noto Sans TC",
-					data: notoSansMedium,
-					weight: 500
-				},
-				{
-					name: "Noto Sans TC",
-					data: notoSansRegular,
-					weight: 400
 				}
+				// {
+				// 	name: "Noto Sans TC",
+				// 	data: notoSansBold,
+				// 	weight: 700
+				// },
+				// {
+				// 	name: "Noto Sans TC",
+				// 	data: notoSansMedium,
+				// 	weight: 500
+				// },
+				// {
+				// 	name: "Noto Sans TC",
+				// 	data: notoSansRegular,
+				// 	weight: 400
+				// }
 			]
 		}
 	);
