@@ -37,7 +37,6 @@
 					url: url
 				}}
 				on:copysuccess={() => {
-					console.log("copied");
 					copied = true;
 					setTimeout(() => {
 						copied = false;
