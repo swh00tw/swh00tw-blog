@@ -2,7 +2,9 @@
 	import Button from "$lib/components/Button/index.svelte";
 	import { onMount } from "svelte";
 	import { clickToCopy } from "$lib/copyToClipboard";
+	import { navigatorShare } from "$lib/navigatorShare";
 	import { Share, Link, Check } from "lucide-svelte";
+	import { page } from "$app/stores";
 
 	interface $$Props {
 		url: string;
@@ -16,6 +18,13 @@
 	});
 
 	let copied = false;
+
+	$: shareData = {
+		url: url,
+		title: $page?.data?.meta?.title ?? "swh00tw.dev",
+		text: $page?.data?.meta?.description ?? "Check out this post on swh00tw.dev"
+	};
+	$: console.log(shareData);
 </script>
 
 <Button variant="unstyled"
@@ -26,14 +35,14 @@
 			<div
 				class="flex flex-row items-center gap-x-1"
 				use:clickToCopy={{
-					url: url,
-					callback: () => {
-						console.log("copied");
-						copied = true;
-						setTimeout(() => {
-							copied = false;
-						}, 15000);
-					}
+					url: url
+				}}
+				on:copysuccess={() => {
+					console.log("copied");
+					copied = true;
+					setTimeout(() => {
+						copied = false;
+					}, 15000);
 				}}
 			>
 				{#if copied}
@@ -48,7 +57,12 @@
 				{/if}
 			</div>
 		{:else}
-			<div class="flex flex-row items-center gap-x-1">
+			<div
+				class="flex flex-row items-center gap-x-1"
+				use:navigatorShare={{
+					data: shareData
+				}}
+			>
 				<Share size="14" />
 				Share
 			</div>
