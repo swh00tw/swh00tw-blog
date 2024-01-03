@@ -35,7 +35,7 @@ const config = {
 		},
 		csp: {
 			directives: {
-				"script-src": ["self"]
+				"script-src": ["self", "https://us.umami.is/script.js"]
 			},
 			reportOnly: {
 				"script-src": ["self"],
