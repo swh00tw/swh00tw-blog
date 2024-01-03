@@ -38,7 +38,7 @@ const config = {
 				"script-src": ["self", "https://us.umami.is/script.js"]
 			},
 			reportOnly: {
-				"script-src": ["self"],
+				"script-src": ["self", "https://us.umami.is/script.js"],
 				"report-uri": [""]
 			}
 		}
