@@ -118,3 +118,14 @@ Blockchain is a distributed ledger
 ### How PoW works?
 
 Math puzzle: Miner need to take the transactions together and plus a arbitrary number "nonce". Try to find a hash of this with a lot of leading zero. It's very computational expensive job given Bitcoin uses SHA256 to hash. Therefore, it's hard to mutate the history records.
+
+
+## Cryptocurrency
+
+### What is?
+
+Asymmetric key:
+- Private key
+- Public key is derived from private key(one-way process)
+- Address is derived from public key
+

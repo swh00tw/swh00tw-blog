@@ -11,6 +11,7 @@ export default defineConfig({
 			name: "image-converter",
 			enforce: "pre",
 			async buildStart() {
+				console.log("🧙‍💫💫💫");
 				console.log("image-converter: buildStart");
 				const imagePath = path.join(__dirname, "static", "posts");
 				console.log(imagePath);
@@ -29,6 +30,8 @@ export default defineConfig({
 					await sharp(webpPath).toFile(pngPath);
 					console.log(`Converted ${webpPath} to ${pngPath}`);
 				}
+				console.log("image-converter: buildEnd");
+				console.log("🧙‍💫💫💫");
 			}
 		}
 	]
