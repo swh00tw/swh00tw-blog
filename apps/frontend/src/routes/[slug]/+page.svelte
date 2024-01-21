@@ -6,6 +6,7 @@
 	import ImageLoader from "$lib/components/ImageLoader/index.svelte";
 	import { page } from "$app/stores";
 	import { onMount } from "svelte";
+	import { dev } from "$app/environment";
 	export let data;
 
 	$: rootUrl = $page.url.origin;
@@ -17,13 +18,15 @@
 	// currently only hit the api to increment the view count
 	// not using the returned value for display yet
 	onMount(() => {
-		fetch(`api/posts/${data.meta.slug}`)
-			.then(async (res) => {
-				// console.log(await res.json());
-			})
-			.catch((err) => {
-				// console.log(err);
-			});
+		if (dev) {
+			fetch(`api/posts/${data.meta.slug}`)
+				.then(async (res) => {
+					// console.log(await res.json());
+				})
+				.catch((err) => {
+					// console.log(err);
+				});
+		}
 	});
 
 	const coverImageStyle = "absolute top-[30px] sm:top-0 left-0 w-full z-[-2] h-[calc(100vw*9/16)]";

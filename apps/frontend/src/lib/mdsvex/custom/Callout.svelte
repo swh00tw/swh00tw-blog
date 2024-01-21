@@ -19,7 +19,8 @@
 		"flex",
 		"flex-col",
 		"px-4",
-		"py-2"
+		"py-2",
+		"my-6"
 	)}
 >
 	<div class={cn("flex", "flex-row", "gap-x-2", "text-[16px]", "mb-1")}>
