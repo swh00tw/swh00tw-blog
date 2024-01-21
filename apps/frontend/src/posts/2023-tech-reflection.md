@@ -3,7 +3,7 @@ title: 2023 年度回顧（下）
 description: 這篇聊聊 Web dev/Career 上的
 publishedAt: 2024-01-20
 tags: 
-published: false
+published: true
 coverImgSrc: posts/2023-reflection-small.webp
 backgroundImgSrc: posts/2023-reflection-big.webp
 lang: zh
@@ -72,6 +72,8 @@ Web dev frameworks 百家爭鳴，2023 年已經聽過太多新崛起的 librari
 2. 首先，先定義何謂變強才有努力的方向，個人我想追求的「厲害」大概分成兩部分，擁有穩固的知識底子和強大的實作能力。這大概也是為什麼今年想多花時間在系統設計、理解 React 底層上，因為我覺得知識底子是我目前相對偏弱的部分。
 3. 最好別把自己綁在某個技術上，像是別只學 React or Nextjs。前端的潮流是會變的，即使 React 現在看似還是主流，但也不能保證未來永遠都是。我覺得看待這些工具的方法要改變，現在我覺得要以更宏觀的視角來看待這些技術，不要把技能點全投資在上面的概念，多去接觸一些更 High-level 的概念，之後要學其他東西才能把這些知識帶到新的東西上，學習起來也快。
 4. T 型 Developer 大概是我想追求的，T 表示我覺得我應該 T 字發展自己的 Skill set。希望自己能投資在其他領域上，但同時持續專精一個我最擅長或最有興趣的領域。
+
+就這樣，繼續努力啦！
 
 
 
