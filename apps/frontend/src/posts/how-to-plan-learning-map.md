@@ -1,6 +1,6 @@
 ---
 title: How to plan learning map
-description: 怎麼安排要學什麼？然後排序？
+description: Learn to learn
 publishedAt: 2024-02-01
 tags:
   - learning
