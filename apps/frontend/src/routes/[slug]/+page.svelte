@@ -7,6 +7,7 @@
 	import { page } from "$app/stores";
 	import { onMount } from "svelte";
 	import { dev } from "$app/environment";
+	import { PUBLIC_FRONTEND_ENV } from "$env/static/public";
 	export let data;
 
 	$: rootUrl = $page.url.origin;
@@ -18,7 +19,7 @@
 	// currently only hit the api to increment the view count
 	// not using the returned value for display yet
 	onMount(() => {
-		if (dev) {
+		if (dev && PUBLIC_FRONTEND_ENV !== "dev") {
 			fetch(`api/posts/${data.meta.slug}`)
 				.then(async (res) => {
 					// console.log(await res.json());

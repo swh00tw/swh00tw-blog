@@ -102,10 +102,8 @@
 	<div class={cn(textVariant(), "text-[14px]", "text-text02")}>{description}</div>
 	<div class={cn("flex", "flex-row", "justify-between")}>
 		<div class={textVariant({ size: "h6", class: cn("text-[#909090]") })}>
-			{#if viewers > 0}
+			{#if viewers > 100}
 				{`👁️ ${viewers} views`}
-			{:else}
-				<div class="bg-primary px-2 bg-opacity-50 rounded-md text-[#999999]">🌱 New</div>
 			{/if}
 		</div>
 		<a href={slug} data-sveltekit-preload-data>
