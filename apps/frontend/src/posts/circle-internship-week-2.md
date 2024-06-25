@@ -7,7 +7,7 @@ tags:
 published: true
 coverImgSrc: posts/circle-internship-small.webp
 backgroundImgSrc: posts/circle-internship-big.webp
-lang: en
+lang: zh
 ---
 這週好像沒太多可以 update 的 lol
 
