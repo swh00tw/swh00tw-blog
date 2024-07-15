@@ -1,5 +1,5 @@
 ---
-title: Circle Internship 6
+title: Circle Internship Week 6
 description: midterm
 publishedAt: 2024-06-30
 tags:
